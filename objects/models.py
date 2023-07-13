@@ -4,7 +4,7 @@ import os
 
 def get_image_path(instance, filename):
     """Функция для распределения изоражений по папкам объектов"""
-    return os.path.join('photos', str(instance.myObject.id), filename)
+    return os.path.join('photos', str(instance.object_ad.id), filename)
 
 
 class ObjectAd(models.Model):
