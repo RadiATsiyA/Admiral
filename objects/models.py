@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 import os
 
 
@@ -20,7 +21,7 @@ class ObjectAd(models.Model):
         ('sale', 'Продажа')
     ]
 
-    name = models.CharField(max_length=50)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     description = models.TextField()
     rooms = models.IntegerField(null=True, blank=True)
     current_floor = models.IntegerField(blank=True, null=True)
@@ -41,17 +42,26 @@ class ObjectAd(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f'{self.id} | {self.address}'
 
-class Feedback(models.Model):
+
+class ObjectFeedback(models.Model):
     """Модель отзывов для объектов"""
     object_ad = models.ForeignKey(ObjectAd, on_delete=models.CASCADE, related_name='feedbacks')
-#    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.id} | {self.author.username} | {self.object_ad.id}'
 
 
 class ObjectImage(models.Model):
     """Модель изоражений для объекта"""
     image = models.ImageField(upload_to=get_image_path)
     object_ad = models.ForeignKey(ObjectAd, related_name='images', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.object_ad.id} | {self.image.name}'
     
