@@ -1,7 +1,23 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from .models import ObjectAd
 from .filters import ObjectAdFilter
 import django_filters
+
+
+class IndexView(TemplateView):
+    template_name = 'objects/main.html'
+
+
+class CategoryListView(TemplateView):
+    template_name = 'objects/category.html'
+
+
+class ApartmentsListView(TemplateView):
+    template_name = 'objects/apartments.html'
+
+
+class RoomDetailView(TemplateView):
+    template_name = 'objects/rooms.html'
 
 
 class ObjectsListView(ListView):
