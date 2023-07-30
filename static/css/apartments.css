@@ -1,0 +1,209 @@
+::placeholder {
+    color: #00408E !important;
+}
+* {
+    color: #00408E !important;
+
+}
+
+/* Дополнительные стили для центрирования текстовых элементов */
+.navbar {
+    justify-content: space-between;
+}
+
+/* Дополнительные стили для выравнивания языкового блока справа */
+.ml-auto {
+    margin-left: auto !important;
+}
+.card {
+    /* Other card styles */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+
+}
+
+.zoom-card:hover {
+    transform: scale(1.05); /* Increase the scale on hover */
+}
+
+
+.col {
+    transition: transform 0.3s ease;
+}
+
+.zoom-card:hover {
+    transform: scale(1.1); /* Increase the scale on hover */
+}
+
+.a_language {
+    border-radius: 30%;
+    color: white !important;
+    background-color: #00408E;
+    
+}
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item .a_language {
+        border-radius: 0;
+    }
+}
+
+/* Переопределение дефолтного цвета текста */
+.navbar-light .navbar-nav .nav-link {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+    font-size: 24px;
+    /* Увеличение размера текста */
+
+}
+iframe {
+    border: 4px solid #00408E; /* Blue border with 40px width */
+    border-radius: 40px; /* Make the iframe round */
+}
+.card-category{
+    background-color: #00408E;
+    border-radius: 40px;
+}
+
+.blueish-image {
+    filter: hue-rotate(220deg);
+}
+
+.image-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white !important;
+}
+.custom-card .card-img-top {
+    width: 50%;
+    height: auto;
+}
+
+.custom-card {
+    text-align: left;
+}
+
+.custom-card .card-img-top {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.recommended-text {
+    position: absolute;
+    top: 10;
+    left: 0;
+    background-color: #00408E;
+    padding: 5px 10px;
+    margin-left: 75px;
+    border-radius: 40px;
+    color: white!important;
+    font-size: 14px;
+}
+.card{
+    border-radius: 20px;
+}
+
+.custom-card .card-block {
+    padding: 1rem;
+}
+
+/* Custom CSS to adjust spacing between paragraphs */
+.custom-card p {
+    margin-bottom: 5px;
+}
+
+.house-number {
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: white !important;
+}
+
+.house-type {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white !important;
+}
+
+
+.category-buttons {
+    display: flex;
+
+}
+
+.category-button {
+    border: none;
+    background-color: #00408E;
+    color: #fff!important;
+    font-size: 16px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.category-buttons::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: white!important;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+ 
+
+.category-button {
+    position: relative;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.filter-select {
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+}
+
+
+.filter-input {
+    border-radius: 40px;
+    max-width: 150px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.filter-label {
+    font-weight: bold;
+    color: #fff!important;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+/* Custom CSS to adjust label positioning */
+.label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .category-buttons {
+        flex-wrap: wrap;
+    }
+    .category-button {
+        margin-bottom: 10px;
+    }
+}

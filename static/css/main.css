@@ -1,0 +1,180 @@
+.nav-item.dropdown .dropdown-toggle::after,
+.nav-item.dropdown .dropdown-toggle::before {
+    display: none;
+}
+/* Define the slide-up and fade-in animation */
+@keyframes slideUpFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply the animation to the elements you want to animate */
+  .animate-slide-up-fade-in {
+    animation: slideUpFadeIn 1s ease-in-out;
+  }
+      
+
+* {
+    color: #00408E !important;
+
+}
+
+/* Дополнительные стили для центрирования текстовых элементов */
+.navbar {
+    justify-content: space-between;
+}
+
+/* Дополнительные стили для выравнивания языкового блока справа */
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.a_language {
+    border-radius: 30%;
+    color: white !important;
+    background-color: #00408E;
+    
+}
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item .a_language {
+        border-radius: 0;
+    }
+}
+/* Переопределение дефолтного цвета текста */
+.navbar-light .navbar-nav .nav-link {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+    font-size: 24px;
+    /* Увеличение размера текста */
+
+}
+
+/* Переопределение цвета текста в выпадающем меню */
+.navbar-light .navbar-nav .dropdown-menu .dropdown-item {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+}
+
+/* Применение стилей к тексту */
+h1 {
+    font-size: 36px;
+    /* Увеличение размера текста */
+    color: #00408E;
+    /* Цвет текста #00408E */
+    margin: 0;
+    /* Удаление отступов */
+    padding: 20px;
+    /* Добавление внутренних отступов для визуального разделения от других элементов */
+}
+
+/* Применение стилей к кнопке "Перейти в каталог" */
+.btn-success {
+    background-color: #90C83F;
+    border-color: #90C83F;
+    color: white !important;
+    justify-content: center;
+    width: 200px;
+    /* Ширина кнопки */
+    border-radius: 50px;
+    /* Делает кнопку круглой (значение больше половины ширины, чтобы была округлая) */
+}
+
+.text_a {
+    font-size: 24px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 80%;
+    /* Ширина блока видео */
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 400px;
+    /* Высота видео */
+    border: none;
+    border-radius: 20px;
+}
+
+.carousel-item {
+    border-radius: 40px;
+}
+
+.card {
+    width: 450px !important;
+    border-radius: 40px;
+    box-shadow: #00408E;
+}
+
+
+.text-with-image {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: 100px;
+    border-radius: 45px;
+    border: 2px solid #00408E;
+    margin: 0px;
+    border-color: #00408E;
+    color: #fff;
+    /* Белый цвет текста */
+    margin-bottom: 10px;
+}
+
+input {
+    border-radius: 40px;
+}
+
+.cont-border {
+    border-radius: 40px;
+    border-color: #00408E;
+    background: #e3e3e3;
+    border: 2px solid #00408E;
+
+    background-color: #e3e3e3;
+}
+
+.form-label {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Custom CSS to increase the border radius */
+.form-control.rounded-pill {
+    border-radius: 30px;
+}
+
+.btn-send-query {
+    background-color: #90C83F;
+    color: white !important;
+    border-radius: 40px;
+    font-size: 24px;
+
+    outline: none;
+
+}
+
+/* Custom CSS for button hover effect */
+.btn-send-query:hover {
+    background-color: green;
+    outline: none;
+
+}
+iframe {
+    border: 4px solid #00408E; /* Blue border with 40px width */
+    border-radius: 40px; /* Make the iframe round */
+}

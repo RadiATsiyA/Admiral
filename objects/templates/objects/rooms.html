@@ -1,0 +1,384 @@
+{% extends 'objects/base.html' %}
+{% load static %}
+
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/rooms.css' %}">
+{% endblock %}
+
+
+{% block content %}
+	<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <img style="height: 100px; width: 100px;" class="thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
+        <img style="height: 100px; width: 100px;" class="thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
+        <img style="height: 100px; width: 100px;" class="thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
+      </div>
+      <div class="col-md-6">
+        <img class="large-image" src="/public/picture.svg" alt="Large Image" style="display: block;">
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const thumbnails = document.querySelectorAll(".thumbnail-image");
+            const largeImage = document.querySelector(".large-image");
+            const defaultSrc = largeImage.getAttribute("src"); // Запоминаем исходный путь к большой картинке
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener("click", function () {
+                    const newSrc = thumbnail.getAttribute("src");
+                    largeImage.setAttribute("src", newSrc);
+                });
+            });
+
+            // Установка большой картинки по умолчанию
+            largeImage.setAttribute("src", defaultSrc);
+        });
+    </script>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-1 col-lg-1 col-sm-12 me-4">
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-2"
+                    src="https://images.pexels.com/photos/4328962/pexels-photo-4328962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="" onclick="changeImage(this)">
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
+                    src="https://images.pexels.com/photos/4354389/pexels-photo-4354389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="" onclick="changeImage(this)">
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
+                    src="https://images.pexels.com/photos/318391/pexels-photo-318391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="" onclick="changeImage(this)">
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
+                    src="https://images.pexels.com/photos/2857580/pexels-photo-2857580.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="" onclick="changeImage(this)">
+            </div>
+            <div class="col-md-8 mx-md-5 col-lg-5 col-sm-12">
+                <div class="post">
+                    <div class="">
+                        <img style="height: 500px; width: 100%; max-width: 500px; border-radius: 30px;"
+                            src="https://images.pexels.com/photos/4328962/pexels-photo-4328962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-lg-4 div-rounded">
+                <div class="property-details">
+                    <div class="div-info-1 d-flex justify-content-between">
+                        <span>Тип: <b style="font-size: 18px;">Квартира </b></span>
+                        <span>Стоимость: <b style="font-size: 18px;">60 000$ </b></span>
+                    </div>
+                    <div class="div-info-adress my-4">
+                        <span>Адресс: <b style="font-size: 18px;"> Мкр Улан 56-85 </b></span>
+                    </div>
+                    <div class="div-info-topic-brief d-flex justify-content-between">
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <span>Комнаты</span>
+                            <span> <b>3</b></span>
+                        </div>
+                        <div class="separator d-flex justify-content-center align-items-center text-center"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <span>Серия</span>
+                            <span><b>106</b></span>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <span>Площадь, м2</span>
+                            <span><b>36,4</b></span>
+                        </div>
+                    </div>
+                    <div class="div-info-topic-brief d-flex justify-content-between">
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <span style="width: 124px;">Этаж</span>
+                            <span><b>4/9</b></span>
+                        </div>
+                        <div class="separator d-flex justify-content-center align-items-center text-center"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <span>Застройщик</span>
+                            <span><b>Не указан </b></span>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <span>Окна (направление)</span>
+                            <span><b>Север-Юг</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-commit  my-5 mx-2">
+                    <div class="d-flex col  justify-content-between">
+                        <div class="text-center my-md-2 btn-str">
+                            <div class="text-btn">Этап строительства</div>
+                            <div style="font-size: 22px;" class="text-btn"><b
+                                    style="color: #90C83F!important;">Заселен</b></div>
+                        </div>
+                        <div class="text-center my-md-2 justify-content-center btn-rare">
+                            <div class="white">Срок сдачи</div>
+                            <div style="font-size: 22px;" class="white"><b style="color: #fff!important;">Сдан</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function changeImage(element) {
+            const largeImage = document.querySelector(".post img");
+            largeImage.src = element.src;
+        }
+    </script>
+
+    <div class="container d-flex my-md-5">
+        <ul class="m-d expand-list ">
+            <li data-md-content="300">
+                <label name="tab" for="tab2" tabindex="-1" class="tab_lab" role="tab">Дополнительная информация
+                    v</label>
+                <input type="checkbox" class="tab" id="tab2" tabindex="0" />
+                <span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
+                <div class="content d-flex justify-content-between">
+                    <div class="row">
+                        <span class="my-2"> Количество этажей:</span>
+                        <span class="my-2"> Площадь кухни:</span>
+                        <span class="my-2"> Отопление:</span>
+                        <span class="my-2"> Мебель:</span>
+                        <span class="my-2"> Балкон, лоджия:</span>
+                        <span class="my-2"> Правоустанавливающие документы:</span>
+                    </div>
+                    <div class="row ">
+                        <span class="my-2"> <b>3/5</b></span>
+                        <span class="my-2"> <b>12 м2</b></span>
+                        <span class="my-2"> <b>Центральное</b></span>
+                        <span class="my-2"><b> Встроенная</b></span>
+                        <span class="my-2"><b> Балкон</b></span>
+                        <span class="my-2"> <b>0</b></span>
+                    </div>
+                    <img class="me-5 pe-5 d-none d-md-block" src="{% static 'images/Line 10.svg' %}" alt="">
+                    <div class="row ">
+                        <span class="my-2"> Ремонт:</span>
+                        <span class="my-2"> Окна (направленность):</span>
+                        <span class="my-2"> Защита территории:</span>
+                        <span class="my-2"> Материал стен:</span>
+                        <span class="my-2"> Тип предложения:</span>
+                    </div>
+                    <div class="row ">
+                        <span class="my-2"> <b>Евро ремонт</b></span>
+                        <span class="my-2"><b> Север-юг</b></span>
+                        <span class="my-2"><b> Заборы, ворота</b></span>
+                        <span class="my-2"> <b>Бетон</b></span>
+                        <span class="my-2"><b> Продажа</b></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container ">
+        <h1><strong>Вас может заинтересовать: </strong></h1>
+    </div>
+
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="card custom-card zoom-card">
+                        <div class="d-flex justify-content-center my-3">
+                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+
+                        </div>
+                        <div class="card-block mx-3">
+                            <div class="d-flex">
+                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
+                            </div>
+                            <p style="font-size: 18px;">60000$</p>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                            </div>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; ">105 серия</p>
+                            </div>
+                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="card custom-card zoom-card">
+                        <div class="d-flex justify-content-center my-3">
+                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+
+                        </div>
+                        <div class="card-block mx-3">
+                            <div class="d-flex">
+                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
+                            </div>
+                            <p style="font-size: 18px;">60000$</p>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                            </div>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; ">105 серия</p>
+                            </div>
+                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="card custom-card zoom-card">
+                        <div class="d-flex justify-content-center my-3">
+                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+
+                        </div>
+                        <div class="card-block mx-3">
+                            <div class="d-flex">
+                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
+                            </div>
+                            <p style="font-size: 18px;">60000$</p>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                            </div>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; ">105 серия</p>
+                            </div>
+                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="card custom-card zoom-card">
+                        <div class="d-flex justify-content-center my-3">
+                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+
+                        </div>
+                        <div class="card-block mx-3">
+                            <div class="d-flex">
+                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
+                            </div>
+                            <p style="font-size: 18px;">60000$</p>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                            </div>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; ">105 серия</p>
+                            </div>
+                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="">
+                <button style="background-color: white; color: #90C83F!important; border: none;" class="btn btn-primary btn-block mb-3"
+                    type="button" data-toggle="collapse" data-target="#loanCalculator" aria-expanded="false"
+                    aria-controls="loanCalculator">
+                    Ипотечный калькулятор V
+                </button>
+                <div class="collapse" id="loanCalculator">
+                    <div class="calculator">
+                        <div class="row">
+                            <div class="col-6 col-sm-3">
+                                <div class="form-group">
+                                    <label class="my-2" for="loan-amount"><b>Общая сумма</b></label>
+                                    <div class="input-group">
+                                        <input type="number" id="loan-amount" class="form-control" placeholder="Введите сумму" min="0" step="1000">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <div class="form-group">
+                                    <label class="my-2" for="down-payment"><b>Первоначальный взнос:</b></label>
+                                    <div class="input-group">
+                                        <input type="number" id="down-payment" class="form-control" placeholder="Введите сумму" min="0" step="1000">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <div class="form-group">
+                                    <label class="my-2" for="interest-rate"><b>Процентная ставка:</b></label>
+                                    <div class="input-group">
+                                        <input type="number" id="interest-rate" class="form-control" placeholder="Введите процент" min="0" step="0.1">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <div class="form-group">
+                                    <label class="my-2" for="loan-term"><b>Срок кредитования:</b></label>
+                                    <div class="input-group">
+                                        <input type="number" id="loan-term" class="form-control" placeholder="Введите срок" min="1">
+                                        <span class="input-group-text">лет</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blue-divider my-4"></div>
+                        <div class="d-flex justify-content-center">
+                            <button style="color: #fff!important; background-color: #00408E; border-radius: 30px; width: 200px; border: none; height: 40px;" class="result">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Код для расчета ежемесячного платежа и его вывода
+        function calculateMonthlyPayment() {
+            const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+            const downPayment = parseFloat(document.getElementById("down-payment").value);
+            const interestRate = parseFloat(document.getElementById("interest-rate").value) / 100;
+            const loanTerm = parseInt(document.getElementById("loan-term").value);
+
+            const loanBalance = loanAmount - downPayment;
+            const monthlyInterestRate = interestRate / 12;
+            const numberOfPayments = loanTerm * 12;
+
+            const monthlyPayment = loanBalance * monthlyInterestRate /
+                (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+
+            document.getElementById("monthly-payment").innerText = `Ежемесячный платеж: $${monthlyPayment.toFixed(2)}`;
+        }
+
+        // Слушатели событий для перерасчета при изменении полей
+        document.getElementById("loan-amount").addEventListener("input", calculateMonthlyPayment);
+        document.getElementById("down-payment").addEventListener("input", calculateMonthlyPayment);
+        document.getElementById("interest-rate").addEventListener("input", calculateMonthlyPayment);
+        document.getElementById("loan-term").addEventListener("input", calculateMonthlyPayment);
+
+        // Вызов функции для первичного расчета
+        calculateMonthlyPayment();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+{% endblock %}

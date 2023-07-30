@@ -1,0 +1,321 @@
+::placeholder {
+    color: #00408E !important;
+}
+
+/* Дополнительные стили для центрирования текстовых элементов */
+.navbar {
+    justify-content: space-between;
+}
+
+/* Дополнительные стили для выравнивания языкового блока справа */
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.a_language {
+    border-radius: 30%;
+    color: white !important;
+    background-color: #00408E;
+
+}
+
+.nav-item.dropdown .dropdown-toggle::after,
+.nav-item.dropdown .dropdown-toggle::before {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item .a_language {
+        border-radius: 0;
+    }
+}
+
+iframe {
+    border: 4px solid #00408E;
+    /* Blue border with 40px width */
+    border-radius: 40px;
+    /* Make the iframe round */
+}
+
+/* Переопределение дефолтного цвета текста */
+.navbar-light .navbar-nav .nav-link {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+    font-size: 24px;
+    /* Увеличение размера текста */
+
+}
+
+/* Переопределение цвета текста в выпадающем меню */
+.navbar-light .navbar-nav .dropdown-menu .dropdown-item {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+}
+
+
+* {
+    color: #00408E !important;
+
+}
+
+/* Дополнительные стили для центрирования текстовых элементов */
+.navbar {
+    justify-content: space-between;
+}
+
+
+
+.property-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-info-topic-brief {
+    display: flex;
+    align-items: center;
+}
+
+.div-info-brief {
+    display: flex;
+    align-items: center;
+}
+
+.div-rounded {
+    border: 2px solid blue;
+    border-radius: 20px;
+    padding: 10px;
+    height: 250px;
+
+}
+
+.btn-str {
+    border: 2px solid #90C83F;
+    border-radius: 20px;
+    width: 200px;
+}
+
+.text-btn {
+    color: #90C83F !important;
+}
+
+.btn-rare {
+    background-color: #90C83F;
+    width: 200px;
+    border-radius: 20px;
+
+}
+
+.white {
+    color: white !important;
+}
+
+.m-d.expand-list {
+    margin: 0;
+    padding: 0;
+}
+
+.m-d.expand-list>li {
+    list-style-type: none;
+    padding: 15px 0;
+    position: relative;
+    /*         max-width: 80%; */
+}
+.separator {
+    border-left: 1px solid #000;
+    height: 1.5rem;
+    margin: 0 1rem;
+}   
+.m-d label[class^="tab"]:hover {
+    cursor: pointer;
+}
+
+.m-d input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.m-d input[class^="tab"] {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.m-d input[class^="tab"]:hover {
+    cursor: pointer;
+}
+
+.m-d label[class^="tab"] {
+    font-weight: bold;
+}
+
+.m-d .content {
+    height: auto;
+    max-height: 0;
+    max-width: 100  ;
+    /*        background: yellow;*/
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: all 180ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="100"] input[class^="tab"]:checked~.content {
+    max-height: 100px;
+    transition: all 150ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="200"] input[class^="tab"]:checked~.content {
+    max-height: 200px;
+    transition: all 200ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="300"] input[class^="tab"]:checked~.content {
+    max-height: 300px;
+    transition: all 250ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="400"] input[class^="tab"]:checked~.content {
+    max-height: 400px;
+    transition: all 250ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="500"] input[class^="tab"]:checked~.content {
+    max-height: 500px;
+    transition: all 250ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="600"] input[class^="tab"]:checked~.content {
+    max-height: 600px;
+    transition: all 250ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="700"] input[class^="tab"]:checked~.content {
+    max-height: 700px;
+    transition: all 300ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="800"] input[class^="tab"]:checked~.content {
+    max-height: 800px;
+    transition: all 300ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="900"] input[class^="tab"]:checked~.content {
+    max-height: 900px;
+    transition: all 300ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content="1000"] input[class^="tab"]:checked~.content {
+    max-height: 1000px;
+    transition: all 350ms ease-in-out 0ms;
+}
+
+.m-d li[data-md-content=""] input[class^="tab"]:checked~.content {
+    max-height: 1000px;
+    transition: all 250ms ease-in-out 0ms;
+}
+
+.m-d input[class^="tab"]:checked~.content {
+    margin-bottom: 20px;
+}
+
+.m-d .open-close-icon {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    transform: translatey(2px);
+}
+
+.m-d .open-close-icon i {
+    position: absolute;
+    left: 0;
+}
+
+.m-d .open-close-icon .fa-minus {
+    transform: rotate(-90deg);
+    transition: transform 150ms ease-in-out 0ms;
+}
+
+.m-d input[class^="tab"]:checked~.open-close-icon .fa-minus {
+    transform: rotate(0deg);
+    transition: transform 150ms ease-in-out 0ms;
+}
+
+.m-d .open-close-icon .fa-plus {
+    opacity: 1;
+    transform: rotate(-90deg);
+    transition: opacity 50ms linear 0ms, transform 150ms ease-in-out 0ms;
+}
+
+.m-d input[class^="tab"]:checked~.open-close-icon .fa-plus {
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: opacity 50ms linear 0ms, transform 150ms ease-in-out 0ms;
+}
+
+.devider {
+    transform: rotate(90deg);
+}
+.line-devider{
+    height: 100%;
+    background-color: #00408E;
+    width: 1px;
+}
+.card {
+    /* Other card styles */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+
+}
+
+.zoom-card:hover {
+    transform: scale(1.05); /* Increase the scale on hover */
+}
+
+
+.col {
+    transition: transform 0.3s ease;
+}
+
+.zoom-card:hover {
+    transform: scale(1.1); /* Increase the scale on hover */
+}
+
+* {
+    line-height: 1.4;
+    font-family: "harmonia sans", roboto, arial;
+}
+.custom-card .card-img-top {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.card{
+    border-radius: 20px;
+}
+.image-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white !important;
+}
+.custom-card .card-img-top {
+    width: 50%;
+    height: auto;
+}
+
+.custom-card {
+    text-align: left;
+}
+input{
+    border-radius: 30px;
+
+}
+.devide{
+    width: 100%;
+    height: 1px;
+    background-color: #00408E;
+}

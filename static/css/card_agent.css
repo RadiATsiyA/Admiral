@@ -1,0 +1,131 @@
+.nav-item.dropdown .dropdown-toggle::after,
+.nav-item.dropdown .dropdown-toggle::before {
+    display: none;
+}
+
+/* Define the slide-up and fade-in animation */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation to the elements you want to animate */
+.animate-slide-up-fade-in {
+    animation: slideUpFadeIn 1s ease-in-out;
+}
+
+
+* {
+    color: #00408E !important;
+
+}
+
+/* Дополнительные стили для центрирования текстовых элементов */
+.navbar {
+    justify-content: space-between;
+}
+
+/* Дополнительные стили для выравнивания языкового блока справа */
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.a_language {
+    border-radius: 30%;
+    color: white !important;
+    background-color: #00408E;
+
+}
+
+iframe {
+    border: 4px solid #00408E;
+    /* Blue border with 40px width */
+    border-radius: 40px;
+    /* Make the iframe round */
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item .a_language {
+        border-radius: 0;
+    }
+}
+
+/* Переопределение дефолтного цвета текста */
+.navbar-light .navbar-nav .nav-link {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+    font-size: 24px;
+    /* Увеличение размера текста */
+
+}
+
+/* Переопределение цвета текста в выпадающем меню */
+.navbar-light .navbar-nav .dropdown-menu .dropdown-item {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+}
+
+.specialization {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.rating {
+    color: #36b366;
+    /* Green color for stars */
+}
+
+.specialist-rating {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rating {
+    color: #36b366 !important;
+    /* Yellow color for stars */
+    margin-right: 5px;
+    size: 50px;
+    font-size: 3rem;
+    /* Увеличьте размер здесь по желанию */
+
+    height: 100px;
+    width: 100px;
+}
+
+.btn-chat {
+    color: aliceblue !important;
+    background-color: #00408E;
+    border-radius: 30px;
+    width: 150px;
+}
+
+.btn-chat:hover {
+    color: #00408E !important;
+    background-color: white;
+    border-color: #00408E;
+    border-width: 2px;
+}
+
+.btn-call {
+    color: #00408E !important;
+    background-color: white;
+    border-radius: 30px;
+    width: 150px;
+    border-width: 2px;
+    border-color: #00408E;
+}
+
+.btn-call:hover {
+    color: aliceblue !important;
+    background-color: #00408E;
+    border-radius: 30px;
+    width: 150px;
+}

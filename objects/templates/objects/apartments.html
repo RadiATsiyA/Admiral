@@ -1,0 +1,139 @@
+{% extends 'objects/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/apartments.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="container mb-5 my-5">
+        <form class="d-flex justify-content-center align-items-center my-2">
+            <input class="d-flex form-control me-2 rounded-pill main__color searchable w-75 justify-content-center"
+                style=" z-index: 1;" type="search" placeholder="Поиск" aria-label="Search">
+            <img src="{% static 'images/img_lumpa.svg' %}" alt="Лумпа" class="d-flex " style="width: 40px; height: 40px;">
+        </form>
+    </div>
+
+
+
+
+    <div class="container ">
+        <h1><strong>Категории недвижимости</strong></h1>
+    </div>
+
+    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+
+
+    <img class="position-absolute d-none d-xl-block w-100" src="{% static 'images/Rectangle 16.svg' %}" alt=""
+         style=" top: 340px; left: 0px; z-index: -1000;">
+
+    <div class="container w-75 searching my-5 ">
+        <div class="row">
+            <div class="col">
+                <div class="card card-category">
+                    <div class="d-flex category-buttons justify-content-center my-4 position-relative">
+                        <button class="category-button px-5 mx-5" onclick="filterCategory('all')">Все</button>
+                        <button class="category-button" onclick="filterCategory('аренда')">Аренда</button>
+                        <button class="category-button px-5 mx-5" onclick="filterCategory('покупка')">Покупка</button>
+                    </div>
+                    <div class="container">
+                        <hr style="background-color: white; height: 2px;" class="devider">
+                    </div>
+
+                    <div class="filter-options">
+                        <div class="label-container">
+                            <div class="filter-label">Серия</div>
+                            <input class="filter-input" type="text" id="area" min="0" placeholder="">
+                        </div>
+
+                        <div class="label-container mb-4">
+                            <div class="filter-label">Район</div>
+                            <select style="border-radius: 40px;" class="filter-select" id="district">
+                                <option value="">Выберите Район</option>
+                                <option value="Ленинский">Ленинский</option>
+                                <option value="Свердловский">Свердловский</option>
+                            </select>
+                        </div>
+
+                        <div class="label-container">
+                            <div class="filter-label">Площадь</div>
+                            <input class="filter-input" type="number" id="area" min="0" placeholder="">
+                        </div>
+
+                        <div class="label-container">
+                            <div class="filter-label">Цена от</div>
+                            <input class="filter-input" type="number" id="priceFrom" min="0" placeholder="От">
+                        </div>
+
+                        <div class="label-container ">
+                            <div class="filter-label">Цена до</div>
+                            <input class="filter-input" type="number" id="priceTo" min="0" placeholder="До">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for filtering by category...
+        function filterCategory(category) {
+            const propertyCards = document.querySelectorAll('.col');
+
+            propertyCards.forEach(card => {
+                const cardCategory = card.querySelector('h1').textContent.toLowerCase();
+                if (category === 'all' || cardCategory.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+
+
+
+    <div class="container ">
+        <h1><strong>Рекомендации</strong></h1>
+    </div>
+
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+                    <div class="card custom-card zoom-card">
+                        <div class="d-flex justify-content-center my-3">
+                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+                            <div class="recommended-text">Продажа</div>
+                        </div>
+                        <div class="card-block mx-3">
+                            <div class="d-flex">
+                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
+                            </div>
+                            <p style="font-size: 18px;">60000$</p>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                            </div>
+                            <div class="d-flex">
+                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; ">105 серия</p>
+                            </div>
+                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
+{% endblock %}
+

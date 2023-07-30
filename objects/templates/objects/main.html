@@ -1,0 +1,245 @@
+{% extends 'objects/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static '/css/main.css' %}">
+{% endblock %}
+
+
+{% block content %}
+	<div class="animate-slide-up-fade-in container text-center my-5">
+        <h1>Адмиралъ - быстро и качественно</h1>
+    </div>
+    <div class="animate-slide-up-fade-in container d-flex justify-content-center align-items-center my-5 py-5">
+        <a href="#" class="animate-slide-up-fade-in  btn btn-success btn-lg rounded-pill w-50">Перейти в каталог</a>
+    </div>
+
+
+    <img style="margin-top: 100px;" class="animate-slide-up-fade-in d-none d-xl-block img-fluid position-absolute top-0 "
+         src="{% static 'images/Picture_main.svg' %}" alt="">
+
+    <img class="animate-slide-up-fade-in d-none d-xl-block position-absolute d-xl-block" src="{% static 'images/Picture_main_2.svg' %}" alt=""
+         style="top: 100px; right: 0px; z-index: -1000;">
+
+
+
+    <div style="padding-top: 200px;" class="animate-slide-up-fade-in container text-center my-5 text_a">
+        <a><strong>Мы гарантируем:</strong></a>
+    </div>
+
+
+    <div class="animate-slide-up-fade-in container text-center">
+        <div class="animate-slide-up-fade-in row">
+            <!-- Текст и картинки сверху -->
+            <div class="animate-slide-up-fade-in col-md-4">
+                <div class="animate-slide-up-fade-in image-text">
+                    <img src="{% static 'images/Iconsax/Linear/Vector.svg' %}" alt="Картинка 1">
+                    <p class="animate-slide-up-fade-in my-1">Более 100 покупателей на вашу квартиру;</p>
+                </div>
+            </div>
+            <div class="animate-slide-up-fade-in col-md-4">
+                <div class="animate-slide-up-fade-in image-text">
+                    <img src="{% static 'images/Iconsax/Linear/cardedit.svg' %}" alt="Картинка 2">
+                    <p>Все объекты ПСО с дизайнерским проектом, а также скидка на разработку индивидуального проекта от
+                        наших партнёров;</p>
+                </div>
+            </div>
+            <div class="animate-slide-up-fade-in col-md-4">
+                <div class="animate-slide-up-fade-in image-text">
+                    <img src="{% static 'images/img_3.svg' %}" alt="Картинка 3">
+                    <p>Скидка на перевозку мебели от наших партнёров; </p>
+                </div>
+            </div>
+            <!-- Текст и картинки снизу -->
+            <div class="animate-slide-up-fade-in col-md-6">
+                <div class="animate-slide-up-fade-in image-text">
+                    <img src="{% static 'images/Iconsax/Linear/percentagesquare.svg' %}" alt="Картинка 4">
+                    <p>Скидка на двери и другие материалы от наших партнёров;</p>
+                </div>
+            </div>
+            <div class="animate-slide-up-fade-in col-md-6">
+                <div class="animate-slide-up-fade-in image-text">
+                    <img src="{% static 'images/Iconsax/Linear/percentagesquare.svg' %}" alt="Картинка 5">
+                    <p>Скидка на премиальную мебель от наших партнеров:</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-slide-up-fade-in container text-center my-5 py-5">
+        <div class="animate-slide-up-fade-in video-container">
+            <iframe src="https://www.youtube.com/embed/_oDQu3BEw4o" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <div style="font-size: 24px; " class="animate-slide-up-fade-in container text-center my-5 ">
+        <a><strong>Почему стоит купить у нас:</strong></a>
+    </div>
+
+
+    <div class="animate-slide-up-fade-in container">
+        <div class="animate-slide-up-fade-in row">
+            <div class="animate-slide-up-fade-in col-md-6">
+                <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 233.svg' %}" alt="Картинка 1">
+                <div class="animate-slide-up-fade-in text-with-image ">
+                    >
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас полное
+                            юридическое сопровождение</strong></p>
+                </div>
+                <!-- Второй элемент текста с картинкой -->
+                <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 234.svg' %}" alt="Картинка 1">
+                <div class="animate-slide-up-fade-in text-with-image ">
+                    >
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас проверенные
+                            покупатели</strong></p>
+                </div>
+                <!-- Третий элемент текста с картинкой -->
+                <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 232.svg' %}" alt="Картинка 1">
+                <div class="animate-slide-up-fade-in text-with-image ">
+                    >
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас проверенные
+                            объекты</strong></p>
+                </div>
+                <!-- Четвертый элемент текста с картинкой -->
+                <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 232 (1).svg' %}" alt="Картинка 1">
+                <div class="animate-slide-up-fade-in text-with-image ">
+                    >
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Поможем узаконить ваши
+                            документы в короткие сроки</strong></p>
+                </div>
+                <!-- Пятый элемент текста с картинкой -->
+                <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 233 (1).svg' %}" alt="Картинка 1">
+                <div class="animate-slide-up-fade-in text-with-image ">
+                    >
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас персональный
+                            риелтор</strong></p>
+                </div>
+            </div>
+            <div class="animate-slide-up-fade-in col-md-5 mx-md-5 px-md-5 ">
+                <img style="margin-left: 200px;" src="{% static 'images/picture_main_3.svg' %}" alt="">
+                <img class="animate-slide-up-fade-in " style="position: absolute; margin-top: -100px; z-index: -1000;"
+                     src="{% static 'images/Picture_main_4.svg' %}" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <div style="font-size: 24px; " class="animate-slide-up-fade-in container text-center my-5 ml-md-5 ">
+        <a><strong>Гарантии и отзывы</strong></a>
+    </div>
+
+
+    <div class="animate-slide-up-fade-in container">
+        <div class="animate-slide-up-fade-in row">
+            <div class="animate-slide-up-fade-in col-md-6 mt-5 pt-5">
+                <div id="carouselExampleControls" class="animate-slide-up-fade-in carousel slide" data-bs-ride="carousel">
+                    <div class="animate-slide-up-fade-in carousel-inner">
+                        <div class="animate-slide-up-fade-in carousel-item active">
+                            <img src="{% static 'images/Picture_main_5.svg' %}" class="animate-slide-up-fade-in d-block w-100" alt="...">
+                        </div>
+                        <div class="animate-slide-up-fade-in carousel-item ">
+                            <img style="border-radius: 40px;" src="{% static 'images/3-rifkq7g0kj79ubfl0zua.jpg' %}"
+                                class="animate-slide-up-fade-in d-block w-100" alt="...">
+                        </div>
+
+                    </div>
+                    <button class="animate-slide-up-fade-in carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="animate-slide-up-fade-in carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="animate-slide-up-fade-in visually-hidden">Previous</span>
+                    </button>
+                    <button class="animate-slide-up-fade-in carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="animate-slide-up-fade-in carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="animate-slide-up-fade-in visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="animate-slide-up-fade-in col-md-6 d-flex justify-content-end align-items-center">
+                <div class="animate-slide-up-fade-in card" style="width: 18rem;">
+                    <div class="animate-slide-up-fade-in card-body">
+
+                        <p>1. Юридическое сопровождение от приёма объекта до оформления;</p>
+                        <p>2. Размещение более 50 рекламных объявлений на всех платных и бесплатных площадках;</p>
+                        <p>3. Рыночная оценка недвижимости от оценщиков с 15 летним стажем</p>
+                        <p>4. Ваш личный риелтор который продадаст вашу недвижимость максимально быстро и дорого;</p>
+                        <p>5. Мы проверим денежные средства от покупателя;</p>
+                        <p>6. Средний срок продажи объектов от 20 дней; </p>
+                        <p>7. Гарантия сроков выселения и оплаты коммунальных услуг;</p>
+                        <p>8. Возможность срочного выкупа вашей недвижимости; </p>
+                        <p>9. Экспертная рыночная оценка авто и других предложений на обмен вашей недвижимости;</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="animate-slide-up-fade-in container cont-border mt-5">
+        <div class="animate-slide-up-fade-in row d-flex justify-content-center">
+            <div style="font-size: 24px;" class="animate-slide-up-fade-in col-12 text-center mt-3">
+                Оставить заявку на оценку недвижимости <strong>БЕСПЛАТНО</strong>
+                <form>
+                    <div class="animate-slide-up-fade-in mt-4">
+                        <div class="animate-slide-up-fade-in row">
+                            <div class="animate-slide-up-fade-in col-md-6 d-flex justify-content-end">
+                                <input type="text" class="animate-slide-up-fade-in form-control border-0 rounded-pill w-50" id="inputName"
+                                    placeholder="Имя">
+                            </div>
+                            <div class="animate-slide-up-fade-in col-md-6 d-flex">
+                                <input type="tel" class="animate-slide-up-fade-in form-control border-0 rounded-pill w-50" id="inputPhoneNumber"
+                                    pattern="[0-9]{10}" placeholder="Номер телефона">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="animate-slide-up-fade-in form-row mt-4">
+                        <div class="animate-slide-up-fade-in col-md-12">
+                            <div class="animate-slide-up-fade-in form-check form-check-inline">
+                                <input class="animate-slide-up-fade-in form-check-input " type="radio" name="action" id="buyAction" value="buy">
+                                <label class="animate-slide-up-fade-in form-check-label" for="buyAction">Купить</label>
+                            </div>
+                            <div class="animate-slide-up-fade-in form-check form-check-inline">
+                                <input class="animate-slide-up-fade-in form-check-input" type="radio" name="action" id="sellAction" value="sell">
+                                <label class="animate-slide-up-fade-in form-check-label" for="sellAction">Продать</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button style="border: none;" type="submit" class="animate-slide-up-fade-in btn btn-primary mt-4 btn-send-query w-25 my-5">Оставить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all elements with the class "animate-slide-up-fade-in animate-slide-up-fade-in"
+        const animatedElements = document.querySelectorAll('.animate-slide-up-fade-in');
+
+        // Create an IntersectionObserver instance
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            // If the element is in the viewport, add the "slide-up-fade-in" class
+ animate-slide-up-fade-in            if (entry.isIntersecting) {
+              entry.target.classList.add('slide-up-fade-in');
+              // Stop observing the element once it's animated to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+
+        // Observe each animated element
+        animatedElements.forEach((element) => {
+          observer.observe(element);
+        });
+      </script>
+{% endblock %}
+
+
+
+
+
+
+
+

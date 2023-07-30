@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="get">
+    {{ view.filterset.form }}
+    <button type="submit">Применить фильтры</button>
+</form>
+
+{% for object in object_ad_list %}
+    <a href="{% url 'obj:details' object.id %}">
+         <p>{{ object.name }}</p>
+         <p>{{ object.description }}</p>
+         <p>{{ object.price }}$</p>
+         <p>{{ object.city }} {{ object.district }} {{ object.address }}</p>
+         <p>{{ object.current_floor }}/ {{ object.total_floors }}</p>
+         {% for image in object.images.all %}
+             <img src="{{ image.image.url }}" alt="{{ object.name }}">
+         {% endfor %}
+    </a>
+    {% empty %}
+    <div class="alert alert-warning" role="alert">
+    Нет объектов, удовлетворяющих выбранным критериям
+  </div>
+{% endfor %}
+</body>
+</html>
