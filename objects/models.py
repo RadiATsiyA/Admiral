@@ -8,6 +8,22 @@ def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.object_ad.id), filename)
 
 
+class ApplicationToView(models.Model):
+    TYPE = (
+        ('buy', 'Купить'),
+        ('sell', 'Продать'),
+    )
+
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    type = models.CharField(max_length=20, choices=TYPE, default='sale')
+    created = models.DateTimeField(auto_now_add=True)
+    seen = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
 class ObjectAd(models.Model):
     """Модель объекта"""
     TYPES = [
@@ -21,7 +37,6 @@ class ObjectAd(models.Model):
         ('sale', 'Продажа')
     ]
 
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     description = models.TextField()
     rooms = models.IntegerField(null=True, blank=True)
     current_floor = models.IntegerField(blank=True, null=True)
@@ -49,12 +64,12 @@ class ObjectAd(models.Model):
 class ObjectFeedback(models.Model):
     """Модель отзывов для объектов"""
     object_ad = models.ForeignKey(ObjectAd, on_delete=models.CASCADE, related_name='feedbacks')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.CharField(max_length=100)
     comment = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.id} | {self.author.username} | {self.object_ad.id}'
+        return f'{self.id} | {self.author} | {self.object_ad.id}'
 
 
 class ObjectImage(models.Model):

@@ -339,7 +339,7 @@
                         </div>
                         <div class="blue-divider my-4"></div>
                         <div class="d-flex justify-content-center">
-                            <button style="color: #fff!important; background-color: #00408E; border-radius: 30px; width: 200px; border: none; height: 40px;" class="result">Рассчитать</button>
+                            <button style="color: #fff!important; background-color: #00408E; border-radius: 30px; width: 200px; border: none; height: 40px;" class="btn-calculate">Рассчитать</button>
                         </div>
                     </div>
                 </div>
@@ -347,32 +347,47 @@
         </div>
     </div>
 
+    <!-- Modal to show calculation result -->
+    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">Результат расчета</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="calculationResult">
+                    <!-- Calculation result will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        // Код для расчета ежемесячного платежа и его вывода
-        function calculateMonthlyPayment() {
+        // Calculate function
+        function calculate() {
+            // Fetch input values
             const loanAmount = parseFloat(document.getElementById("loan-amount").value);
             const downPayment = parseFloat(document.getElementById("down-payment").value);
-            const interestRate = parseFloat(document.getElementById("interest-rate").value) / 100;
+            const interestRate = parseFloat(document.getElementById("interest-rate").value);
             const loanTerm = parseInt(document.getElementById("loan-term").value);
 
-            const loanBalance = loanAmount - downPayment;
-            const monthlyInterestRate = interestRate / 12;
-            const numberOfPayments = loanTerm * 12;
+            // Your calculation logic here...
+            // For example, calculate monthly payment
+            const monthlyPayment = (loanAmount - downPayment) * (interestRate / 100 / 12) / (1 - Math.pow(1 + (interestRate / 100 / 12), -loanTerm * 12));
 
-            const monthlyPayment = loanBalance * monthlyInterestRate /
-                (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+            // Display result in the modal
+            document.getElementById("calculationResult").innerHTML = "Ежемесячный платеж: $" + monthlyPayment.toFixed(2);
 
-            document.getElementById("monthly-payment").innerText = `Ежемесячный платеж: $${monthlyPayment.toFixed(2)}`;
+            // Show the modal
+            $("#resultModal").modal("show");
         }
 
-        // Слушатели событий для перерасчета при изменении полей
-        document.getElementById("loan-amount").addEventListener("input", calculateMonthlyPayment);
-        document.getElementById("down-payment").addEventListener("input", calculateMonthlyPayment);
-        document.getElementById("interest-rate").addEventListener("input", calculateMonthlyPayment);
-        document.getElementById("loan-term").addEventListener("input", calculateMonthlyPayment);
-
-        // Вызов функции для первичного расчета
-        calculateMonthlyPayment();
+        // Event listener for the calculate button
+        document.querySelector(".btn-calculate").addEventListener("click", calculate);
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

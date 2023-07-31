@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from django.views.generic import DetailView
-from .models import User, Client, Agent
+from .models import User, Agent
 
 
 class AgentDetailView(DetailView):
