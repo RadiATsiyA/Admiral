@@ -26,12 +26,13 @@
 
     <div class="container my-4">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-">
-            <div class="col">
+            {% for category in categories %}
+                <div class="col">
                 <div class="position-relative">
                     <img class="w-100 blueish-image" src="{% static 'images/img_kvartira-1.svg' %}" alt="">
                     <div style="color: white!important;" class="image-text my-3">
-                        <span class="house-number">3</span> обьекта<br>
-                        <h1 class="house-type mx-4 my-2">Студия</h1>
+                        <span class="house-number">{{ category.object_count }}</span> обьекта<br>
+                        <h1 class="house-type mx-4 my-2">{{ category.category_name }}</h1>
                         <div class="d-flex  my-5 py-5 justify-content-end">
                             <div class="d-flex  my-5 py-5  justify-content-end">
                                 <span style="color: white!important;"
@@ -41,60 +42,12 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="col">
-                <div class="position-relative">
-                    <img class="w-100 blueish-image" src="{% static 'images/img_kvartira-1.svg' %}" alt="">
-                    <div style="color: white!important;" class="image-text my-3">
-                        <span class="house-number">10</span> объектов<br>
-                        <h1 class="house-type mx-4 my-2">Офисы</h1>
-                        <div class="d-flex  my-5 py-5 justify-content-end">
-                            <div class="d-flex  my-5 py-5  justify-content-end">
-                                <span style="color: white!important;" class="d-flex px-3  py-4 my-5 read-more">Подробнее
-                                    ></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="position-relative">
-                    <img class="w-100 blueish-image" src="{% static 'images/img_kvartira-1.svg' %}" alt="">
-                    <div style="color: white!important;" class="image-text my-3">
-                        <span class="house-number">3</span> обьекта<br>
-                        <h1 class="house-type mx-4 my-2">Студия</h1>
-                        <div class="d-flex  my-5 py-5 justify-content-end">
-                            <div class="d-flex  my-5 py-5  justify-content-end">
-                                <span style="color: white!important;"
-                                    class="d-flex px-3 mx-4 py-4 my-5 read-more">Подробнее ></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="position-relative">
-                    <img class="w-100 blueish-image" src="{% static 'images/img_kvartira-1.svg' %}" alt="">
-                    <div style="color: white!important;" class="image-text my-3">
-                        <span class="house-number">10</span> объектов<br>
-                        <h1 class="house-type mx-4 my-2">Офисы</h1>
-                        <div class="d-flex  my-5 py-5 justify-content-end">
-                            <div class="d-flex  my-5 py-5  justify-content-end">
-                                <span style="color: white!important;" class="d-flex px-3  py-4 my-5 read-more">Подробнее
-                                    ></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
-
     <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
-
-
 
     <div class="container ">
         <h1><strong>Рекомендации</strong></h1>
@@ -103,7 +56,9 @@
     <div class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
+
+                {% for ad in recommendations %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
                     <div class="card custom-card">
                         <div class="d-flex justify-content-center my-3">
                             <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
@@ -114,19 +69,20 @@
                                 <h4 style="color: #00408E;" class="card-title">Квартира</h4>
                                 <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
                             </div>
-                            <p style="font-size: 18px;">60000$</p>
+                            <p style="font-size: 18px;">{{ ad.price }}$</p>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 70px;">{{ ad.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">15 m</p>
                             </div>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; margin-right: 85px;">{{ ad.current_floor }}/{{ ad.total_floors }} этаж</p>
                                 <p style="font-size: 18px; ">105 серия</p>
                             </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                            <p style="font-size: 18px; margin-bottom: 5px;">{{ ad.address }}</p>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
 
         </div>
     </div>

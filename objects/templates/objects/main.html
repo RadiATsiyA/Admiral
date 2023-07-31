@@ -11,7 +11,7 @@
         <h1>Адмиралъ - быстро и качественно</h1>
     </div>
     <div class="animate-slide-up-fade-in container d-flex justify-content-center align-items-center my-5 py-5">
-        <a href="#" class="animate-slide-up-fade-in  btn btn-success btn-lg rounded-pill w-50">Перейти в каталог</a>
+        <a href="{% url 'obj:category' %}" class="animate-slide-up-fade-in  btn btn-success btn-lg rounded-pill w-50">Перейти в каталог</a>
     </div>
 
 
@@ -179,16 +179,16 @@
         <div class="animate-slide-up-fade-in row d-flex justify-content-center">
             <div style="font-size: 24px;" class="animate-slide-up-fade-in col-12 text-center mt-3">
                 Оставить заявку на оценку недвижимости <strong>БЕСПЛАТНО</strong>
-                <form>
+                <form action="{% url 'obj:index' %}" method="post">
+                    {% csrf_token %}
+
                     <div class="animate-slide-up-fade-in mt-4">
                         <div class="animate-slide-up-fade-in row">
                             <div class="animate-slide-up-fade-in col-md-6 d-flex justify-content-end">
-                                <input type="text" class="animate-slide-up-fade-in form-control border-0 rounded-pill w-50" id="inputName"
-                                    placeholder="Имя">
+                                {{ form.name }}
                             </div>
                             <div class="animate-slide-up-fade-in col-md-6 d-flex">
-                                <input type="tel" class="animate-slide-up-fade-in form-control border-0 rounded-pill w-50" id="inputPhoneNumber"
-                                    pattern="[0-9]{10}" placeholder="Номер телефона">
+                                {{ form.phone }}
                             </div>
                         </div>
                     </div>
@@ -197,14 +197,12 @@
 
                     <div class="animate-slide-up-fade-in form-row mt-4">
                         <div class="animate-slide-up-fade-in col-md-12">
+                            {% for radio in form.type %}
                             <div class="animate-slide-up-fade-in form-check form-check-inline">
-                                <input class="animate-slide-up-fade-in form-check-input " type="radio" name="action" id="buyAction" value="buy">
-                                <label class="animate-slide-up-fade-in form-check-label" for="buyAction">Купить</label>
+                                {{ radio.tag }}
+                                <label class="animate-slide-up-fade-in form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
                             </div>
-                            <div class="animate-slide-up-fade-in form-check form-check-inline">
-                                <input class="animate-slide-up-fade-in form-check-input" type="radio" name="action" id="sellAction" value="sell">
-                                <label class="animate-slide-up-fade-in form-check-label" for="sellAction">Продать</label>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <button style="border: none;" type="submit" class="animate-slide-up-fade-in btn btn-primary mt-4 btn-send-query w-25 my-5">Оставить заявку</button>
