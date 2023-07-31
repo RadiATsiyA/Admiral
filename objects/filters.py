@@ -8,5 +8,5 @@ class ObjectAdFilter(django_filters.FilterSet):
 
     class Meta:
         model = ObjectAd
-        fields = ['type', 'price', 'city', 'district', 'ad_type', 'rooms', 'area']
+        fields = ['price', 'city', 'district', 'ad_type', 'rooms', 'area']
         form = ObjectAdFilterForm
