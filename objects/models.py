@@ -24,14 +24,15 @@ class ApplicationToView(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    category_name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.category_name
+
+
 class ObjectAd(models.Model):
     """Модель объекта"""
-    TYPES = [
-        ('flat', 'Квартира'),
-        ('house', 'Дом'),
-        ('plot', 'Участок'),
-        ('office', 'Офис')
-    ]
     AD_TYPES = [
         ('rent', 'Аренда'),
         ('sale', 'Продажа')
@@ -46,7 +47,6 @@ class ObjectAd(models.Model):
     furniture = models.CharField(max_length=50, null=True, blank=True)
     window_direction = models.CharField(max_length=100, null=True, blank=True)
     area = models.IntegerField()
-    type = models.CharField(max_length=15, choices=TYPES, default='flat')
     city = models.CharField(max_length=50)
     district = models.CharField(max_length=50)
     address = models.CharField(max_length=100)
@@ -56,6 +56,7 @@ class ObjectAd(models.Model):
     price = models.DecimalField(max_digits=11, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+    category = models.ForeignKey(to=Category, related_name='category', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f'{self.id} | {self.address}'
