@@ -45,6 +45,7 @@ class ObjectAd(models.Model):
     otoplenie = models.CharField(max_length=50, null=True, blank=True)
     remont = models.CharField(max_length=50, null=True, blank=True)
     furniture = models.CharField(max_length=50, null=True, blank=True)
+    series = models.IntegerField(null=True, blank=True)
     window_direction = models.CharField(max_length=100, null=True, blank=True)
     area = models.IntegerField()
     city = models.CharField(max_length=50)

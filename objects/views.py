@@ -42,18 +42,10 @@ class CategoryListView(ListView):
         return context
 
 
-class ApartmentsListView(TemplateView):
-    template_name = 'objects/apartments.html'
-
-
-class RoomDetailView(TemplateView):
-    template_name = 'objects/rooms.html'
-
-
-class ObjectsListView(ListView):
+class ApartmentsListView(ListView):
     model = ObjectAd
-    template_name = 'objects/list.html'
-    context_object_name = "object_ad_list"
+    template_name = 'objects/apartments.html'
+    context_object_name = "objects_ad"
     filterset_class = ObjectAdFilter
 
     def get_queryset(self):
@@ -61,8 +53,13 @@ class ObjectsListView(ListView):
         self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
         return self.filterset.qs
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
 
 class ObjectDetailView(DetailView):
     model = ObjectAd
-    template_name = 'objects/detail.html'
+    template_name = 'objects/rooms.html'
     context_object_name = 'object_detail'
