@@ -40,40 +40,48 @@
                         <hr style="background-color: white; height: 2px;" class="devider">
                     </div>
 
-                    <div class="filter-options">
-                        <div class="label-container">
-                            <div class="filter-label">Серия</div>
-                            <input class="filter-input" type="text" id="area" min="0" placeholder="">
-                        </div>
+                    <form action="" method="get" id="filters-form">
 
-                        <div class="label-container mb-4">
-                            <div class="filter-label">Район</div>
-                            <select style="border-radius: 40px;" class="filter-select" id="district">
-                                <option value="">Выберите Район</option>
-                                <option value="Ленинский">Ленинский</option>
-                                <option value="Свердловский">Свердловский</option>
-                            </select>
-                        </div>
+                            <div class="filter-options">
+                            <div class="label-container">
+                                <div class="filter-label">Серия</div>
+                                {{ filterset.form.series }}
+                            </div>
 
-                        <div class="label-container">
-                            <div class="filter-label">Площадь</div>
-                            <input class="filter-input" type="number" id="area" min="0" placeholder="">
-                        </div>
+                            <div class="label-container mb-4">
+                                <div class="filter-label">Район</div>
+                                {{ filterset.form.district }}
+                            </div>
 
-                        <div class="label-container">
-                            <div class="filter-label">Цена от</div>
-                            <input class="filter-input" type="number" id="priceFrom" min="0" placeholder="От">
-                        </div>
+                            <div class="label-container">
+                                <div class="filter-label">Площадь</div>
+                                {{ filterset.form.area }}
+                            </div>
 
-                        <div class="label-container ">
-                            <div class="filter-label">Цена до</div>
-                            <input class="filter-input" type="number" id="priceTo" min="0" placeholder="До">
+                            <div class="label-container">
+                                <div class="filter-label">Цена от</div>
+                                {{ filterset.form.priceFrom }}
+                            </div>
+
+                            <div class="label-container ">
+                                <div class="filter-label">Цена до</div>
+                                {{ filterset.form.priceTo }}
+                            </div>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Добавляем обработчик события на изменение значений фильтров
+    $('#filters-form :input').change(function() {
+        $('#filters-form').submit(); // Автоматическая отправка формы
+    });
+</script>
 
     <script>
         // JavaScript for filtering by category...
@@ -96,37 +104,42 @@
 
 
     <div class="container ">
-        <h1><strong>Рекомендации</strong></h1>
+        <h1><strong>Все</strong></h1>
     </div>
 
     <div class="py-5">
         <div class="container">
             <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+                {% for obj in objects_ad %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
 
                     <div class="card custom-card zoom-card">
                         <div class="d-flex justify-content-center my-3">
                             <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
-                            <div class="recommended-text">Продажа</div>
+                            <div class="recommended-text">{{ obj.ad_type }}</div>
                         </div>
                         <div class="card-block mx-3">
                             <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <h4 style="color: #00408E;" class="card-title">{{ obj.category.category_name }}</h4>
                                 <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
                             </div>
-                            <p style="font-size: 18px;">60000$</p>
+                            <p style="font-size: 18px;">{{ obj.price }}$</p>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 70px;">{{ obj.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">15 m</p>
                             </div>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
+                                <p style="font-size: 18px; margin-right: 85px;">{{ obj.current_floor }}/{{ obj.total_floors }} этаж</p>
                                 <p style="font-size: 18px; ">105 серия</p>
                             </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                            <p style="font-size: 18px; margin-bottom: 5px;">{{ obj.address }}</p>
                         </div>
                     </div>
                 </div>
+            {% empty %}
+                <p>No objects match the selected filters.</p>
+            {% endfor %}
 
         </div>
     </div>

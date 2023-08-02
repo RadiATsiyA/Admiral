@@ -1,13 +1,6 @@
+import django_filters
 from django import forms
 from .models import ApplicationToView
-
-
-class ObjectAdFilterForm(forms.Form):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['price'].widget.attrs.update({
-            'placeholder': '0'
-        })
 
 
 class ApplicationToViewForm(forms.ModelForm):
