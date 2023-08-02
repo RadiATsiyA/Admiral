@@ -20,7 +20,7 @@
     <!-- Навигационное меню -->
     <nav class="animate-slide-up-fade-in navbar navbar-expand-lg navbar-light bg-white col-md-12">
         <!-- Лого сайта (замените ссылку и изображение на свои) -->
-        <a class="animate-slide-up-fade-in navbar-brand col-md-3" href="#">
+        <a class="animate-slide-up-fade-in navbar-brand col-md-3" href="{% url 'obj:index' %}">
             <img class="animate-slide-up-fade-in w-75" src="{% static 'images/Main_logo.svg' %}" alt="Логотип">
         </a>
         <!-- Добавление кнопки для шторки -->
@@ -33,7 +33,7 @@
         <div class="animate-slide-up-fade-in collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="animate-slide-up-fade-in navbar-nav mx-5 px-5 col-md-9">
                 <li class="animate-slide-up-fade-in nav-item">
-                    <a class="animate-slide-up-fade-in nav-link ms-5" href="#">О нас</a>
+                    <a class="animate-slide-up-fade-in nav-link ms-5" href="{% url 'obj:index' %}">О нас</a>
                 </li>
                 <li class="animate-slide-up-fade-in nav-item">
                     <a class="animate-slide-up-fade-in nav-link ms-5" href="#">Контакты</a>

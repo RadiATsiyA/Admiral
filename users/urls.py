@@ -4,5 +4,5 @@ from . import views
 app_name = 'users'
 
 urlpatterns = [
-    path('agent/<int:pk>', views.AgentDetailView.as_view(), name='agent'),
+    path('<int:pk>', views.AgentDetailView.as_view(), name='agent'),
 ]

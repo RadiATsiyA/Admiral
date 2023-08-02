@@ -47,23 +47,23 @@
         <div class="row">
             <div class="col-md-1 col-lg-1 col-sm-12 me-4">
                 <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-2"
-                    src="https://images.pexels.com/photos/4328962/pexels-photo-4328962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="{{ object_detail.images.all.0.image.url }}"
                     alt="" onclick="changeImage(this)">
                 <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
-                    src="https://images.pexels.com/photos/4354389/pexels-photo-4354389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="{{ object_detail.images.all.1.image.url }}"
                     alt="" onclick="changeImage(this)">
                 <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
-                    src="https://images.pexels.com/photos/318391/pexels-photo-318391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="{{ object_detail.images.all.2.image.url }}"
                     alt="" onclick="changeImage(this)">
                 <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
-                    src="https://images.pexels.com/photos/2857580/pexels-photo-2857580.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    src="{{ object_detail.images.all.3.image.url }}"
                     alt="" onclick="changeImage(this)">
             </div>
             <div class="col-md-8 mx-md-5 col-lg-5 col-sm-12">
                 <div class="post">
                     <div class="">
                         <img style="height: 500px; width: 100%; max-width: 500px; border-radius: 30px;"
-                            src="https://images.pexels.com/photos/4328962/pexels-photo-4328962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            src="{{ object_detail.images.all.0.image.url }}"
                             alt="">
                     </div>
                 </div>
@@ -71,42 +71,44 @@
             <div class="col-md-8 col-sm-12 col-lg-4 div-rounded">
                 <div class="property-details">
                     <div class="div-info-1 d-flex justify-content-between">
-                        <span>Тип: <b style="font-size: 18px;">Квартира </b></span>
-                        <span>Стоимость: <b style="font-size: 18px;">60 000$ </b></span>
+                        <span>Тип: <b style="font-size: 18px;">{{ object_detail.category.category_name }} </b></span>
+                        <span>Стоимость: <b style="font-size: 18px;">{{ object_detail.price }}$ </b></span>
                     </div>
                     <div class="div-info-adress my-4">
-                        <span>Адресс: <b style="font-size: 18px;"> Мкр Улан 56-85 </b></span>
+                        <span>Адресс: <b style="font-size: 18px;"> {{ object_detail.address }} </b></span>
                     </div>
                     <div class="div-info-topic-brief d-flex justify-content-between">
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span>Комнаты</span>
-                            <span> <b>3</b></span>
+                            <span> <b>{{ object_detail.rooms }}</b></span>
                         </div>
                         <div class="separator d-flex justify-content-center align-items-center text-center"></div>
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span>Серия</span>
-                            <span><b>106</b></span>
+                            <span><b>{% if object_detail.series %}{{ object_detail.series }} серия{% else %}Не указан{% endif %}</b></span>
                         </div>
                         <div class="separator"></div>
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span>Площадь, м2</span>
-                            <span><b>36,4</b></span>
+                            <span><b>{{ object_detail.area }}</b></span>
                         </div>
                     </div>
                     <div class="div-info-topic-brief d-flex justify-content-between">
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span style="width: 124px;">Этаж</span>
-                            <span><b>4/9</b></span>
+                            <span><b>{% if object_detail.current_floor %}{{ object_detail.current_floor }}{% else %}Не указан{% endif %}/
+                                {% if object_detail.total_floors %}{{ object_detail.total_floors }}{% else %}Не указан{% endif %}</b></span>
+
                         </div>
                         <div class="separator d-flex justify-content-center align-items-center text-center"></div>
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span>Застройщик</span>
-                            <span><b>Не указан </b></span>
+                            <span><b>Не указан-- </b></span>
                         </div>
                         <div class="separator"></div>
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span>Окна (направление)</span>
-                            <span><b>Север-Юг</b></span>
+                            <span><b>{{ object_detail.window_direction }}</b></span>
                         </div>
                     </div>
                 </div>
@@ -116,11 +118,11 @@
                         <div class="text-center my-md-2 btn-str">
                             <div class="text-btn">Этап строительства</div>
                             <div style="font-size: 22px;" class="text-btn"><b
-                                    style="color: #90C83F!important;">Заселен</b></div>
+                                    style="color: #90C83F!important;">Заселен--</b></div>
                         </div>
                         <div class="text-center my-md-2 justify-content-center btn-rare">
                             <div class="white">Срок сдачи</div>
-                            <div style="font-size: 22px;" class="white"><b style="color: #fff!important;">Сдан</b></div>
+                            <div style="font-size: 22px;" class="white"><b style="color: #fff!important;">Сдан--</b></div>
                         </div>
                     </div>
                 </div>
@@ -153,12 +155,12 @@
                         <span class="my-2"> Правоустанавливающие документы:</span>
                     </div>
                     <div class="row ">
-                        <span class="my-2"> <b>3/5</b></span>
-                        <span class="my-2"> <b>12 м2</b></span>
-                        <span class="my-2"> <b>Центральное</b></span>
-                        <span class="my-2"><b> Встроенная</b></span>
+                        <span class="my-2"> <b>{{ object_detail.current_floor }}/{{ object_detail.total_floors }}</b></span>
+                        <span class="my-2"> <b>12 м2--</b></span>
+                        <span class="my-2"> <b>{{ object_detail.otoplenie }}</b></span>
+                        <span class="my-2"><b> {{ object_detail.furniture }}</b></span>
                         <span class="my-2"><b> Балкон</b></span>
-                        <span class="my-2"> <b>0</b></span>
+                        <span class="my-2"> <b>0--</b></span>
                     </div>
                     <img class="me-5 pe-5 d-none d-md-block" src="{% static 'images/Line 10.svg' %}" alt="">
                     <div class="row ">
@@ -169,11 +171,11 @@
                         <span class="my-2"> Тип предложения:</span>
                     </div>
                     <div class="row ">
-                        <span class="my-2"> <b>Евро ремонт</b></span>
-                        <span class="my-2"><b> Север-юг</b></span>
-                        <span class="my-2"><b> Заборы, ворота</b></span>
-                        <span class="my-2"> <b>Бетон</b></span>
-                        <span class="my-2"><b> Продажа</b></span>
+                        <span class="my-2"> <b>{{ object_detail.remont }}</b></span>
+                        <span class="my-2"><b> {{ object_detail.window_direction }}</b></span>
+                        <span class="my-2"><b> Заборы, ворота--</b></span>
+                        <span class="my-2"> <b>Бетон--</b></span>
+                        <span class="my-2"><b> {{ object_detail.ad_type }}</b></span>
                     </div>
                 </div>
             </li>
@@ -187,104 +189,35 @@
     <div class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+
+                {% for recommendation in recommendations %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                     <div class="card custom-card zoom-card">
                         <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
-
+                                <img class="card-img-top" src="{{ recommendation.images.all.0.image.url }}" alt="">
                         </div>
                         <div class="card-block mx-3">
                             <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                                <h4 style="color: #00408E;" class="card-title">{{ recommendation.category.category_name }}</h4>
                                 <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
                             </div>
-                            <p style="font-size: 18px;">60000$</p>
+                            <p style="font-size: 18px;">{{ recommendation.price }}$</p>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 70px;">{{ recommendation.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">15 m</p>
                             </div>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
+                                <p style="font-size: 18px; margin-right: 85px;">{{ recommendation.current_floor }}/{{ recommendation.total_floors }} этаж</p>
+                                <p style="font-size: 18px; ">{% if recommendation.series %}{{ recommendation.series }}серия{% else %}Не указан{% endif %} </p>
                             </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                            <p style="font-size: 18px; margin-bottom: 5px;">{{ recommendation.address }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                    <div class="card custom-card zoom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+                {% endfor %}
 
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
-                            </div>
-                            <p style="font-size: 18px;">60000$</p>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                    <div class="card custom-card zoom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
-                            </div>
-                            <p style="font-size: 18px;">60000$</p>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                    <div class="card custom-card zoom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">
-                            </div>
-                            <p style="font-size: 18px;">60000$</p>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
