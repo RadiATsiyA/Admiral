@@ -61,7 +61,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
                     <div class="card custom-card">
                         <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+                            <img class="card-img-top" src="{{ ad.images.all.0.image.url }}" alt="">
                             <div class="recommended-text">Рекомендуемые</div>
                         </div>
                         <div class="card-block mx-3">

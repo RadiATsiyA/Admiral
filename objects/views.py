@@ -20,7 +20,7 @@ class IndexView(TemplateView):
         print(form.errors)
         if form.is_valid():
             form.save()
-            return redirect(reverse_lazy('obj:category'))
+            return redirect(reverse_lazy('obj:index'))
         else:
             context = self.get_context_data(**kwargs)
             context['form'] = form
@@ -63,3 +63,10 @@ class ObjectDetailView(DetailView):
     model = ObjectAd
     template_name = 'objects/rooms.html'
     context_object_name = 'object_detail'
+
+    def get_context_data(self, **kwargs):
+        context = super(ObjectDetailView, self).get_context_data()
+        current_object = context['object_detail']
+        current_object_id = current_object.id
+        context['recommendations'] = ObjectAd.objects.exclude(id=current_object_id)[:4]
+        return context

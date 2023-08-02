@@ -1,6 +1,6 @@
 import django_filters
 from django import forms
-from .models import ObjectAd
+from .models import ObjectAd, District
 
 
 class ObjectAdFilter(django_filters.FilterSet):
@@ -10,13 +10,8 @@ class ObjectAdFilter(django_filters.FilterSet):
         label='Серия',
     )
 
-    district = django_filters.ChoiceFilter(
-        choices=[
-            ('', 'Выберите Район'),
-            ('Ленинский', 'Ленинский'),
-            ('Свердловский', 'Свердловский'),
-            ('Октябрьский', 'Октябрьский')
-        ],
+    district = django_filters.ModelChoiceFilter(
+        queryset=District.objects.all(),  # Use queryset from the database
         widget=forms.Select(attrs={'class': 'filter-select'}),
         label='Район',
     )

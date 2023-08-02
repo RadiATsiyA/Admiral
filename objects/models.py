@@ -31,6 +31,13 @@ class Category(models.Model):
         return self.category_name
 
 
+class District(models.Model):
+    district_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.district_name
+
+
 class ObjectAd(models.Model):
     """Модель объекта"""
     AD_TYPES = [
@@ -38,7 +45,6 @@ class ObjectAd(models.Model):
         ('sale', 'Продажа')
     ]
 
-    description = models.TextField()
     rooms = models.IntegerField(null=True, blank=True)
     current_floor = models.IntegerField(blank=True, null=True)
     total_floors = models.IntegerField(blank=True, null=True)
@@ -49,15 +55,15 @@ class ObjectAd(models.Model):
     window_direction = models.CharField(max_length=100, null=True, blank=True)
     area = models.IntegerField()
     city = models.CharField(max_length=50)
-    district = models.CharField(max_length=50)
     address = models.CharField(max_length=100)
     year_built = models.IntegerField(default=2010, null=True, blank=True)
     company_name = models.CharField(max_length=50, null=True, blank=True)
-    ad_type = models.CharField(max_length=10, choices=AD_TYPES, default='sale')
+    ad_type = models.CharField(max_length=10, choices=AD_TYPES, default='Продажа')
     price = models.DecimalField(max_digits=11, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     category = models.ForeignKey(to=Category, related_name='category', on_delete=models.SET_NULL, null=True, blank=True)
+    district = models.ForeignKey(to=District, related_name='district', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f'{self.id} | {self.address}'

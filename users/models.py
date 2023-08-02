@@ -9,6 +9,11 @@ def get_user_image_path(instance, filename):
     return os.path.join('users', str(instance.username), filename)
 
 
+def get_agent_image_path(instance, filename):
+    """Функция для рапределения изображений по папкам агентов"""
+    return os.path.join('agents', str(instance.id), filename)
+
+
 class User(AbstractUser):
     """Модель админа"""
     username = models.CharField(max_length=30, unique=True)
@@ -25,6 +30,8 @@ class Agent(models.Model):
     phone = models.CharField(max_length=15)
     agency_name = models.CharField(max_length=50, null=True, blank=True)
     experience = models.FloatField(blank=True, default=0)
+    rating = models.FloatField(default=0)
+    image = models.ImageField(upload_to=get_agent_image_path, null=True, blank=True)
 
     def __str__(self):
         return f'{self.id} | {self.full_name}'

@@ -116,7 +116,7 @@
 
                     <div class="card custom-card zoom-card">
                         <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="{% static 'images/Rectangle 15.svg' %}" alt="">
+                            <img class="card-img-top" src="{{ obj.images.all.0.image.url }}" alt="">
                             <div class="recommended-text">{{ obj.ad_type }}</div>
                         </div>
                         <div class="card-block mx-3">
