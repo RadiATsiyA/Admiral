@@ -14,6 +14,13 @@ def get_agent_image_path(instance, filename):
     return os.path.join('agents', str(instance.id), filename)
 
 
+class Specialization(models.Model):
+    specialization_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.specialization_name
+
+
 class User(AbstractUser):
     """Модель админа"""
     username = models.CharField(max_length=30, unique=True)
@@ -32,6 +39,7 @@ class Agent(models.Model):
     experience = models.FloatField(blank=True, default=0)
     rating = models.FloatField(default=0)
     image = models.ImageField(upload_to=get_agent_image_path, null=True, blank=True)
+    specialization = models.ManyToManyField(to=Specialization, blank=True)
 
     def __str__(self):
         return f'{self.id} | {self.full_name}'
