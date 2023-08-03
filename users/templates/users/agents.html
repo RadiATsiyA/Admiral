@@ -19,48 +19,40 @@
     <img class="position-absolute d-none d-xl-block w-100" src="{% static 'images/Rectangle 16 (1).svg' %}" alt=""
          style=" top: 230px; left: 0px; z-index: -1000;">
 
-    <div class="container w-75 searching my-5 py-5">
-        <div class="row">
-            <div class="col">
-                <div class="card card-category">
-                    <div class="d-flex category-buttons justify-content-center my-3">
-                        <button style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem);
-                        line-height: clamp(1.688rem, 0.485vw + 1.562rem, 1.95rem);" class="category-button px-5 mx-5 w-25"
-                            onclick="filterCategory('all')">Все</button>
-                    </div>
-                    <div class="container">
-                        <img src="{% static 'images/Line 7.svg' %}" alt="">
-                    </div>
-                    <div class="container">
-                        <div class="d-md-flex justify-content-between mb-3 ">
-                            <div class="label-rayon py-3 mb-3 mb-md-0">
-                                <div style="color: white!important; font-size: 22px; width: 200px;"
-                                    class="filter-label my-2">Район</div>
-                                <select style="border-radius: 40px; width: 400px; height: 40px;" class="filter-select"
-                                    id="district">
-                                    <option value="">Выберите Район</option>
-                                    <option value="Ленинский">Ленинский</option>
-                                    <option value="Свердловский">Свердловский</option>
-                                </select>
+    <form method="get" id="filters-form">
+        <div class="container w-75 searching my-5 py-5">
+            <div class="row">
+                <div class="col">
+                    <div class="card card-category">
+                        <div class="d-flex category-buttons justify-content-center my-3">
+                            <button style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem);
+                            line-height: clamp(1.688rem, 0.485vw + 1.562rem, 1.95rem);" class="category-button px-5 mx-5 w-25"
+                                onclick="filterCategory('all')">Все</button>
+                        </div>
+                        <div class="container">
+                            <img src="{% static 'images/Line 7.svg' %}" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="d-md-flex justify-content-between mb-3 ">
+                                <div class="label-rayon py-3 mb-3 mb-md-0">
+                                    <div style="color: white!important; font-size: 22px; width: 200px;"
+                                        class="filter-label my-2">Район</div>
+                                            {{ filterset.form.district }}
 
-                            </div>
+                                </div>
 
-                            <div class="label-spes py-3 ">
-                                <div style="color: white!important; font-size: 22px; width: 200px;"
-                                    class="filter-label my-2">Специализация</div>
-                                <select style="border-radius: 40px; width: 400px; height: 40px;" class="filter-select"
-                                    id="district">
-                                    <option value="">Выберите Специалиста</option>
-                                    <option value="Ленинский">Первый Специализация</option>
-                                    <option value="Свердловский">Вторая Специализация</option>
-                                </select>
+                                <div class="label-spes py-3 ">
+                                    <div style="color: white!important; font-size: 22px; width: 200px;"
+                                        class="filter-label my-2">Специализация</div>
+                                    {{ filterset.form.specialization }}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
     {% for agent in agents %}
     <div class="container my-5">
@@ -117,6 +109,14 @@
         </div>
     </div>
     {% endfor %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Добавляем обработчик события на изменение значений фильтров
+    $('#filters-form :input').change(function() {
+        $('#filters-form').submit(); // Автоматическая отправка формы
+    });
+</script>
 </div>
 {% endblock %}
     
