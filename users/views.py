@@ -1,4 +1,5 @@
 from django.views.generic import DetailView, ListView
+from .filters import AgentFilter
 from .models import Agent
 
 
@@ -12,3 +13,14 @@ class AgentsListView(ListView):
     model = Agent
     template_name = 'users/agents.html'
     context_object_name = 'agents'
+    filterset_class = AgentFilter
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
