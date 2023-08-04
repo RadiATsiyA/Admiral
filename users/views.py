@@ -23,4 +23,5 @@ class AgentsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
+        context['agents_object'] = Agent.objects.prefetch_related('agent_object').all()[:4]
         return context

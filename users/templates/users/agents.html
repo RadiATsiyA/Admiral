@@ -9,7 +9,7 @@
 
 {% block content %}
 	<div class="container ">
-        <h1><strong>Категории недвижимости</strong></h1>
+        <h1><strong>Агенты</strong></h1>
     </div>
 
     <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
@@ -66,7 +66,7 @@
                                 <p class="card-text mb-4"><strong>Агент компании &lt;{{ agent.agency_name }}&gt;</strong></p>
                                 <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7 мкр</strong></p>
                                 <p class="card-text mb-4">Стаж: <strong>{{ agent.experience }} года</strong></p>
-                                <p class="card-text mb-4">Девиз: <strong>Быстро, надежно и удобно</strong></p>
+                                <p class="card-text mb-4">Девиз: <strong>{{ agent.slogan }}</strong></p>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -77,26 +77,20 @@
                         <div class="col-md-6">
                             <h2 class="d-flex mx-5 px-5">Обьекты: </h2>
                             <div class="row g-0 justify-content-center my-3">
-                                <div class="col-md-2">
-                                    <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 1">
-                                    <h4>5 мкр</h4>
-                                    <div>105 серия</div>
-                                </div>
-                                <div class="col-md-2">
-                                    <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 2">
-                                    <h4>5 мкр</h4>
-                                    <div>105 серия</div>
-                                </div>
-                                <div class="col-md-2">
-                                    <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 3">
-                                    <h4>5 мкр</h4>
-                                    <div>105 серия</div>
-                                </div>
-                                <div class="col-md-2">
-                                    <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 4">
-                                    <h4>5 мкр</h4>
-                                    <div>105 серия</div>
-                                </div>
+                                {% if agent.agent_object.exists %}
+                                    {% for ag_object in agent.agent_object.all %}
+                                        <div class="col-md-2">
+                                            <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 1">
+                                            <h4>{{ ag_object.address }}</h4>
+                                            <div>{% if ag_object.series %}{{ ag_object.series }} серия{% else %}Серия не указана{% endif %}</div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="col-md-2">
+                                        <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 1">
+                                        <h4>Нет объектов агента</h4>
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="d-flex justify-content-end btn-more-info my-3 me-5">
