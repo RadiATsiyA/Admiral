@@ -1,5 +1,4 @@
-from django.contrib.auth.models import AbstractUser, Group, Permission
-from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 import os
 
@@ -39,6 +38,7 @@ class Agent(models.Model):
     experience = models.FloatField(blank=True, default=0)
     rating = models.FloatField(default=0)
     image = models.ImageField(upload_to=get_agent_image_path, null=True, blank=True)
+    slogan = models.CharField(max_length=300, default='Нет девиза')
     specialization = models.ManyToManyField(to=Specialization, blank=True)
 
     def __str__(self):

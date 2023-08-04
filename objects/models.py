@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import User, Agent
 import os
 
 
@@ -64,6 +64,7 @@ class ObjectAd(models.Model):
     is_active = models.BooleanField(default=True)
     category = models.ForeignKey(to=Category, related_name='category', on_delete=models.SET_NULL, null=True, blank=True)
     district = models.ForeignKey(to=District, related_name='district', on_delete=models.SET_NULL, null=True, blank=True)
+    agent = models.ForeignKey(to=Agent, related_name='agent_object', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f'{self.id} | {self.address}'
