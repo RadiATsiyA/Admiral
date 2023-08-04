@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.db.models import Count
 from django.views.generic import ListView, DetailView, TemplateView
@@ -50,6 +50,10 @@ class ApartmentsListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        category_name = self.kwargs.get('category_name')
+        if category_name:
+            category = get_object_or_404(Category, category_name=category_name)
+            queryset = queryset.filter(category=category)
         self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
         return self.filterset.qs
 

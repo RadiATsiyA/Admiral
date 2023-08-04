@@ -41,7 +41,6 @@
                     </div>
 
                     <form action="" method="get" id="filters-form">
-
                             <div class="filter-options">
                             <div class="label-container">
                                 <div class="filter-label">Серия</div>
@@ -112,8 +111,8 @@
             <div class="row">
 
                 {% for obj in objects_ad %}
-                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <a class="myownlink" href="{% url 'obj:details' obj.id %}" style="text-decoration: none">
                     <div class="card custom-card zoom-card">
                         <div class="d-flex justify-content-center my-3">
                             <img class="card-img-top" src="{{ obj.images.all.0.image.url }}" alt="">
@@ -136,7 +135,9 @@
                             <p style="font-size: 18px; margin-bottom: 5px;">{{ obj.address }}</p>
                         </div>
                     </div>
+                        </a>
                 </div>
+
             {% empty %}
                 <p>No objects match the selected filters.</p>
             {% endfor %}
