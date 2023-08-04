@@ -27,6 +27,7 @@
     <div class="container my-4">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-">
             {% for category in categories %}
+                <a class="myownlink" href="{% url 'obj:apartments' category.category_name %}" style="text-decoration: none">
                 <div class="col">
                 <div class="position-relative">
                     <img class="w-100 blueish-image" src="{% static 'images/img_kvartira-1.svg' %}" alt="">
@@ -42,6 +43,7 @@
                     </div>
                 </div>
             </div>
+                </a>
             {% endfor %}
 
         </div>
@@ -59,7 +61,8 @@
 
                 {% for ad in recommendations %}
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
+                    <a class="myownlink" href="{% url 'obj:details' ad.id %}" style="text-decoration: none">
+                        <div class="card custom-card">
                         <div class="d-flex justify-content-center my-3">
                             <img class="card-img-top" src="{{ ad.images.all.0.image.url }}" alt="">
                             <div class="recommended-text">Рекомендуемые</div>
@@ -75,12 +78,13 @@
                                 <p style="font-size: 18px; margin-right: 10px;">15 m</p>
                             </div>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">{{ ad.current_floor }}/{{ ad.total_floors }} этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
+                                <p style="font-size: 18px; margin-right: 85px;">{% if ad.current_floor %}{{ ad.current_floor }}{% else %}Не указан{% endif %}{% if ad.total_floors %}/{{ ad.total_floors }} этаж{% else %}{% endif %}</p>
+                                <p style="font-size: 18px; ">{% if ad.series %}{{ ad.series }} серия{% else %}Не указана{% endif %}</p>
                             </div>
                             <p style="font-size: 18px; margin-bottom: 5px;">{{ ad.address }}</p>
                         </div>
                     </div>
+                    </a>
                 </div>
                 {% endfor %}
 
