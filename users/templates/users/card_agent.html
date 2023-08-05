@@ -23,7 +23,7 @@
                 <p class="card-text"><b>Агент компании &lt;{{ agent_details.agency_name }}&gt;</b></p>
                 <p class="card-text">Стаж: <b>{{ agent_details.experience }} года</b></p>
                 <p class="card-text">Номер телефона: <b> {{ agent_details.phone }} </b></p>
-                <a href="https://wa.me/{{ agent_details.phone }}?text=Здравствуйте, {{ agent_details.full_name }}" class="btn btn-success btn-chat">Начать чат</a>
+                <a href="https://wa.me/{{ agent_details.phone }}?text=Здравствуйте, {{ agent_details.full_name }}" target="_blank" class="btn btn-success btn-chat">Начать чат</a>
                 <a href="tel:{{ agent_details.phone }}" class="btn btn-primary btn-call">Позвонить</a>
             </div>
         </div>
