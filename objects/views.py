@@ -74,3 +74,7 @@ class ObjectDetailView(DetailView):
         current_object_id = current_object.id
         context['recommendations'] = ObjectAd.objects.exclude(id=current_object_id)[:4]
         return context
+
+
+class MapObjectView(TemplateView):
+    template_name = 'objects/map.html'
