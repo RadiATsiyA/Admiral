@@ -9,4 +9,5 @@ urlpatterns = [
     path('apartments/', views.ApartmentsListView.as_view(), name='apartments'),
     path('apartments/<str:category_name>', views.ApartmentsListView.as_view(), name='apartments'),
     path('object/details/<int:pk>', views.ObjectDetailView.as_view(), name='details'),
+    path('map/', views.MapObjectView.as_view(), name='map')
 ]
