@@ -11,6 +11,7 @@ class ObjectAdFilter(django_filters.FilterSet):
     )
 
     district = django_filters.ModelChoiceFilter(
+        empty_label='Все',
         queryset=District.objects.all(),  # Use queryset from the database
         widget=forms.Select(attrs={'class': 'filter-select'}),
         label='Район',

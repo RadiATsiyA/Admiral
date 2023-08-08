@@ -57,7 +57,7 @@
     <div class="col-md-4">
         <div style="border-radius: 40px;" class="card d-flex align-items-center">
             <div class="col card-container">
-                <h4 class="my-3">Найдено 7432 обьектов</h4>
+                <h4 style="padding-left: 15px" class="my-3">Найдено {{ map_objects | length }} обьектов</h4>
 
                 {% for object in map_objects %}
                     <div class="col-md-12 mb-3">

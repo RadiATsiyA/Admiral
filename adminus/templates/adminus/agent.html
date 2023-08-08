@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="shortcut icon"
+    href="https://abrakadabra.fun/uploads/posts/2022-01/1641892713_1-abrakadabra-fun-p-pazl-klipart-1.png">
+    <link rel="stylesheet" href="{% static 'css/a-agent.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+<style>
+    
+</style>
+
+<div class="container w-75 searching my-5 py-5">
+    <div class="row">
+        <div class="col">
+            <div class="card card-category">
+                <div class="d-flex category-buttons justify-content-center my-3">
+                    <button style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem);
+                    line-height: clamp(1.688rem, 0.485vw + 1.562rem, 1.95rem);" class="category-button px-5 mx-5 w-25"
+                        onclick="filterCategory('all')">Все</button>
+                </div>
+                <div class="container">
+                    <img src="{% static 'images/Line 7.svg' %}" alt="">
+                </div>
+                <div class="container">
+                    <div class="d-md-flex justify-content-between mb-3 ">
+                        <div class="label-rayon py-3 mb-3 mb-md-0">
+                            <div style="color: white!important; font-size: 22px; width: 200px;"
+                                class="filter-label my-2">Район</div>
+                            <select style="border-radius: 40px; width: 400px; height: 40px;" class="filter-select"
+                                id="district">
+                                <option value="">Выберите Район</option>
+                                <option value="Ленинский">Ленинский</option>
+                                <option value="Свердловский">Свердловский</option>
+                            </select>
+
+                        </div>
+
+                        <div class="label-spes py-3 ">
+                            <div style="color: white!important; font-size: 22px; width: 200px;"
+                                class="filter-label my-2">Специализация</div>
+                            <select style="border-radius: 40px; width: 400px; height: 40px;" class="filter-select"
+                                id="district">
+                                <option value="">Выберите Специалиста</option>
+                                <option value="Ленинский">Первый Специализация</option>
+                                <option value="Свердловский">Вторая Специализация</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                    <a href="{% url 'adminus:agent-add' %}" rel="noopener noreferrer">
+                    <div class="row g-0 d-flex justify-content-center align-items-center text-center">
+                        <img style="height: 80px; width: 80px; text-decoration: none!important;" class="img-fluid" src="{% static 'images/add.svg' %}" alt="">
+                        <h4>Добавить агента</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-12 my-5">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4"><b>Каримова Салтанат</b></h5>
+                            <p class="card-text mb-4"><strong>Агент компании &lt;Адмиралъ&gt;</strong></p>
+                            <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7 мкр </strong></p>
+                            <p class="card-text mb-4">Стаж: <strong>4 года</strong></p>
+                            <p class="card-text mb-4">Девиз: <strong> Быстро, надежно и удобно</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="d-flex justify-content-center py-3">
+                            <img style="height: 288px; width: 238px;" class="specialist-img  " src="{% static 'images/Group 5.svg' %}" alt="Specialist">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="d-flex mx-5 px-5">Обьекты: </h2>
+                        <div class="row g-0 justify-content-center my-3">
+                            <div class="col-md-2">
+                                <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 1">
+                                <h4>5 мкр</h4>
+                                <div>105 серия</div>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="/public/Rectangle 17.svg" class="img-fluid rounded-start" alt="Object 2">
+                                <h4>5 мкр</h4>
+                                <div>105 серия</div>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="/public/Rectangle 17.svg" class="img-fluid rounded-start" alt="Object 3">
+                                <h4>5 мкр</h4>
+                                <div>105 серия</div>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="/public/Rectangle 17.svg" class="img-fluid rounded-start" alt="Object 4">
+                                <h4>5 мкр</h4>
+                                <div>105 серия</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end btn-more-info my-3 me-5">
+                            <button style="color: white!important; background-color: #90C83F; border: none; border-radius: 20px;" class="btn btn-success">Изменить</button>
+                            <button style="color: #90C83F!important;  border-color: #90C83F; background-color: white; border-radius: 20px;" class="btn btn-success">Удалить</button>
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>
