@@ -56,6 +56,8 @@ class ObjectAd(models.Model):
     area = models.IntegerField()
     city = models.CharField(max_length=50)
     address = models.CharField(max_length=100)
+    latitude = models.CharField(max_length=30, null=True, blank=True)  # Широта
+    longitude = models.CharField(max_length=30, null=True, blank=True)  # Долгота
     year_built = models.IntegerField(default=2010, null=True, blank=True)
     company_name = models.CharField(max_length=50, null=True, blank=True)
     ad_type = models.CharField(max_length=10, choices=AD_TYPES, default='Продажа')

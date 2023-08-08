@@ -3,8 +3,10 @@ from django.urls import reverse_lazy
 from django.db.models import Count
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import ObjectAd, Category
-from .filters import ObjectAdFilter
+from .filters import ObjectAdFilter, MapObjectFilter
 from .forms import ApplicationToViewForm
+import requests
+import json
 
 
 class IndexView(TemplateView):
@@ -76,5 +78,31 @@ class ObjectDetailView(DetailView):
         return context
 
 
-class MapObjectView(TemplateView):
+class MapObjectView(ListView):
+    model = ObjectAd
     template_name = 'objects/map.html'
+    context_object_name = 'map_objects'
+    filterset_class = MapObjectFilter
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
+
+def get_geocode(address, city):
+    response = requests.get(f'https://geocode.maps.co/search?q={address} {city}')
+    data = json.loads(response.text)
+
+    for item in data:
+        latitude = item['lat']
+        longitude = item['lon']
+        print(f"Широта: {latitude}, Долгота: {longitude}")
+
+
+

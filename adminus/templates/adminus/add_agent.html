@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить агента</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control-file {
+            display: none;
+        }
+        .custom-file-label::after {
+            content: "Выберите файл";
+        }
+        .custom-file-label.selected::after {
+            content: attr(data-content);
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4">Добавить агента</h2>
+        <form>
+            <div class="form-group">
+                <label for="fullName">ФИО:</label>
+                <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Агент компании:</label>
+                <select class="form-control" id="company">
+                    <option>Адмиралъ</option>
+                    <!-- Другие опции компаний -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="experience">Стаж:</label>
+                <input type="text" class="form-control" id="experience">
+            </div>
+            <div class="form-group">
+                <label>Специализация:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="selling" value="Продажа недвижимости">
+                    <label class="form-check-label" for="selling">Продажа недвижимости</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="evaluation" value="Оценка недвижимости">
+                    <label class="form-check-label" for="evaluation">Оценка недвижимости</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rental" value="Аренда недвижимости">
+                    <label class="form-check-label" for="rental">Аренда недвижимости</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" class="form-control" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="photo">Добавить фото:</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="photo">
+                    <label class="custom-file-label" for="photo" data-content="Файл не выбран"></label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-submit">Добавить агента</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

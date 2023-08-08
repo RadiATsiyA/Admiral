@@ -1,0 +1,133 @@
+::placeholder {
+    color: #00408E !important;
+}
+* {
+    color: #00408E !important;
+
+}
+
+/* Дополнительные стили для центрирования текстовых элементов */
+.navbar {
+    justify-content: space-between;
+}
+
+/* Дополнительные стили для выравнивания языкового блока справа */
+.ml-auto {
+    margin-left: auto !important;
+}
+.card {
+    /* Other card styles */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+
+}
+
+.card:hover {
+    transform: scale(1.05); /* Increase the scale on hover */
+}
+
+
+.col {
+    transition: transform 0.3s ease;
+}
+
+.col:hover {
+    transform: scale(1.1); /* Increase the scale on hover */
+}
+
+.a_language {
+    border-radius: 30%;
+    color: white !important;
+    background-color: #00408E;
+    
+}
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item .a_language {
+        border-radius: 0;
+    }
+}
+
+/* Переопределение дефолтного цвета текста */
+.navbar-light .navbar-nav .nav-link {
+    color: #00408E;
+    /* Замените на нужный вам цвет */
+    font-size: 24px;
+    /* Увеличение размера текста */
+
+}
+iframe {
+    border: 4px solid #00408E; /* Blue border with 40px width */
+    border-radius: 40px; /* Make the iframe round */
+}
+
+.blueish-image {
+    filter: hue-rotate(220deg);
+}
+
+.image-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white !important;
+}
+
+.house-number {
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: white !important;
+}
+
+.house-type {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white !important;
+}
+
+
+.custom-card .card-img-top {
+    width: 50%;
+    height: auto;
+}
+
+.custom-card {
+    text-align: left;
+}
+
+.custom-card .card-img-top {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.recommended-text {
+    position: absolute;
+    top: 10;
+    left: 0;
+    background-color: #90C83F;
+    padding: 5px 10px;
+    margin-left: 75px;
+    
+    border-radius: 40px;
+    color: white!important;
+    font-size: 14px;
+}
+.card{
+    border-radius: 20px;
+}
+
+.custom-card .card-block {
+    padding: 1rem;
+}
+
+/* Custom CSS to adjust spacing between paragraphs */
+.custom-card p {
+    margin-bottom: 5px;
+}
+.nav-item.dropdown .dropdown-toggle::after,
+.nav-item.dropdown .dropdown-toggle::before {
+    display: none;
+}
