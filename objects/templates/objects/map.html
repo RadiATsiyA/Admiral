@@ -17,44 +17,25 @@
 
 <div class="row my-5 d-flex justify-content-between">
     <div class="col-md-4">
-        <div class="property-card">
-            <img style="margin-bottom: -100px; margin-top: -20px; margin-right: 0; position: absolute; right: 0; width: 38%;"
-                src="/static/images/Picture_main_2.svg" alt="">
-            <h4>Тип недвижимости</h4>
-            <select class="form-select mb-3 w-50">
-                <option selected>Все</option>
-                <option>Квартира</option>
-                <option>Дом</option>
-                <option>Земельный участок</option>
-            </select>
-            <h4>Район</h4>
-            <select class="form-select mb-3 w-50">
-                <option selected>Выбрать</option>
-                <option>Район 1</option>
-                <option>Район 2</option>
-                <option>Район 3</option>
-            </select>
-            <h4>Серия</h4>
-            <select class="form-select mb-3 w-50">
-                <option selected>Выбрать</option>
-                <option>Серия 1</option>
-                <option>Серия 2</option>
-                <option>Серия 3</option>
-            </select>
-            <h4>Кол-во комнат</h4>
-            <select class="form-select mb-3 w-50">
-                <option selected>Все</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4+</option>
-            </select>
-            <h4>Стоимость</h4>
-            <div class="input-group my-3">
-                <input type="number" class="form-control" placeholder="минимум" min="0">
-                <input type="number" class="form-control" placeholder="максимум" min="0">
-            </div>
-        </div>
+        <form method="get" id="filters-form">
+                <div class="property-card">
+                    <img style="margin-bottom: -100px; margin-top: -20px; margin-right: 0; position: absolute; right: 0; width: 38%;"
+                        src="/static/images/Picture_main_2.svg" alt="">
+                    <h4>Тип недвижимости</h4>
+                    {{ filterset.form.category }}
+                    <h4>Район</h4>
+                    {{ filterset.form.district }}
+                    <h4>Серия</h4>
+                    {{ filterset.form.series }}
+                    <h4>Кол-во комнат</h4>
+                    {{ filterset.form.rooms }}
+                    <h4>Стоимость</h4>
+                    <div class="input-group my-3">
+                        {{ filterset.form.priceFrom }}
+                        {{ filterset.form.priceTo }}
+                    </div>
+                </div>
+        </form>
     </div>
 
     <style>
@@ -76,118 +57,75 @@
     <div class="col-md-4">
         <div style="border-radius: 40px;" class="card d-flex align-items-center">
             <div class="col card-container">
-                <h4 class="my-3">Найдена 7432 обьектов</h4>
-                <div class="col-md-12 mb-3">
-                    <div class="col my-2">
-                        <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">
-                            <div class="row">
-                                <div class="col-md-3 my-3">
-                                    <img style="height: 95px; height: 95px;" src="{% static 'images/Rectangle 20.svg' %}" alt="">
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="card-body">
-                                        <h5 style="color: white!important;" class="mb-0">Дом, 4 комнаты, 2этаж</h5>
-                                        <p style="color: white!important;" class="mb-1">3 соток</p>
-                                        <p style="color: white!important;" class="mb-1">С. Кок-Жар</p>
-                                        <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">90 000$</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <div class="col my-2">
-                        <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">
-                            <div class="row">
-                                <div class="col-md-3 my-3">
-                                    <img style="height: 95px; height: 95px;"
-                                        src="{% static 'images/Rectangle 20.svg' %}" alt="">
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="card-body">
-                                        <h5 style="color: white!important;" class="mb-0">Дом, 4 комнаты, 2этаж</h5>
-                                        <p style="color: white!important;" class="mb-1">3 соток</p>
-                                        <p style="color: white!important;" class="mb-1">С. Кок-Жар</p>
-                                        <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">90
-                                            000$</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h4 class="my-3">Найдено 7432 обьектов</h4>
 
-                <div class="col-md-12 mb-3">
+                {% for object in map_objects %}
+                    <div class="col-md-12 mb-3">
                     <div class="col my-2">
                         <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">
                             <div class="row">
                                 <div class="col-md-3 my-3">
-                                    <img style="height: 95px; height: 95px;"
-                                        src="{% static 'images/Rectangle 20.svg' %}" alt="">
+                                    <img style="height: 95px; width: 95px; border-radius: 30%" src="{{ object.images.all.0.image.url }}" alt="">
                                 </div>
                                 <div class="col-md-9">
                                     <div class="card-body">
-                                        <h5 style="color: white!important;" class="mb-0">Дом, 4 комнаты, 2этаж</h5>
-                                        <p style="color: white!important;" class="mb-1">3 соток</p>
-                                        <p style="color: white!important;" class="mb-1">С. Кок-Жар</p>
-                                        <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">90
-                                            000$</h5>
+                                        <h5 style="color: white!important;" class="mb-0">{{ object.category }}, {{ object.rooms }} комнаты,
+                                            {% if object.current_floor %}{{ object.current_floor }} этаж{% else %}этаж не указан{% endif %}</h5>
+                                        <p style="color: white!important;" class="mb-1">3 соток?</p>
+                                        <p style="color: white!important;" class="mb-1">С. Кок-Жар?</p>
+                                        <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">{{ object.price }}$</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 mb-3">
-                    <div class="col my-2">
-                        <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">
-                            <div class="row">
-                                <div class="col-md-3 my-3">
-                                    <img style="height: 95px; height: 95px;"
-                                        src="{% static 'images/Rectangle 20.svg' %}" alt="">
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="card-body">
-                                        <h5 style="color: white!important;" class="mb-0">Дом, 4 комнаты, 2этаж</h5>
-                                        <p style="color: white!important;" class="mb-1">3 соток</p>
-                                        <p style="color: white!important;" class="mb-1">С. Кок-Жар</p>
-                                        <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">90
-                                            000$</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                        </div>
+                 {% empty %}
+                    <h5>Нет совпадений</h5>
+                {% endfor %}
+
+            </div>
         </div>
     </div>
 
    
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Добавляем обработчик события на изменение значений фильтров
+    $('#filters-form :input').change(function() {
+        $('#filters-form').submit(); // Автоматическая отправка формы
+    });
+</script>
 
 
 <script>
-    // Функция для создания и отображения карты
-    function initMap() {
-        // Замените 'ВАШAPIКЛЮЧ' на ваш собственный API-ключ от 2GIS
-        var map = DG.map('map', {
-            center: [42.874722, 74.569778], // Координаты центра карты для города Bishkek (Бишкек)
-            zoom: 13 // Масштаб карты
-        });
+        // Функция для создания и отображения карты
+        function initMap() {
+            var center = [42.874722, 74.569778]; // Координаты центра карты для города Bishkek (Бишкек)
+            var coordinates = [
+                [42.874722, 74.569778], // Координаты центра для примера
+                [42.8494309, 74.5899713], // Пример другой координаты
+                // Добавьте другие координаты в формате [широта, долгота]
+            ];
 
-        // Пример добавления метки на карту
-        var marker = DG.marker([42.874722, 74.569778]).addTo(map);
-        marker.bindPopup('Bishkek (Бишкек)'); // Текст во всплывающем окне при клике на метку
-    }
+            // Создание карты
+            var map = DG.map('map', {
+                center: center, // Центр карты
+                zoom: 13 // Масштаб карты
+            });
 
-    // Вызов функции после полной загрузки страницы
-    window.onload = function () {
-        initMap();
-    };
-</script>
+            // Добавление меток на карту
+            for (var i = 0; i < coordinates.length; i++) {
+                var coord = coordinates[i];
+                var marker = DG.marker(coord).addTo(map);
+                marker.bindPopup('Marker ' + i); // Текст во всплывающем окне при клике на метку
+            }
+        }
+
+        // Вызов функции после полной загрузки страницы
+        window.onload = function () {
+            DG.then(initMap); // Инициализация карты после загрузки библиотеки
+        };
+    </script>
 
 {% endblock %}
-
-{% endblock% }
