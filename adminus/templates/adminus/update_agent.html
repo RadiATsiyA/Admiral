@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Добавить агента</title>
+    <title>Изменить агента</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -38,8 +38,8 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="mb-4">Добавить агента <br>{% if form.errors %}{{ form.errors }}{% endif %}</h2>
-        <form method="post" action="{% url 'adminus:agent-add' %}" enctype="multipart/form-data">
+        <h2 class="mb-4">Изменить агента</h2>
+        <form method="post" action="{% url 'adminus:change_agent' agent.id %}" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <label for="{{ form.full_name.id_for_label }}">ФИО:</label>
@@ -74,39 +74,22 @@
             </div>
 
             <div class="form-group">
-                <label for="{{ form.image.id_for_label }}">Добавить фото:</label>
+                <label for="photo">Текущая картинка:</label>
+                <img src="{{ agent.image.url }}" alt="{{ agent.full_name }}" width="100">
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.image.id_for_label }}">Добавить или изменить фото:</label>
                 <div class="custom-file">
                     {{ form.image }}
                     <label class="custom-file-label" for="{{ form.image.id_for_label }}" data-content="Файл не выбран"></label>
                 </div>
             </div>
-
-            <!-- Добавим элемент для предварительного просмотра выбранного изображения -->
-            <div class="form-group">
-                <label>Предварительный просмотр:</label>
-                <img id="image-preview" src="" alt="Выбранное изображение" width="100">
-            </div>
-
-            <button type="submit" class="btn btn-submit">Добавить агента</button>
+            <button type="submit" class="btn btn-submit">Изменить агента</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        function previewImage(input) {
-            var preview = document.getElementById('image-preview');
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                preview.src = "";
-            }
-        }
-    </script>
 </body>
 </html>

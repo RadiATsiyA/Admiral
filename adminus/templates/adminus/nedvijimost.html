@@ -26,202 +26,41 @@
 
                             <img style="height: 80px; width: 80px; text-decoration: none!important;" class="img-fluid"
                                 src="{% static 'images/add.svg' %}" alt="">
-                            <h4>Добавить агента</h4>
+                            <h4>Добавить объект</h4>
                         </a>
 
                     </div>
                 </div>
 
+                {% for object in objs %}
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
                     <div class="card custom-card">
                         <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
+                            <img style="width: 198px; height: 229px; border-radius: 20%;" class="card-img-top" src="{{ object.images.all.0.image.url }}" alt="">
 
                         </div>
                         <div class="card-block mx-3">
                             <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="{% static 'images/trash-2.svg' %}" alt="">
+                                <h4 style="color: #00408E;" class="card-title">{{ object.category.category_name }}</h4>
+                                <a style="text-decoration: none" href="{% url 'adminus:remove_object' object.id %}"><img class="mx-5" src="{% static 'images/trash-2.svg' %}" alt=""><a/>
                             </div>
                             <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="{% static 'images/edit-2.svg' %}" alt="">
+                                <p style="font-size: 18px;">{{ object.price }}$</p>
+                                <a style="text-decoration: none" href="{% url 'adminus:change_object' object.id %}"><img class="mx-5 px-5" src="{% static 'images/edit-2.svg' %}" alt=""></a>
                             </div>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
+                                <p style="font-size: 18px; margin-right: 70px;">{{ object.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">15 m</p>
                             </div>
                             <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
+                                <p style="font-size: 18px; margin-right: 85px;">{{ object.current_floor }}/{{ object.total_floors }} этаж</p>
+                                <p style="font-size: 18px; ">{{ object.series }} серия</p>
                             </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
+                            <p style="font-size: 18px; margin-bottom: 5px;">{{ object.address }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="/static/images/trash-2.svg" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="/static/images/edit-2.svg" alt="">
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="/static/images/trash-2.svg" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="/static/images/edit-2.svg" alt="">
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="/static/images/trash-2.svg" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="/static/images/edit-2.svg" alt="">
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="/static/images/trash-2.svg" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="/static/images/edit-2.svg" alt="">
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="/static/images/trash-2.svg" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="/static/images/edit-2.svg" alt="">
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img class="card-img-top" src="/static/images/Rectangle 15.svg" alt="">
-
-                        </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
-                                <img class="mx-5" src="/static/images/trash-2.svg" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <p style="font-size: 18px;">60000$</p>
-                                <img class="mx-5 px-5" src="/static/images/edit-2.svg" alt="">
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 70px;">2 комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
-                            </div>
-                            <div class="d-flex">
-                                <p style="font-size: 18px; margin-right: 85px;">6/9 этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
-                            </div>
-                            <p style="font-size: 18px; margin-bottom: 5px;">мкр. Учкун д21</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
             </div>
         </div>

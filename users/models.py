@@ -38,7 +38,7 @@ class Agent(models.Model):
     experience = models.FloatField(blank=True, default=0)
     rating = models.FloatField(default=0)
     image = models.ImageField(upload_to=get_agent_image_path, null=True, blank=True)
-    slogan = models.CharField(max_length=300, default='Нет девиза')
+    slogan = models.CharField(max_length=300, default='Нет девиза', blank=True)
     specialization = models.ManyToManyField(to=Specialization, blank=True)
 
     def __str__(self):
