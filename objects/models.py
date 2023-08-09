@@ -45,25 +45,34 @@ class ObjectAd(models.Model):
         ('sale', 'Продажа')
     ]
 
+    STATUS = [
+        ('completed', 'Завершен'),
+        ('incomplete', 'Не завершен')
+    ]
+
     rooms = models.IntegerField(null=True, blank=True)
     current_floor = models.IntegerField(blank=True, null=True)
     total_floors = models.IntegerField(blank=True, null=True)
     otoplenie = models.CharField(max_length=50, null=True, blank=True)
     remont = models.CharField(max_length=50, null=True, blank=True)
     furniture = models.CharField(max_length=50, null=True, blank=True)
+    balcony = models.CharField(max_length=50, null=True, blank=True)
     series = models.IntegerField(null=True, blank=True)
     window_direction = models.CharField(max_length=100, null=True, blank=True)
+    security = models.CharField(max_length=50, null=True, blank=True)
     area = models.IntegerField()
     city = models.CharField(max_length=50)
     address = models.CharField(max_length=100)
     latitude = models.CharField(max_length=30, null=True, blank=True)  # Широта
     longitude = models.CharField(max_length=30, null=True, blank=True)  # Долгота
     year_built = models.IntegerField(default=2010, null=True, blank=True)
-    company_name = models.CharField(max_length=50, null=True, blank=True)
+    zastroishik = models.CharField(max_length=50, null=True, blank=True)
     ad_type = models.CharField(max_length=10, choices=AD_TYPES, default='Продажа')
     price = models.DecimalField(max_digits=11, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
+    kitchens_area = models.IntegerField()
     is_active = models.BooleanField(default=True)
+    status = models.CharField(max_length=20, choices=STATUS, blank=True, null=True, default='completed')
     category = models.ForeignKey(to=Category, related_name='category', on_delete=models.SET_NULL, null=True, blank=True)
     district = models.ForeignKey(to=District, related_name='district', on_delete=models.SET_NULL, null=True, blank=True)
     agent = models.ForeignKey(to=Agent, related_name='agent_object', on_delete=models.SET_NULL, null=True, blank=True)

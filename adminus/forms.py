@@ -94,4 +94,74 @@ class ObjectAddForm(forms.ModelForm):
         'class': 'form-control', 'id': 'company'
     }))
 
+    zastroishik = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'developer'
+    }))
+
+    window_direction = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'windowDirection'
+    }))
+
+    status = forms.ChoiceField(
+        label="Этап строительства",
+        choices=(('completed', 'Завершен'), ('incomplete', 'Не завершен')),
+        widget=forms.RadioSelect(attrs={
+            'class': 'form-check-input'
+        })
+    )
+
+    images = forms.ImageField(
+        label='Добавить фото (до 5 штук):',
+        widget=forms.ClearableFileInput(attrs={'multiple': True, 'accept': 'image/*', 'class': 'form-control-file', 'id': 'photos'})
+    )
+
+    kitchens_area = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'kitchenArea'
+    }))
+
+    otoplenie = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'heating'
+    }))
+
+    furniture = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'furniture'
+    }))
+
+    balcony = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'balcony'
+    }))
+
+    documents = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'legalDocuments'
+    }))
+
+    security = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'security'
+    }))
+
+    walls_material = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'wallMaterial'
+    }))
+
+    ad_type = forms.ChoiceField(
+        queryset=ObjectAd.ad_type.all(),
+        widget=forms.Select(attrs={
+            'class': 'form-control', 'id': 'predloj'
+        })
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
