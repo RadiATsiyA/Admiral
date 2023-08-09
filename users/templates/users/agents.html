@@ -66,13 +66,16 @@
                                 <p class="card-text mb-4"><strong>Агент компании &lt;{{ agent.agency_name }}&gt;</strong></p>
                                 <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7 мкр</strong></p>
                                 <p class="card-text mb-4">Стаж: <strong>{{ agent.experience }} года</strong></p>
-                                <p class="card-text mb-4">Девиз: <strong>{{ agent.slogan }}</strong></p>
+                                <p class="card-text mb-4">Девиз: <strong>{% if agent.slogan %}{{ agent.slogan }}{% else %}Быстро, надежно и удобно{% endif %}</strong></p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="d-flex justify-content-center py-3">
-                            <img style="width: 238px; height: 288px; border-radius: 40px ; border-image-slice: 20px;     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
-                                " class="specialist-img " src=" {{ agent.image.url}}" alt="Specialist">
+                            {% if agent.image %}
+                            <img style="height: 288px; width: 238px;" class="specialist-img  " src="{{ agent.image.url }}" alt="Specialist">
+                            {% else %}
+                            <h4 style="margin-top: 40%">Нет фотографии агента</h4>
+                            {% endif %}
                         </div>
                         </div>
                         <div class="col-md-6">
@@ -88,8 +91,7 @@
                                     {% endfor %}
                                 {% else %}
                                     <div class="col-md-2">
-                                        <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 1">
-                                        <h4>Нет объектов агента</h4>
+                                        <h4>У этого агента нет объектов</h4>
                                     </div>
                                 {% endif %}
                             </div>
