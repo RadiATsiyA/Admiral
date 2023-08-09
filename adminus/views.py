@@ -3,10 +3,10 @@ from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView
-from .forms import AdminLoginForm, AgentForm
+from .forms import AdminLoginForm, AgentForm, ObjectForm
 from users.filters import AgentFilter
 from users.models import Agent
-from objects.models import ObjectAd
+from objects.models import ObjectAd, ObjectImage
 
 
 class AdminLoginView(LoginView):
@@ -63,8 +63,17 @@ class AdminObjectsView(ListView):
     context_object_name = 'objs'
 
 
-class AdminAddObjectView(TemplateView):
+class AdminAddObjectView(CreateView):
+    model = ObjectAd
     template_name = 'adminus/add_nedvij.html'
+    form_class = ObjectForm
+    success_url = reverse_lazy('adminus:objects')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        for image in self.request.FILES.getlist('images'):
+            ObjectImage.objects.create(object_ad=self.object, image=image)
+        return response
 
 
 class AdminChangeAgent(UpdateView):
@@ -74,8 +83,22 @@ class AdminChangeAgent(UpdateView):
     success_url = reverse_lazy('adminus:agents')
 
 
-class AdminChangeObject(TemplateView):
-    #model = ObjectAd
+class AdminChangeObject(UpdateView):
+    model = ObjectAd
     template_name = 'adminus/update_nedvij.html'
-    #form_class = ObjectChangeForm
-    #success_url = reverse_lazy('adminus:objects')
+    form_class = ObjectForm
+    success_url = reverse_lazy('adminus:objects')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+
+        if form.is_valid():
+            print("Form is valid")
+
+            if not self.object.pk:
+                for image in request.FILES.getlist('images'):
+                    ObjectImage.objects.create(object_ad=self.object, image=image)
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)

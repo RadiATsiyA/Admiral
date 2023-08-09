@@ -71,6 +71,8 @@ class ObjectAd(models.Model):
     price = models.DecimalField(max_digits=11, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
     kitchens_area = models.IntegerField()
+    documents = models.CharField(max_length=50, null=True, blank=True)
+    walls_material = models.CharField(max_length=50, null=True, blank=True)
     # is_active = models.BooleanField(default=True)
     status = models.CharField(max_length=20, choices=STATUS, blank=True, null=True, default='completed')
     category = models.ForeignKey(to=Category, related_name='category', on_delete=models.SET_NULL, null=True, blank=True)

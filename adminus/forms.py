@@ -62,7 +62,7 @@ class AgentForm(forms.ModelForm):
         fields = ['full_name', 'experience', 'specialization', 'phone', 'agency_name', 'slogan', 'image']
 
 
-class ObjectAddForm(forms.ModelForm):
+class ObjectForm(forms.ModelForm):
     category = forms.ModelChoiceField(
         queryset=Category.objects.all(),
         widget=forms.Select(attrs={
@@ -101,7 +101,7 @@ class ObjectAddForm(forms.ModelForm):
     }))
 
     total_floors = forms.IntegerField(widget=forms.NumberInput(attrs={
-        'class': 'form-control', 'id': 'floorCount'
+        'class': 'form-control', 'id': 'totalfloorCount'
     }))
 
     address = forms.CharField(widget=forms.TextInput(attrs={
@@ -117,8 +117,7 @@ class ObjectAddForm(forms.ModelForm):
     }))
 
     status = forms.ChoiceField(
-        label="Этап строительства",
-        choices=(('completed', 'Завершен'), ('incomplete', 'Не завершен')),
+        choices=ObjectAd.STATUS,  # Используйте атрибут STATUS для choices
         widget=forms.RadioSelect(attrs={
             'class': 'form-check-input'
         })
@@ -166,6 +165,10 @@ class ObjectAddForm(forms.ModelForm):
 
     city = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'city'
+    }))
+
+    price = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'price'
     }))
 
     class Meta:

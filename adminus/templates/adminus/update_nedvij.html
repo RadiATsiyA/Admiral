@@ -46,66 +46,82 @@
 
 <body>
     <div class="container">
-        <h2 class="mb-4">Изменить недвижимость</h2>
-        <form>
+        <h2 class="mb-4">Добавить недвижимость</h2>
+        <form action="{% url 'adminus:change_object' object.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-group">
-                <label for="propertyType">Тип:</label>
-                <select class="form-control" id="propertyType">
-                    <option>Квартира</option>
-                    <option>Дом</option>
-                    <option>Земельный участок</option>
-                </select>
+                <label for="{{ form.category.id_for_label }}">Тип:</label>
+                {{ form.category }}
             </div>
             <div class="form-group">
-                <label for="series">Серия:</label>
-                <input type="text" class="form-control" id="series">
+                <label for="{{ form.city.id_for_label }}">Город:</label>
+                {{ form.city }}
             </div>
             <div class="form-group">
-                <label for="apartmentNumber">Квартира:</label>
-                <input type="text" class="form-control" id="apartmentNumber">
+                <label for="{{ form.district.id_for_label }}">Район:</label>
+                {{ form.district }}
             </div>
             <div class="form-group">
-                <label for="area">Площадь (м2):</label>
-                <input type="number" class="form-control" id="area">
+                <label for="{{ form.address.id_for_label }}">Адрес:</label>
+                {{ form.address }}
             </div>
             <div class="form-group">
-                <label for="roomCount">Кол-во комнат:</label>
-                <input type="number" class="form-control" id="roomCount">
+                <label for="{{ form.price.id_for_label }}">Цена $:</label>
+                {{ form.price }}
             </div>
             <div class="form-group">
-                <label for="floorCount">Кол-во этажей:</label>
-                <input type="number" class="form-control" id="floorCount">
+                <label for="{{ form.series.id_for_label }}">Серия:</label>
+                {{ form.series }}
             </div>
             <div class="form-group">
-                <label for="address">Адрес:</label>
-                <input type="text" class="form-control" id="address">
+                <label for="{{ form.area.id_for_label }}">Площадь (м2):</label>
+                {{ form.area }}
             </div>
             <div class="form-group">
-                <label for="developer">Застройщик:</label>
-                <input type="text" class="form-control" id="developer">
+                <label for="{{ form.rooms.if_for_label }}">Кол-во комнат:</label>
+                {{ form.rooms }}
             </div>
             <div class="form-group">
-                <label for="windowDirection">Направление окон:</label>
-                <input type="text" class="form-control" id="windowDirection">
+                <label for="{{ form.current_floor.id_for_label }}">На каком этаже:</label>
+                {{ form.current_floor }}
             </div>
             <div class="form-group">
-                <label>Этап строительства:</label>
+                <label for="{{ form.total_floors.id_for_label }}">Общее количество этажей:</label>
+                {{ form.total_floors }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.zastroishik.id_for_label }}">Застройщик:</label>
+                {{ form.zastroishik }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.window_direction.id_for_label }}">Направление окон:</label>
+                {{ form.window_direction }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.construction_stage.id_for_label }}">Этап строительства:</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="constructionStage" id="completed"
-                        value="completed">
-                    <label class="form-check-label" for="completed">Завершен</label>
+                    <input class="form-check-input" type="radio" name="{{ form.status.name }}" id="{{ form.status.id_for_label }}_completed" value="completed"
+                        {% if object.status == 'completed' %} checked {% endif %}>
+                    <label class="form-check-label" for="{{ form.status.id_for_label }}_completed">Завершен</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="constructionStage" id="incomplete"
-                        value="incomplete">
-                    <label class="form-check-label" for="incomplete">Не завершен</label>
+                    <input class="form-check-input" type="radio" name="{{ form.status.name }}" id="{{ form.status.id_for_label }}_incomplete" value="incomplete"
+                        {% if object.status == 'incomplete' %} checked {% endif %}>
+                    <label class="form-check-label" for="{{ form.status.id_for_label }}_incomplete">Не завершен</label>
                 </div>
             </div>
 
 
             <div class="form-group">
-                <label for="photos">Добавить фото (до 5 штук):</label>
-                <input type="file" class="form-control-file" id="photos" accept="image/*" multiple>
+                <label for="photo">Текущая картинка:</label>
+                    {% for image in object.images.all %}
+                        <img src="{{ image.image.url }}" alt="" width="100">
+                    {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.images.id_for_label }}">Поменять фото (до 5 штук) выбирайте все фото за раз:</label>
+                {{ form.images }}
             </div>
             <div class="form-group">
                 <label for="uploadedPhotos">Фотографии:</label>
@@ -113,6 +129,7 @@
                     <!-- Здесь будут отображаться загруженные фотографии -->
                 </div>
             </div>
+
             <script>const photosInput = document.getElementById('photos');
                 const uploadedPhotosContainer = document.getElementById('uploadedPhotos');
 
@@ -138,51 +155,45 @@
 
             <h4 style="color: #007bff!important;">Дополнительная информация</h4>
             <div class="form-group">
-                <label for="floorCount">Количество этажей</label>
-                <input type="number" class="form-control" id="floorCount" min="1">
+                <label for="{{ form.kitchens_area.id_for_label }}">Площадь кухни (м²)</label>
+                {{ form.kitchens_area }}
             </div>
             <div class="form-group">
-                <label for="kitchenArea">Площадь кухни (м²)</label>
-                <input type="number" class="form-control" id="kitchenArea" step="0.01" min="0">
+                <label for="{{ form.otoplenie.id_for_label }}">Отопление</label>
+                {{ form.otoplenie }}
             </div>
             <div class="form-group">
-                <label for="heating">Отопление</label>
-                <input type="text" class="form-control" id="heating">
+                <label for="{{ form.furniture.id_for_label }}">Мебель</label>
+                {{ form.furniture }}
             </div>
             <div class="form-group">
-                <label for="furniture">Мебель</label>
-                <input type="text" class="form-control" id="furniture">
+                <label for="{{ form.balcony.id_for_label }}">Балкон, лоджия</label>
+                {{ form.balcony }}
             </div>
             <div class="form-group">
-                <label for="balcony">Балкон, лоджия</label>
-                <input type="text" class="form-control" id="balcony">
-            </div>
-            <div class="form-group">
-                <label for="legalDocuments">Правоустанавливающие документы</label>
-                <input type="text" class="form-control" id="legalDocuments">
+                <label for="{{ form.documents.id_for_label }}">Правоустанавливающие документы</label>
+                {{ form.documents }}
 
             </div>
             <div class="form-group">
-                <label for="windows">Окна (направленность)</label>
-                <input type="text" class="form-control" id="windows">
+                <label for="{{ form.security.id_for_label }}">Защита территории</label>
+                {{ form.security }}
             </div>
             <div class="form-group">
-                <label for="security">Защита территории</label>
-                <input type="text" class="form-control" id="security">
+                <label for="{{ form.walls_material.id_for_label }}">Материал стен</label>
+                {{ form.walls_material }}
             </div>
             <div class="form-group">
-                <label for="wallMaterial">Материал стен</label>
-                <input type="text" class="form-control" id="wallMaterial">
+                <label for="{{ form.ad_type.id_for_label }}">Тип предложения</label>
+                {{ form.ad_type }}
             </div>
             <div class="form-group">
-                <label for="offerType">Тип предложения</label>
-                <input type="text" class="form-control" id="predloj">
-
+                <label for="{{ form.agent.id_for_label }}">Какой агент отвечает за этот объект:</label>
+                {{ form.agent }}
             </div>
 
 
-
-            <button type="submit" class="btn btn-submit">Добавить объект</button>
+            <button type="submit" class="btn btn-submit">Изменить объект</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
