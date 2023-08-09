@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm
 from users.models import User, Agent, Specialization
-from objects.models import ObjectAd, Category
+from objects.models import ObjectAd, Category, District
 from django import forms
 
 
@@ -63,10 +63,24 @@ class AgentForm(forms.ModelForm):
 
 
 class ObjectAddForm(forms.ModelForm):
-    category = forms.ChoiceField(
+    category = forms.ModelChoiceField(
         queryset=Category.objects.all(),
         widget=forms.Select(attrs={
             'class': 'form-control', 'id': 'propertyType'
+        })
+    )
+
+    district = forms.ModelChoiceField(
+        queryset=District.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'form-control', 'id': 'district'
+        })
+    )
+
+    agent = forms.ModelChoiceField(
+        queryset=Agent.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'form-control', 'id': 'agent'
         })
     )
 
@@ -144,11 +158,19 @@ class ObjectAddForm(forms.ModelForm):
     }))
 
     ad_type = forms.ChoiceField(
-        queryset=ObjectAd.ad_type.all(),
+        choices=ObjectAd.AD_TYPES,
         widget=forms.Select(attrs={
             'class': 'form-control', 'id': 'predloj'
         })
     )
+
+    city = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'city'
+    }))
+
+    class Meta:
+        model = ObjectAd
+        exclude = ['latitude', 'longitude', 'date_created', ]
 
 
 

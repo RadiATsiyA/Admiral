@@ -53,6 +53,18 @@
                 {{ form.category }}
             </div>
             <div class="form-group">
+                <label for="{{ form.city.id_for_label }}">Город:</label>
+                {{ form.city }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.district.id_for_label }}">Район:</label>
+                {{ form.district }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.address.id_for_label }}">Адрес:</label>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
                 <label for="{{ form.series.id_for_label }}">Серия:</label>
                 {{ form.series }}
             </div>
@@ -71,6 +83,10 @@
             <div class="form-group">
                 <label for="{{ form.total_floors.id_for_label }}">Общее количество этажей:</label>
                 {{ form.total_floor }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.city.id_for_label }}">Адрес:</label>
+                {{ form.city }}
             </div>
             <div class="form-group">
                 <label for="{{ form.address.id_for_label }}">Адрес:</label>
@@ -96,7 +112,6 @@
                 </div>
             </div>
 
-
             <div class="form-group">
                 <label for="{{ form.images.id_for_label }}">Добавить фото (до 5 штук):</label>
                 {{ form.images }}
@@ -107,6 +122,7 @@
                     <!-- Здесь будут отображаться загруженные фотографии -->
                 </div>
             </div>
+
             <script>const photosInput = document.getElementById('photos');
                 const uploadedPhotosContainer = document.getElementById('uploadedPhotos');
                 
@@ -164,6 +180,11 @@
                 <label for="{{ form.ad_type.id_for_label }}">Тип предложения</label>
                 {{ form.ad_type }}
             </div>
+            <div class="form-group">
+                <label for="{{ form.agent.id_for_label }}">Какой агент отвечает за этот объект:</label>
+                {{ form.agent }}
+            </div>
+
 
             <button type="submit" class="btn btn-submit">Добавить объект</button>
         </form>
