@@ -74,8 +74,8 @@ class AdminChangeAgent(UpdateView):
     success_url = reverse_lazy('adminus:agents')
 
 
-class AdminChangeObject(UpdateView):
-    model = ObjectAd
+class AdminChangeObject(TemplateView):
+    #model = ObjectAd
     template_name = 'adminus/update_nedvij.html'
     #form_class = ObjectChangeForm
-    success_url = reverse_lazy('adminus:objects')
+    #success_url = reverse_lazy('adminus:objects')

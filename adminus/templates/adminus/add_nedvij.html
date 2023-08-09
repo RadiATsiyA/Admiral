@@ -47,38 +47,34 @@
 <body>
     <div class="container">
         <h2 class="mb-4">Добавить недвижимость</h2>
-        <form>
+        <form action="{% url 'adminus:object-add' %}" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="propertyType">Тип:</label>
-                <select class="form-control" id="propertyType">
-                    <option>Квартира</option>
-                    <option>Дом</option>
-                    <option>Земельный участок</option>
-                </select>
+                <label for="{{ form.category.id_for_label }}">Тип:</label>
+                {{ form.category }}
             </div>
             <div class="form-group">
-                <label for="series">Серия:</label>
-                <input type="text" class="form-control" id="series">
+                <label for="{{ form.series.id_for_label }}">Серия:</label>
+                {{ form.series }}
             </div>
             <div class="form-group">
-                <label for="apartmentNumber">Квартира:</label>
-                <input type="text" class="form-control" id="apartmentNumber">
+                <label for="{{ form.area.id_for_label }}">Площадь (м2):</label>
+                {{ form.area }}
             </div>
             <div class="form-group">
-                <label for="area">Площадь (м2):</label>
-                <input type="number" class="form-control" id="area">
+                <label for="{{ form.rooms.if_for_label }}">Кол-во комнат:</label>
+                {{ form.rooms }}
             </div>
             <div class="form-group">
-                <label for="roomCount">Кол-во комнат:</label>
-                <input type="number" class="form-control" id="roomCount">
+                <label for="{{ form.current_floor.id_for_label }}">На каком этаже:</label>
+                {{ form.current_floor }}
             </div>
             <div class="form-group">
-                <label for="floorCount">Кол-во этажей:</label>
-                <input type="number" class="form-control" id="floorCount">
+                <label for="{{ form.total_floors.id_for_label }}">Общее количество этажей:</label>
+                {{ form.total_floor }}
             </div>
             <div class="form-group">
-                <label for="address">Адрес:</label>
-                <input type="text" class="form-control" id="address">
+                <label for="{{ form.address.id_for_label }}">Адрес:</label>
+                {{ form.address }}
             </div>
             <div class="form-group">
                 <label for="developer">Застройщик:</label>

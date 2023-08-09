@@ -1,6 +1,6 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import AuthenticationForm
 from users.models import User, Agent, Specialization
-from objects.models import ObjectAd
+from objects.models import ObjectAd, Category
 from django import forms
 
 
@@ -60,3 +60,38 @@ class AgentForm(forms.ModelForm):
     class Meta:
         model = Agent
         fields = ['full_name', 'experience', 'specialization', 'phone', 'agency_name', 'slogan', 'image']
+
+
+class ObjectAddForm(forms.ModelForm):
+    category = forms.ChoiceField(
+        queryset=Category.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'form-control', 'id': 'propertyType'
+        })
+    )
+
+    series = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'series'
+    }))
+
+    area = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'area'
+    }))
+
+    rooms = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'roomCount'
+    }))
+
+    current_floor = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'floorCount'
+    }))
+
+    total_floors = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control', 'id': 'floorCount'
+    }))
+
+    address = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'id': 'company'
+    }))
+
+
