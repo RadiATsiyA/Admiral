@@ -37,9 +37,22 @@ class ObjectAdFilter(django_filters.FilterSet):
         label='Цена до',
     )
 
+    category = django_filters.CharFilter(
+        method='filter_by_type',
+        widget=forms.Select(attrs={'class': 'filter-select'}),
+        label='Тип',
+    )
+
+    def filter_by_type(self, queryset, name, value):
+        if value == 'Аренда':
+            return queryset.filter(ad_type='Аренда')
+        elif value == 'Продажа':
+            return queryset.filter(ad_type='Продажа')
+        return queryset
+
     class Meta:
         model = ObjectAd
-        fields = ['price', 'district', 'area', 'series']
+        fields = ['price', 'district', 'area', 'series', 'category']
 
 
 class MapObjectFilter(django_filters.FilterSet):

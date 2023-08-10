@@ -71,8 +71,8 @@
                                     <div class="card-body">
                                         <h5 style="color: white!important;" class="mb-0">{{ object.category }}, {{ object.rooms }} комнаты,
                                             {% if object.current_floor %}{{ object.current_floor }} этаж{% else %}этаж не указан{% endif %}</h5>
-                                        <p style="color: white!important;" class="mb-1">3 соток?</p>
-                                        <p style="color: white!important;" class="mb-1">С. Кок-Жар?</p>
+                                        <p style="color: white!important;" class="mb-1">{{ object.area }}m^2</p>
+                                        <p style="color: white!important;" class="mb-1">{{ object.district }}</p>
                                         <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">{{ object.price }}$</h5>
                                     </div>
                                 </div>
@@ -99,33 +99,29 @@
 
 
 <script>
-        // Функция для создания и отображения карты
-        function initMap() {
-            var center = [42.874722, 74.569778]; // Координаты центра карты для города Bishkek (Бишкек)
-            var coordinates = [
-                [42.874722, 74.569778], // Координаты центра для примера
-                [42.8494309, 74.5899713], // Пример другой координаты
-                // Добавьте другие координаты в формате [широта, долгота]
-            ];
+    // Функция для создания и отображения карты
+    function initMap() {
+        var center = [42.874722, 74.569778]; // Координаты центра карты для города Bishkek (Бишкек)
+        var coordinates = {{ object_coordinates|safe }}; // Используем координаты объектов из контекста
 
-            // Создание карты
-            var map = DG.map('map', {
-                center: center, // Центр карты
-                zoom: 13 // Масштаб карты
-            });
+        // Создание карты
+        var map = DG.map('map', {
+            center: center, // Центр карты
+            zoom: 13 // Масштаб карты
+        });
 
-            // Добавление меток на карту
-            for (var i = 0; i < coordinates.length; i++) {
-                var coord = coordinates[i];
-                var marker = DG.marker(coord).addTo(map);
-                marker.bindPopup('Marker ' + i); // Текст во всплывающем окне при клике на метку
-            }
+        // Добавление меток на карту
+        for (var i = 0; i < coordinates.length; i++) {
+            var coord = coordinates[i];
+            var marker = DG.marker(coord).addTo(map);
+            marker.bindPopup('Object ' + i); // Замените на свой текст во всплывающем окне при клике на метку
         }
+    }
 
-        // Вызов функции после полной загрузки страницы
-        window.onload = function () {
-            DG.then(initMap); // Инициализация карты после загрузки библиотеки
-        };
-    </script>
+    // Вызов функции после полной загрузки страницы
+    window.onload = function () {
+        DG.then(initMap); // Инициализация карты после загрузки библиотеки
+    };
+</script>
 
 {% endblock %}

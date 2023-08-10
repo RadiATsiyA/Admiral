@@ -40,7 +40,7 @@ class CategoryListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(CategoryListView, self).get_context_data()
-        context['recommendations'] = ObjectAd.objects.all()[:8]
+        context['recommendations'] = ObjectAd.objects.all()[:3]
         return context
 
 
@@ -53,9 +53,19 @@ class ApartmentsListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         category_name = self.kwargs.get('category_name')
+
+        # Handle category filtering
+        category_filter = self.request.GET.get('category', None)
+        if category_filter == 'аренда':
+            queryset = queryset.filter(category__category_name='аренда')
+        elif category_filter == 'покупка':
+            queryset = queryset.filter(category__category_name='покупка')
+
+        # Additional filtering based on category_name
         if category_name:
             category = get_object_or_404(Category, category_name=category_name)
             queryset = queryset.filter(category=category)
+
         self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
         return self.filterset.qs
 
@@ -92,17 +102,9 @@ class MapObjectView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
+        coordinates = [
+            [float(obj.latitude), float(obj.longitude)] for obj in context['map_objects'] if
+            obj.latitude and obj.longitude
+        ]
+        context['object_coordinates'] = json.dumps(coordinates)
         return context
-
-
-def get_geocode(address, city):
-    response = requests.get(f'https://geocode.maps.co/search?q={address} {city}')
-    data = json.loads(response.text)
-
-    for item in data:
-        latitude = item['lat']
-        longitude = item['lon']
-        print(f"Широта: {latitude}, Долгота: {longitude}")
-
-
-

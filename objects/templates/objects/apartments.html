@@ -33,8 +33,9 @@
                 <div class="card card-category">
                     <div class="d-flex category-buttons justify-content-center my-4 position-relative">
                         <button class="category-button px-5 mx-5" onclick="filterCategory('all')">Все</button>
-                        <button class="category-button" onclick="filterCategory('аренда')">Аренда</button>
-                        <button class="category-button px-5 mx-5" onclick="filterCategory('покупка')">Покупка</button>
+                        <button class="category-button" onclick="filterCategory('Аренда')">Аренда</button>
+                        <button class="category-button px-5 mx-5" onclick="filterCategory('Продажа')">Покупка</button>
+
                     </div>
                     <div class="container">
                         <hr style="background-color: white; height: 2px;" class="devider">
@@ -85,17 +86,20 @@
     <script>
         // JavaScript for filtering by category...
         function filterCategory(category) {
-            const propertyCards = document.querySelectorAll('.col');
+        const propertyCards = document.querySelectorAll('.col');
+        propertyCards.forEach(card => {
+            // Update card filtering logic...
+        });
 
-            propertyCards.forEach(card => {
-                const cardCategory = card.querySelector('h1').textContent.toLowerCase();
-                if (category === 'all' || cardCategory.includes(category)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+        // Update URL and submit form
+        const filtersForm = document.getElementById('filters-form');
+        const categoryInput = document.createElement('input');
+        categoryInput.setAttribute('type', 'hidden');
+        categoryInput.setAttribute('name', 'category');
+        categoryInput.setAttribute('value', category);
+        filtersForm.appendChild(categoryInput);
+        filtersForm.submit();
+}
     </script>
 
     <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
@@ -126,11 +130,11 @@
                             <p style="font-size: 18px;">{{ obj.price }}$</p>
                             <div class="d-flex">
                                 <p style="font-size: 18px; margin-right: 70px;">{{ obj.rooms }} комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                                <p style="font-size: 18px; margin-right: 10px;">{{ obj.kitchens_area }}</p>
                             </div>
                             <div class="d-flex">
                                 <p style="font-size: 18px; margin-right: 85px;">{{ obj.current_floor }}/{{ obj.total_floors }} этаж</p>
-                                <p style="font-size: 18px; ">105 серия</p>
+                                <p style="font-size: 18px; ">{{ obj.series }} серия</p>
                             </div>
                             <p style="font-size: 18px; margin-bottom: 5px;">{{ obj.address }}</p>
                         </div>
