@@ -70,7 +70,7 @@ class ObjectAd(models.Model):
     ad_type = models.CharField(max_length=10, choices=AD_TYPES, default='Продажа')
     price = models.DecimalField(max_digits=11, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
-    kitchens_area = models.IntegerField()
+    kitchens_area = models.IntegerField(null=True, blank=True)
     documents = models.CharField(max_length=50, null=True, blank=True)
     walls_material = models.CharField(max_length=50, null=True, blank=True)
     # is_active = models.BooleanField(default=True)

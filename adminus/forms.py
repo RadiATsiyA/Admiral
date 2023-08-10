@@ -173,9 +173,12 @@ class ObjectForm(forms.ModelForm):
         'class': 'form-control', 'id': 'price'
     }))
 
+    latitude = forms.DecimalField(required=False, widget=forms.HiddenInput())
+    longitude = forms.DecimalField(required=False, widget=forms.HiddenInput())
+
     class Meta:
         model = ObjectAd
-        exclude = ['latitude', 'longitude', 'date_created', ]
+        exclude = ['date_created', ]
 
 
 
