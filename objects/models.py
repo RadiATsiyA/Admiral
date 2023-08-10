@@ -41,8 +41,8 @@ class District(models.Model):
 class ObjectAd(models.Model):
     """Модель объекта"""
     AD_TYPES = [
-        ('rent', 'Аренда'),
-        ('sale', 'Продажа')
+        ('Аренда', 'Аренда'),
+        ('Продажа', 'Продажа')
     ]
 
     STATUS = [

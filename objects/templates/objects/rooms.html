@@ -103,7 +103,7 @@
                         <div class="separator d-flex justify-content-center align-items-center text-center"></div>
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <span>Застройщик</span>
-                            <span><b>Не указан-- </b></span>
+                            <span><b>{{ object_detail.zastroishik }}</b></span>
                         </div>
                         <div class="separator"></div>
                         <div class="row d-flex justify-content-center align-items-center text-center">
@@ -118,11 +118,11 @@
                         <div class="text-center my-md-2 btn-str">
                             <div class="text-btn">Этап строительства</div>
                             <div style="font-size: 22px;" class="text-btn"><b
-                                    style="color: #90C83F!important;">Заселен--</b></div>
+                                    style="color: #90C83F!important;">{{ object_detail.status }}</b></div>
                         </div>
                         <div class="text-center my-md-2 justify-content-center btn-rare">
                             <div class="white">Срок сдачи</div>
-                            <div style="font-size: 22px;" class="white"><b style="color: #fff!important;">Сдан--</b></div>
+                            <div style="font-size: 22px;" class="white"><b style="color: #fff!important;">--</b></div>
                         </div>
                     </div>
                 </div>
@@ -156,11 +156,11 @@
                     </div>
                     <div class="row ">
                         <span class="my-2"> <b>{{ object_detail.current_floor }}/{{ object_detail.total_floors }}</b></span>
-                        <span class="my-2"> <b>12 м2--</b></span>
+                        <span class="my-2"> <b>{{ object_detail.kitchens_area }}</b></span>
                         <span class="my-2"> <b>{{ object_detail.otoplenie }}</b></span>
                         <span class="my-2"><b> {{ object_detail.furniture }}</b></span>
-                        <span class="my-2"><b> Балкон</b></span>
-                        <span class="my-2"> <b>0--</b></span>
+                        <span class="my-2"><b>{{ object_detail.balcony }}</b></span>
+                        <span class="my-2"> <b>{{ object_detail.documents }}</b></span>
                     </div>
                     <img class="me-5 pe-5 d-none d-md-block" src="{% static 'images/Line 10.svg' %}" alt="">
                     <div class="row ">
@@ -173,8 +173,8 @@
                     <div class="row ">
                         <span class="my-2"> <b>{{ object_detail.remont }}</b></span>
                         <span class="my-2"><b> {{ object_detail.window_direction }}</b></span>
-                        <span class="my-2"><b> Заборы, ворота--</b></span>
-                        <span class="my-2"> <b>Бетон--</b></span>
+                        <span class="my-2"><b>{{ object_detail.security }}</b></span>
+                        <span class="my-2"> <b>{{ object_detail.walls_material }}</b></span>
                         <span class="my-2"><b> {{ object_detail.ad_type }}</b></span>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                             <p style="font-size: 18px;">{{ recommendation.price }}$</p>
                             <div class="d-flex">
                                 <p style="font-size: 18px; margin-right: 70px;">{{ recommendation.rooms }} комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                                <p style="font-size: 18px; margin-right: 10px;">{% if recommendation.kitchens_area %}{{ recommendation.kitchens_area }} m{% endif %}</p>
                             </div>
                             <div class="d-flex">
                                 <p style="font-size: 18px; margin-right: 85px;">{% if recommendation.current_floor %}{{ recommendation.current_floor }}{% else %}Не указан{% endif %}/{% if recommendation.total_floors %}{{ recommendation.total_floors }} этаж{% else %}{% endif %}</p>

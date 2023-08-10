@@ -75,7 +75,7 @@
                             <p style="font-size: 18px;">{{ ad.price }}$</p>
                             <div class="d-flex">
                                 <p style="font-size: 18px; margin-right: 70px;">{{ ad.rooms }} комнаты</p>
-                                <p style="font-size: 18px; margin-right: 10px;">15 m</p>
+                                <p style="font-size: 18px; margin-right: 10px;">{% if ad.kitchens_area %}{{ ad.kitchens_area }} m{% else %}Не указано{% endif %}</p>
                             </div>
                             <div class="d-flex">
                                 <p style="font-size: 18px; margin-right: 85px;">{% if ad.current_floor %}{{ ad.current_floor }}{% else %}Не указан{% endif %}{% if ad.total_floors %}/{{ ad.total_floors }} этаж{% else %}{% endif %}</p>

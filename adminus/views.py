@@ -94,8 +94,6 @@ class AdminChangeObject(UpdateView):
         form = self.get_form()
 
         if form.is_valid():
-            print("Form is valid")
-
             if not self.object.pk:
                 for image in request.FILES.getlist('images'):
                     ObjectImage.objects.create(object_ad=self.object, image=image)

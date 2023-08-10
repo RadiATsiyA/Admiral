@@ -78,13 +78,14 @@ class ObjectForm(forms.ModelForm):
     )
 
     agent = forms.ModelChoiceField(
+        required=False,
         queryset=Agent.objects.all(),
         widget=forms.Select(attrs={
             'class': 'form-control', 'id': 'agent'
         })
     )
 
-    series = forms.IntegerField(widget=forms.NumberInput(attrs={
+    series = forms.IntegerField(required=False, widget=forms.NumberInput(attrs={
         'class': 'form-control', 'id': 'series'
     }))
 
@@ -96,11 +97,11 @@ class ObjectForm(forms.ModelForm):
         'class': 'form-control', 'id': 'roomCount'
     }))
 
-    current_floor = forms.IntegerField(widget=forms.NumberInput(attrs={
+    current_floor = forms.IntegerField(required=False, widget=forms.NumberInput(attrs={
         'class': 'form-control', 'id': 'floorCount'
     }))
 
-    total_floors = forms.IntegerField(widget=forms.NumberInput(attrs={
+    total_floors = forms.IntegerField(required=False, widget=forms.NumberInput(attrs={
         'class': 'form-control', 'id': 'totalfloorCount'
     }))
 
@@ -108,51 +109,52 @@ class ObjectForm(forms.ModelForm):
         'class': 'form-control', 'id': 'company'
     }))
 
-    zastroishik = forms.CharField(widget=forms.TextInput(attrs={
+    zastroishik = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'developer'
     }))
 
-    window_direction = forms.CharField(widget=forms.TextInput(attrs={
+    window_direction = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'windowDirection'
     }))
 
     status = forms.ChoiceField(
-        choices=ObjectAd.STATUS,  # Используйте атрибут STATUS для choices
+        choices=ObjectAd.STATUS,
         widget=forms.RadioSelect(attrs={
             'class': 'form-check-input'
         })
     )
 
     images = forms.ImageField(
+        required=False,
         label='Добавить фото (до 5 штук):',
         widget=forms.ClearableFileInput(attrs={'multiple': True, 'accept': 'image/*', 'class': 'form-control-file', 'id': 'photos'})
     )
 
-    kitchens_area = forms.IntegerField(widget=forms.NumberInput(attrs={
+    kitchens_area = forms.IntegerField(required=False, widget=forms.NumberInput(attrs={
         'class': 'form-control', 'id': 'kitchenArea'
     }))
 
-    otoplenie = forms.CharField(widget=forms.TextInput(attrs={
+    otoplenie = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'heating'
     }))
 
-    furniture = forms.CharField(widget=forms.TextInput(attrs={
+    furniture = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'furniture'
     }))
 
-    balcony = forms.CharField(widget=forms.TextInput(attrs={
+    balcony = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'balcony'
     }))
 
-    documents = forms.CharField(widget=forms.TextInput(attrs={
+    documents = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'legalDocuments'
     }))
 
-    security = forms.CharField(widget=forms.TextInput(attrs={
+    security = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'security'
     }))
 
-    walls_material = forms.CharField(widget=forms.TextInput(attrs={
+    walls_material = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'wallMaterial'
     }))
 
