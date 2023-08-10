@@ -36,7 +36,7 @@
                     <a class="animate-slide-up-fade-in nav-link ms-5" href="{% url 'obj:index' %}">О нас</a>
                 </li>
                 <li class="animate-slide-up-fade-in nav-item">
-                    <a class="animate-slide-up-fade-in nav-link ms-5" href="#">Контакты</a>
+                    <a class="animate-slide-up-fade-in nav-link ms-5" href="#contact">Контакты</a>
                 </li>
                 <li class="animate-slide-up-fade-in nav-item">
                     <a class="animate-slide-up-fade-in nav-link ms-5" href="{% url 'agent:agents_list' %}">Агенты</a>
@@ -63,19 +63,37 @@
             <!-- Добавление иконки лупы для поиска -->
             <ul class="animate-slide-up-fade-in navbar-nav ml-3">
                 <li class="animate-slide-up-fade-in nav-item">
-                    <a class="animate-slide-up-fade-in nav-link" href="#">
+                    <a class="animate-slide-up-fade-in nav-link" href="#" onclick="toggleSearchBar()">
                         <img style="width: 40px; height: 40px;" src="{% static 'images/search_logo.svg' %}" alt="Поиск">
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
+    <div id="searchBar" class="container mt-3 d-none">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Поиск..." aria-label="Поиск">
+                    <button style="color: white!important;" class="btn btn-primary" type="button">Искать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSearchBar() {
+            var searchBar = document.getElementById("searchBar");
+            searchBar.classList.toggle("d-none");
+        }
+    </script>
+
 
 {% block content %}
 
 {% endblock %}
 
-<footer>
+<footer id="contact">
         <hr class="animate-slide-up-fade-in devider">
         <div class="animate-slide-up-fade-in container py-5">
             <div class="animate-slide-up-fade-in row">
@@ -88,10 +106,14 @@
                         <a href="https://www.viber.com/ru/" target="_blank" style="text-decoration: none"><img src="{% static 'images/viber.svg' %}" alt="Twitter" class="animate-slide-up-fade-in social-icon px-2"></a>
                     </div>
                     <div class="animate-slide-up-fade-in mt-5">
-                        <p class="animate-slide-up-fade-in ">Гарантии</p>
-                        <p>Почему мы?</p>
-                        <p>Отзывы</p>
-                        <p>Оставить заявку на оценку</p>
+                        <a style="text-decoration: none;" href="{% url 'obj:index' %}#garand">
+                        <p class="animate-slide-up-fade-in ">Гарантии</p></a>
+                        <a style="text-decoration: none;" href="{% url 'obj:index' %}#why_we">
+                        <p>Почему мы?</p></a>
+                        <a style="text-decoration: none;" href="{% url 'obj:index' %}#feed_backs">
+                        <p>Отзывы</p></a>
+                        <a style="text-decoration: none;" href="{% url 'obj:index' %}#application">
+                        <p>Оставить заявку на оценку</p></a>
                     </div>
                 </div>
                 <!-- Group 2: Address and Google Map -->
@@ -116,7 +138,6 @@
             </div>
         </div>
     </footer>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

@@ -24,14 +24,14 @@
 
 
     <div style="padding-top: 200px;" class="animate-slide-up-fade-in container text-center my-5 text_a">
-        <a><strong>Мы гарантируем:</strong></a>
+        <a id="garand"><strong>Мы гарантируем:</strong></a>
     </div>
 
 
-    <div class="animate-slide-up-fade-in container text-center">
-        <div class="animate-slide-up-fade-in row">
+    <div   class="animate-slide-up-fade-in container text-center">
+        <div  class="animate-slide-up-fade-in row">
             <!-- Текст и картинки сверху -->
-            <div class="animate-slide-up-fade-in col-md-4">
+            <div  class="animate-slide-up-fade-in col-md-4">
                 <div class="animate-slide-up-fade-in image-text">
                     <img src="{% static 'images/Iconsax/Linear/Vector.svg' %}" alt="Картинка 1">
                     <p class="animate-slide-up-fade-in my-1">Более 100 покупателей на вашу квартиру;</p>
@@ -74,7 +74,7 @@
 
 
     <div style="font-size: 24px; " class="animate-slide-up-fade-in container text-center my-5 ">
-        <a><strong>Почему стоит купить у нас:</strong></a>
+        <a id="why_we"><strong>Почему стоит купить у нас:</strong></a>
     </div>
 
 
@@ -126,36 +126,54 @@
 
 
     <div style="font-size: 24px; " class="animate-slide-up-fade-in container text-center my-5 ml-md-5 ">
-        <a><strong>Гарантии и отзывы</strong></a>
+        <a id="feed_backs"><strong>Гарантии и отзывы</strong></a>
     </div>
 
 
     <div class="animate-slide-up-fade-in container">
         <div class="animate-slide-up-fade-in row">
             <div class="animate-slide-up-fade-in col-md-6 mt-5 pt-5">
-                <div id="carouselExampleControls" class="animate-slide-up-fade-in carousel slide" data-bs-ride="carousel">
-                    <div class="animate-slide-up-fade-in carousel-inner">
-                        <div class="animate-slide-up-fade-in carousel-item active">
-                            <img src="{% static 'images/Picture_main_5.svg' %}" class="animate-slide-up-fade-in d-block w-100" alt="...">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center">
+                                <video class="video-fluid" controls width="300" height="100">
+                                    <source src="{% static 'images/document_5296442464133985648.mp4' %}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
-                        <div class="animate-slide-up-fade-in carousel-item ">
-                            <img style="border-radius: 40px;" src="{% static 'images/3-rifkq7g0kj79ubfl0zua.jpg' %}"
-                                class="animate-slide-up-fade-in d-block w-100" alt="...">
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <video class="video-fluid" controls width="300" height="100">
+                                    <source src="{% static 'images/WhatsApp Video 2023-08-10 at 12.18.20.mp4' %}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
-
                     </div>
-                    <button class="animate-slide-up-fade-in carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span class="animate-slide-up-fade-in carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="animate-slide-up-fade-in visually-hidden">Previous</span>
-                    </button>
-                    <button class="animate-slide-up-fade-in carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                        <span class="animate-slide-up-fade-in carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="animate-slide-up-fade-in visually-hidden">Next</span>
-                    </button>
+                    <a  class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                        <span style="background-color: black!important; "  class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span  class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                        <span style="background-color: black!important; " class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
                 </div>
             </div>
+    <style>
+    .video-fluid {
+        max-width: 100%;
+        max-height: 100%;
+        width: 60%;
+        height: 50%;
+    }
+    </style>
+
+
+
+
             <div class="animate-slide-up-fade-in col-md-6 d-flex justify-content-end align-items-center">
                 <div class="animate-slide-up-fade-in card" style="width: 18rem;">
                     <div class="animate-slide-up-fade-in card-body">
@@ -177,7 +195,7 @@
     </div>
     <div class="animate-slide-up-fade-in container cont-border mt-5">
         <div class="animate-slide-up-fade-in row d-flex justify-content-center">
-            <div style="font-size: 24px;" class="animate-slide-up-fade-in col-12 text-center mt-3">
+            <div id="application" style="font-size: 24px;" class="animate-slide-up-fade-in col-12 text-center mt-3">
                 Оставить заявку на оценку недвижимости <strong>БЕСПЛАТНО</strong>
                 <form action="{% url 'obj:index' %}" method="post">
                     {% csrf_token %}
@@ -233,11 +251,3 @@
         });
       </script>
 {% endblock %}
-
-
-
-
-
-
-
-
