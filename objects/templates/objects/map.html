@@ -1,48 +1,41 @@
 {% extends 'objects/base.html' %}
 {% load static %}
 
-
 {% block css %}
-
 <link rel="stylesheet" href="{% static 'css/map.css' %}">
 <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-
 {% endblock %}
 
-
 {% block content %}
-
 <div class="position-absolute" id="map"></div>
-
 
 <div class="row my-5 d-flex justify-content-between">
     <div class="col-md-4">
         <form method="get" id="filters-form">
-                <div class="property-card">
-                    <img style="margin-bottom: -100px; margin-top: -20px; margin-right: 0; position: absolute; right: 0; width: 38%;"
-                        src="/static/images/Picture_main_2.svg" alt="">
-                    <h4>Тип недвижимости</h4>
-                    {{ filterset.form.category }}
-                    <h4>Район</h4>
-                    {{ filterset.form.district }}
-                    <h4>Серия</h4>
-                    {{ filterset.form.series }}
-                    <h4>Кол-во комнат</h4>
-                    {{ filterset.form.rooms }}
-                    <h4>Стоимость</h4>
-                    <div class="input-group my-3">
-                        {{ filterset.form.priceFrom }}
-                        {{ filterset.form.priceTo }}
-                    </div>
+            <div class="property-card">
+                <img style="margin-bottom: -100px; margin-top: -20px; margin-right: 0; position: absolute; right: 0; width: 38%;" src="/static/images/Picture_main_2.svg" alt="">
+                <h4>Тип недвижимости</h4>
+                {{ filterset.form.category }}
+                <h4>Район</h4>
+                {{ filterset.form.district }}
+                <h4>Серия</h4>
+                {{ filterset.form.series }}
+                <h4>Кол-во комнат</h4>
+                {{ filterset.form.rooms }}
+                <h4>Стоимость</h4>
+                <div class="input-group my-3">
+                    {{ filterset.form.priceFrom }}
+                    {{ filterset.form.priceTo }}
                 </div>
+            </div>
         </form>
     </div>
 
     <style>
         /* Стили для контейнера с карточками */
         .card-container {
-            max-height: 550px; /* Максимальная высота контейнера */
-            overflow-y: scroll; /* Добавляем вертикальную полосу прокрутки */
+            max-height: 550px;
+            overflow-y: scroll;
         }
 
         /* Стили для карточек */
@@ -57,16 +50,16 @@
     <div class="col-md-4">
         <div style="border-radius: 40px;" class="card d-flex align-items-center">
             <div class="col card-container">
-                <h4 style="padding-left: 15px" class="my-3">Найдено {{ map_objects | length }} обьектов</h4>
+                <h4 style="padding-left: 15px" class="my-3">Найдено {{ map_objects | length }} объектов</h4>
 
                 {% for object in map_objects %}
-                    <a href="#" style="color: white; text-decoration: none" class="object-link" data-marker-id="{{ forloop.counter0 }}">
+                    <a href="#" style="color: white; text-decoration: none" class="object-link" data-marker-id="{{ forloop.counter0 }}" data-object-id="{{ object.id }}">
                         <div class="col-md-12 mb-3">
                             <div class="col my-2">
                                 <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">
                                     <div class="row">
                                         <div class="col-md-3 my-3">
-                                            <img style="height: 95px; width: 95px; border-radius: 30%" src="{{ object.images.all.0.image.url }}" alt="">
+                                            <img style="height: 95px; width: 95px; border-radius: 30%;" src="{{ object.images.all.0.image.url }}" alt="">
                                         </div>
                                         <div class="col-md-9">
                                             <div class="card-body">
@@ -75,7 +68,6 @@
                                                 <p style="color: white!important;" class="mb-1">{{ object.area }}m^2</p>
                                                 <p style="color: white!important;" class="mb-1">{{ object.district }}</p>
                                                 <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">{{ object.price }}$</h5>
-        {#                                        <button><a href="#" style="color: white; text-decoration: none" class="object-link" data-marker-id="{{ forloop.counter0 }}">Перейти к метке на карте</a></button>#}
                                             </div>
                                         </div>
                                     </div>
@@ -86,68 +78,70 @@
                  {% empty %}
                     <h5>Нет совпадений</h5>
                 {% endfor %}
-
             </div>
         </div>
     </div>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Добавляем обработчик события на изменение значений фильтров
     $('#filters-form :input').change(function() {
-        $('#filters-form').submit(); // Автоматическая отправка формы
+        $('#filters-form').submit();
     });
-</script>
 
-
-<script>
     $(document).ready(function() {
         var map;
         var markers = [];
 
-        // Функция для создания и отображения карты
         function initMap() {
-            var center = [42.874722 , 74.569778]; // Координаты центра карты для города Bishkek (Бишкек)
-            var coordinates = {{ object_coordinates|safe }}; // Используем координаты объектов из контекста
+            var center = [42.874722 , 74.569778];
+            var coordinates = {{ object_coordinates|safe }};
 
-            // Создание карты
             map = DG.map('map', {
-                center: center, // Центр карты
-                zoom: 13 // Масштаб карты
+                center: center,
+                zoom: 13
             });
 
-            // Добавление меток на карту
             for (var i = 0; i < coordinates.length; i++) {
                 var coord = coordinates[i];
                 var marker = DG.marker(coord).addTo(map);
-                markers.push(marker); // Добавляем метку в массив
+                markers.push(marker);
             }
         }
 
-        // Вызов функции после полной загрузки страницы
-        DG.then(initMap); // Инициализация карты после загрузки библиотеки
+        DG.then(initMap);
 
-        // Обработчик клика на объекте в списке
-        $('.object-link').on('click', function(event) {
-            event.preventDefault(); // Предотвращаем дефолтное действие ссылки
-            var markerId = $(this).data('marker-id'); // Получаем идентификатор метки
-            var marker = markers[markerId]; // Получаем метку по идентификатору
+        var objectLinks = $('.object-link');
+
+        objectLinks.on('click', function(event) {
+            event.preventDefault();
+            var markerId = $(this).data('marker-id');
+            var marker = markers[markerId];
             if (marker) {
-                marker.openPopup(); // Открываем всплывающее окно метки
-                map.panTo(marker.getLatLng()); // Центрируем карту на метке
-            }
-        console.log(markers);
+                marker.openPopup();
+                map.panTo(marker.getLatLng());
 
+                objectLinks.removeClass('active');
+                $(this).addClass('active');
+            }
         });
 
-        $(document).ready(function() {
-            // Обработчик клика на метке на карте
-            markers.forEach(function(marker, markerId) {
-                marker.on('click', function (event) {
-                    window.location.href = "/object/details/" + markerId + "/"; // Переход на страницу "object details"
-                });
+        markers.forEach(function(marker, index) {
+            marker.on('click', function() {
+                var objectLinkId = '[data-object-id="' + markers[index].options.icon.options.objectId + '"]';
+                var objectLink = $(objectLinkId);
+
+                if (objectLink.length > 0) {
+                    $('html, body').animate({
+                        scrollTop: objectLink.offset().top
+                    }, 500);
+                }
             });
+        });
+
+        // Связываем объекты и метки
+        objectLinks.each(function(index) {
+            markers[index].options.icon.options.objectId = $(this).data('object-id');
         });
     });
 </script>

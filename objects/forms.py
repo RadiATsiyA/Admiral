@@ -6,7 +6,7 @@ from .models import ApplicationToView
 class ApplicationToViewForm(forms.ModelForm):
     name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'animate-slide-up-fade-in form-control border-0 rounded-pill w-50',
-        'placeholder': 'Имя',
+        'placeholder': 'ФИО',
         'id': 'inputName',
     }))
 
@@ -14,6 +14,7 @@ class ApplicationToViewForm(forms.ModelForm):
         'class': 'animate-slide-up-fade-in form-control border-0 rounded-pill w-50',
         'placeholder': 'Номер телефона',
         'id': 'inputPhoneNumber',
+        'name': 'phone'
     }))
 
     TYPE_CHOICES = (

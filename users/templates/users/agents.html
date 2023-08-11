@@ -3,117 +3,123 @@
 
 
 {% block css %}
-	<link rel="stylesheet" href="{% static 'css/agents.css' %}">
+<link rel="stylesheet" href="{% static 'css/agents.css' %}">
 {% endblock %}
 
 
 {% block content %}
-	<div class="container ">
-        <h1><strong>Агенты</strong></h1>
-    </div>
+<div class="container ">
+    <h1><strong>Агенты</strong></h1>
+</div>
 
-    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+<img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
 
 
 
-    <img class="position-absolute d-none d-xl-block w-100" src="{% static 'images/Rectangle 16 (1).svg' %}" alt=""
-         style=" top: 230px; left: 0px; z-index: -1000;">
+<img class="position-absolute d-none d-xl-block w-100" src="{% static 'images/Rectangle 16 (1).svg' %}" alt=""
+    style=" top: 230px; left: 0px; z-index: -1000;">
 
-    <form method="get" id="filters-form">
-        <div class="container w-75 searching my-5 py-5">
-            <div class="row">
-                <div class="col">
-                    <div class="card card-category">
-                        <div class="d-flex category-buttons justify-content-center my-3">
-                            <button style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem);
-                            line-height: clamp(1.688rem, 0.485vw + 1.562rem, 1.95rem);" class="category-button px-5 mx-5 w-25"
-                                onclick="filterCategory('all')">Все</button>
-                        </div>
-                        <div class="container">
-                            <img src="{% static 'images/Line 7.svg' %}" alt="">
-                        </div>
-                        <div class="container">
-                            <div class="d-md-flex justify-content-between mb-3 ">
-                                <div class="label-rayon py-3 mb-3 mb-md-0">
-                                    <div style="color: white!important; font-size: 22px; width: 200px;"
-                                        class="filter-label my-2">Район</div>
-                                            {{ filterset.form.district }}
-
-                                </div>
-
-                                <div class="label-spes py-3 ">
-                                    <div style="color: white!important; font-size: 22px; width: 200px;"
-                                        class="filter-label my-2">Специализация</div>
-                                    {{ filterset.form.specialization }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    {% for agent in agents %}
-    <div class="container my-5">
+<form method="get" id="filters-form">
+    <div class="container w-75 searching my-5 py-5">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div class="card-body">
-                                <h5 class="card-title mb-4"><b>{{ agent.full_name }}</b></h5>
-                                <p class="card-text mb-4"><strong>Агент компании &lt;{{ agent.agency_name }}&gt;</strong></p>
-                                <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7 мкр</strong></p>
-                                <p class="card-text mb-4">Стаж: <strong>{{ agent.experience }} года</strong></p>
-                                <p class="card-text mb-4">Девиз: <strong>{% if agent.slogan %}{{ agent.slogan }}{% else %}Быстро, надежно и удобно{% endif %}</strong></p>
-                            </div>
+            <div class="col">
+                <div class="card card-category">
+                    <div class="d-flex category-buttons justify-content-center my-3">
+                        <div class="label-spes py-3 ">
+                            <div style="color: white!important; font-size: 22px; width: 200px;"
+                                class="filter-label my-2">
+                                Специализация</div>
+                            {{ filterset.form.specialization }}
                         </div>
-                        <div class="col-md-2">
-                            <div class="d-flex justify-content-center py-3">
-                            {% if agent.image %}
-                            <img style="height: 288px; width: 238px;" class="specialist-img  " src="{{ agent.image.url }}" alt="Specialist">
-                            {% else %}
-                            <h4 style="margin-top: 40%">Нет фотографии агента</h4>
-                            {% endif %}
-                        </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h2 class="d-flex mx-5 px-5">Обьекты: </h2>
-                            <div class="row g-0 justify-content-center my-3">
-                                {% if agent.agent_object.exists %}
-                                    {% for ag_object in agent.agent_object.all %}
-                                        <div class="col-md-2">
-                                            <img src="{% static 'images/Rectangle 17.svg' %}" class="img-fluid rounded-start" alt="Object 1">
-                                            <h4>{{ ag_object.address }}</h4>
-                                            <div>{% if ag_object.series %}{{ ag_object.series }} серия{% else %}Серия не указана{% endif %}</div>
-                                        </div>
-                                    {% endfor %}
-                                {% else %}
-                                    <div class="col-md-2">
-                                        <h4>У этого агента нет объектов</h4>
-                                    </div>
-                                {% endif %}
-                            </div>
+                        <a href="{{ clear_filter }}" style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem); text-decoration: none;
+                            line-height: clamp(1.688rem, 0.485vw + 1.562rem, 1.95rem); padding-top: 35px;"
+                            class="category-button px-5 mx-5 w-25">Все</a>
+                        <div class="label-spes py-3 ">
 
-                            <div class="d-flex justify-content-end btn-more-info my-3 me-5">
-                                <a href="{% url 'users:agent_details' agent.id %}" style="color: white!important; background-color: #90C83F; border: none; border-radius: 20px;" class="btn btn-success">Подробнее></a>
-                            </div>
+                            <div style="color: white!important; font-size: 22px; width: 200px; " class="filter-label my-2" >
+                            Район</div>
+                        {{ filterset.form.district }}
 
                     </div>
+
+
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
+</form>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% for agent in agents %}
+<div class=" container my-5">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4"><b>{{ agent.full_name }}</b></h5>
+                        <p class="card-text mb-4"><strong>Агент компании
+                                &lt;{{ agent.agency_name }}&gt;</strong>
+                        </p>
+                        <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7
+                                мкр</strong></p>
+                        <p class="card-text mb-4">Стаж: <strong>{{ agent.experience }}
+                                года</strong></p>
+                        <p class="card-text mb-4">Девиз:
+                            <strong>{{ agent.slogan }}</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="d-flex justify-content-center py-3">
+                        <img style="width: 238px; height: 288px; border-radius: 40px ; border-image-slice: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6)); " class="specialist-img " src=" {{ agent.image.url}}" alt="Specialist">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="d-flex mx-5 px-5">Обьекты: </h2>
+                    <div class="row g-0 justify-content-center my-3">
+                        {% if agent.agent_object.exists %}
+                        {% for ag_object in agent.agent_object.all %}
+                        <div class="col-md-2">
+                            <img style="width: 90px; height: 134px; border-radius: 20%" src="{{ ag_object.images.all.0.image.url }}"
+                                class="img-fluid " alt="Object 1">
+                            <h4>{{ ag_object.address }}</h4>
+                            <div>{% if ag_object.series %}{{ ag_object.series }}
+                                серия{% else %}Серия не
+                                указана{% endif %}</div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="col-md-2">
+                            <img src="{% static 'images/Rectangle 17.svg' %}"
+                                class="img-fluid rounded-start" alt="Object 1">
+                            <h4>Нет объектов агента</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-end btn-more-info my-3 me-5">
+                        <a href="{% url 'users:agent_details' agent.id %}"
+                            style="color: white!important; background-color: #90C83F; border: none; border-radius: 20px;"
+                            class="btn btn-success">Подробнее></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Добавляем обработчик события на изменение значений фильтров
-    $('#filters-form :input').change(function() {
+    $('#filters-form :input').change(function () {
         $('#filters-form').submit(); // Автоматическая отправка формы
     });
 </script>
+
+<script>
 </div>
 {% endblock %}
-    
