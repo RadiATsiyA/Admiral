@@ -1,32 +1,51 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse_lazy
 from django.db.models import Count
+from django.views import View
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import ObjectAd, Category
 from .filters import ObjectAdFilter, MapObjectFilter
 from .forms import ApplicationToViewForm
+from django.contrib import messages
 import requests
 import json
 
 
-class IndexView(TemplateView):
+class IndexView(View):
     template_name = 'objects/main.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = ApplicationToViewForm
-        return context
+    def get(self, request, *args, **kwargs):
+        form = ApplicationToViewForm()
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = ApplicationToViewForm(request.POST)
-        print(form.errors)
         if form.is_valid():
-            form.save()
+            queryURL = 'https://admiral312.bitrix24.ru/rest/7/532z8p3ehc2zgxlo/crm.lead.add.json'
+            phone = form.cleaned_data['phone']
+            name = form.cleaned_data['name']
+            type = form.cleaned_data['type']
+            ar_phone = [{"VALUE": phone, "VALUE_TYPE": "MOBILE"}] if phone else []
+
+            queryData = {
+                "fields": {
+                    "NAME": name,
+                    "PHONE": ar_phone,
+                    "TYPE": type
+                },
+                "params": {"REGISTER_SONET_EVENT": "Y"}
+            }
+
+            response = requests.post(queryURL, json=queryData)
+            result = response.json()
+            if "error" in result:
+                print("Ошибка при сохранении лида:", result["error_description"])
+            else:
+                messages.success(request, "Заявка успешно отправлена!")
+                print("Заявка успешно отправлена!")
             return redirect(reverse_lazy('obj:index'))
         else:
-            context = self.get_context_data(**kwargs)
-            context['form'] = form
-            return self.render_to_response(context)
+            return render(request, self.template_name, {'form': form})
 
 
 class CategoryListView(ListView):

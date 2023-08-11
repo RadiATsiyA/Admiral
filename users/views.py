@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from .filters import AgentFilter
 from .models import Agent
@@ -24,4 +25,5 @@ class AgentsListView(ListView):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
         context['agents_object'] = Agent.objects.prefetch_related('agent_object').all()[:4]
+        context['clear_filter'] = reverse('agent:agents_list')
         return context

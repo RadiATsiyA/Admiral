@@ -9,6 +9,13 @@
 {% block content %}
 	<div class="animate-slide-up-fade-in container text-center my-5">
         <h1>Адмиралъ - быстро и качественно</h1>
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
     </div>
     <div class="animate-slide-up-fade-in container d-flex justify-content-center align-items-center my-5 py-5">
         <a href="{% url 'obj:category' %}" class="animate-slide-up-fade-in  btn btn-success btn-lg rounded-pill w-50">Перейти в каталог</a>
@@ -211,8 +218,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="animate-slide-up-fade-in form-row mt-4">
                         <div class="animate-slide-up-fade-in col-md-12">
                             {% for radio in form.type %}
@@ -225,6 +230,7 @@
                     </div>
                     <button style="border: none;" type="submit" class="animate-slide-up-fade-in btn btn-primary mt-4 btn-send-query w-25 my-5">Оставить заявку</button>
                 </form>
+
             </div>
         </div>
     </div>
