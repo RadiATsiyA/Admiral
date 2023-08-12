@@ -6,15 +6,6 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container mb-5 my-5">
-        <form class="d-flex justify-content-center align-items-center my-2">
-            <input class="d-flex form-control me-2 rounded-pill main__color searchable w-75 justify-content-center"
-                style=" z-index: 1;" type="search" placeholder="Поиск" aria-label="Search">
-            <img src="{% static 'images/img_lumpa.svg' %}" alt="Лумпа" class="d-flex " style="width: 40px; height: 40px;">
-        </form>
-    </div>
-
-
 
 
     <div class="container ">
@@ -115,7 +106,7 @@
             <div class="row">
 
                 {% for obj in objects_ad %}
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4 searchable">
                     <a class="myownlink" href="{% url 'obj:details' obj.id %}" style="text-decoration: none">
                     <div class="card custom-card zoom-card">
                         <div class="d-flex justify-content-center my-3">

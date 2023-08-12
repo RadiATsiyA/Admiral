@@ -59,7 +59,7 @@
                 <h4 style="padding-left: 15px" class="my-3">Найдено {{ map_objects | length }} объектов</h4>
 
                 {% for object in map_objects %}
-                    <a href="#" style="color: white; text-decoration: none" class="object-link" data-marker-id="{{ forloop.counter0 }}" data-objectid="{{ object.id }}" id="{{ object.id }}">
+                    <a href="#" style="color: white; text-decoration: none" class="object-link searchable" data-marker-id="{{ forloop.counter0 }}" data-objectid="{{ object.id }}" id="{{ object.id }}">
                         <div class="col-md-12 mb-3">
                             <div class="col my-2">
                                 <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">

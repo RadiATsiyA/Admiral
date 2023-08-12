@@ -42,7 +42,6 @@
 
                     </div>
 
-
                     </div>
 
                 </div>
@@ -55,15 +54,15 @@
 <div class=" container my-5">
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card searchable">
             <div class="row g-0">
                 <div class="col-md-4">
                     <div class="card-body">
-                        <h5 class="card-title mb-4"><b>{{ agent.full_name }}</b></h5>
-                        <p class="card-text mb-4"><strong>Агент компании
+                        <h5 class="card-title mb-4 "><b>{{ agent.full_name }}</b></h5>
+                        <p class="card-text mb-4 "><strong>Агент компании
                                 &lt;{{ agent.agency_name }}&gt;</strong>
                         </p>
-                        <p class="card-text mb-4">Зона обслуживания: <strong>
+                        <p class="card-text mb-4 ">Зона обслуживания: <strong>
                             {% for district in agent.district.all %}
                                 {{ district }},
                             {% endfor %}
@@ -84,7 +83,7 @@
                     <div class="row g-0 justify-content-center my-3">
                         {% if agent.agent_object.exists %}
                         {% for ag_object in agent.agent_object.all %}
-                        <div class="col-md-2">
+                        <div class="col-md-2 ">
                             <img style="width: 90px; height: 134px; border-radius: 20%" src="{{ ag_object.images.all.0.image.url }}"
                                 class="img-fluid " alt="Object 1">
                             <h4>{{ ag_object.address }}</h4>
@@ -123,6 +122,5 @@
     });
 </script>
 
-<script>
 </div>
 {% endblock %}
