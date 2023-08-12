@@ -41,6 +41,7 @@ class AdminAgentsView(ListView):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
         context['agents_object'] = Agent.objects.prefetch_related('agent_object').all()[:4]
+        context['clear_filters'] = reverse_lazy('adminus:agents')
         return context
 
 

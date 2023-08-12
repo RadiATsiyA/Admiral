@@ -63,8 +63,11 @@
                         <p class="card-text mb-4"><strong>Агент компании
                                 &lt;{{ agent.agency_name }}&gt;</strong>
                         </p>
-                        <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7
-                                мкр</strong></p>
+                        <p class="card-text mb-4">Зона обслуживания: <strong>
+                            {% for district in agent.district.all %}
+                                {{ district }},
+                            {% endfor %}
+                        </strong></p>
                         <p class="card-text mb-4">Стаж: <strong>{{ agent.experience }}
                                 года</strong></p>
                         <p class="card-text mb-4">Девиз:
