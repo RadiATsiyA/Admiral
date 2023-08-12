@@ -46,6 +46,12 @@
             margin: 10px;
             padding: 10px;
         }
+
+        .active {
+            background-color: #90C83F; /* Цвет фона для активного объекта */
+            color: white; /* Цвет текста для активного объекта */
+            font-weight: bold; /* Жирный шрифт для активного объекта */
+        }
     </style>
     <div class="col-md-4">
         <div style="border-radius: 40px;" class="card d-flex align-items-center">
@@ -53,7 +59,7 @@
                 <h4 style="padding-left: 15px" class="my-3">Найдено {{ map_objects | length }} объектов</h4>
 
                 {% for object in map_objects %}
-                    <a href="#" style="color: white; text-decoration: none" class="object-link" data-marker-id="{{ forloop.counter0 }}" data-object-id="{{ object.id }}">
+                    <a href="#" style="color: white; text-decoration: none" class="object-link" data-marker-id="{{ forloop.counter0 }}" data-objectid="{{ object.id }}" id="{{ object.id }}">
                         <div class="col-md-12 mb-3">
                             <div class="col my-2">
                                 <div style="background-color: #00408E; border-radius: 20px; " class="card custom-card">
@@ -66,7 +72,7 @@
                                                 <h5 style="color: white!important;" class="mb-0">{{ object.category }}, {{ object.rooms }} комнаты,
                                                     {% if object.current_floor %}{{ object.current_floor }} этаж{% else %}этаж не указан{% endif %}</h5>
                                                 <p style="color: white!important;" class="mb-1">{{ object.area }}m^2</p>
-                                                <p style="color: white!important;" class="mb-1">{{ object.district }}</p>
+                                                <p style="color: white!important;" class="mb-1">{{ object.address }}, {{ object.city }}</p>
                                                 <h5 style="color: #90C83F!important;" class="mb-0 d-flex justify-content-end">{{ object.price }}$</h5>
                                             </div>
                                         </div>
@@ -90,60 +96,63 @@
     });
 
     $(document).ready(function() {
-        var map;
-        var markers = [];
+    var map;
+    var markers = [];
 
-        function initMap() {
-            var center = [42.874722 , 74.569778];
-            var coordinates = {{ object_coordinates|safe }};
+    function initMap() {
+        var center = [42.874722, 74.569778];
+        var coordinates = {{ object_coordinates|safe }};
 
-            map = DG.map('map', {
-                center: center,
-                zoom: 13
-            });
+        map = DG.map('map', {
+            center: center,
+            zoom: 13
+        });
 
-            for (var i = 0; i < coordinates.length; i++) {
-                var coord = coordinates[i];
-                var marker = DG.marker(coord).addTo(map);
-                markers.push(marker);
-            }
+        for (var i = 0; i < coordinates.length; i++) {
+            var coord = coordinates[i];
+            var marker = DG.marker(coord).addTo(map);
+            markers.push(marker);
         }
+    }
 
-        DG.then(initMap);
+    DG.then(initMap);
 
-        var objectLinks = $('.object-link');
+    var objectLinks = $('.object-link');
 
-        objectLinks.on('click', function(event) {
-            event.preventDefault();
-            var markerId = $(this).data('marker-id');
-            var marker = markers[markerId];
-            if (marker) {
-                marker.openPopup();
-                map.panTo(marker.getLatLng());
+    objectLinks.on('click', function(event) {
+        event.preventDefault();
+        var markerId = $(this).data('marker-id');
+        var marker = markers[markerId];
+        if (marker) {
+            marker.openPopup();
+            map.panTo(marker.getLatLng());
 
+            objectLinks.removeClass('active');
+            $(this).addClass('active');
+        }
+    });
+
+    markers.forEach(function(marker, index) {
+        marker.on('click', function() {
+            var objectLinkId = '[data-object-id="' + (markers[index]?.options.icon.options.objectId) + '"]';
+            var objectLink = $(objectLinkId);
+
+            if (objectLink.length > 0) {
                 objectLinks.removeClass('active');
-                $(this).addClass('active');
+                objectLink.addClass('active');
+
+                $('html, body').animate({
+                    scrollTop: objectLink.offset().top
+                }, 500);
             }
-        });
-
-        markers.forEach(function(marker, index) {
-            marker.on('click', function() {
-                var objectLinkId = '[data-object-id="' + markers[index].options.icon.options.objectId + '"]';
-                var objectLink = $(objectLinkId);
-
-                if (objectLink.length > 0) {
-                    $('html, body').animate({
-                        scrollTop: objectLink.offset().top
-                    }, 500);
-                }
-            });
-        });
-
-        // Связываем объекты и метки
-        objectLinks.each(function(index) {
-            markers[index].options.icon.options.objectId = $(this).data('object-id');
         });
     });
+
+    // Связываем объекты и метки
+    objectLinks.each(function(index) {
+        markers[index].options.icon.options.objectId = $(this).data('object-id');
+    });
+});
 </script>
 
 {% endblock %}

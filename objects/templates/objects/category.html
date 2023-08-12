@@ -30,7 +30,7 @@
                 <a class="myownlink" href="{% url 'obj:apartments' category.category_name %}" style="text-decoration: none">
                 <div class="col">
                 <div class="position-relative">
-                    <img class="w-100 blueish-image" src="{% static 'images/img_kvartira-1.svg' %}" alt="">
+                    <img class="w-100 blueish-image" src="{{ category.image.url }}" alt="">
                     <div style="color: white!important;" class="image-text my-3">
                         <span class="house-number">{{ category.object_count }}</span> обьекта<br>
                         <h1 class="house-type mx-4 my-2">{{ category.category_name }}</h1>
