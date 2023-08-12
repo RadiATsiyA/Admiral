@@ -23,9 +23,9 @@
         <div class="col">
             <div class="card card-category">
                 <div class="d-flex category-buttons justify-content-center my-3">
-                    <button style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem);
+                    <a href="{{ clear_filters }}" style="font-size: clamp(1.125rem, 0.693vw + 0.946rem, 1.5rem); text-decoration: none;
                     line-height: clamp(1.688rem, 0.485vw + 1.562rem, 1.95rem);" class="category-button px-5 mx-5 w-25"
-                        onclick="filterCategory('all')">Все</button>
+                        onclick="filterCategory('all')">Все</a>
                 </div>
                 <div class="container">
                     <img src="{% static 'images/Line 7.svg' %}" alt="">
@@ -74,7 +74,11 @@
                         <div class="card-body">
                             <h5 class="card-title mb-4"><b>{{ agent.full_name }}</b></h5>
                             <p class="card-text mb-4"><strong>Агент компании &lt;{{ agent.agency_name }}&gt;</strong></p>
-                            <p class="card-text mb-4">Зона обслуживания: <strong>3мкр-7 мкр??? </strong></p>
+                            <p class="card-text mb-4">Зона обслуживания: <strong>
+                            {% for district in agent.district.all %}
+                                {{ district }},
+                            {% endfor %}
+                        </strong></p>
                             <p class="card-text mb-4">Стаж: <strong>{{ agent.experience }} года</strong></p>
                             <p class="card-text mb-4">Девиз: <strong>{% if agent.slogan %}{{ agent.slogan }}{% else %}Быстро, надежно и удобно{% endif %}</strong></p>
                         </div>

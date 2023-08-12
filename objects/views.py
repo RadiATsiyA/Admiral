@@ -7,6 +7,7 @@ from .models import ObjectAd, Category
 from .filters import ObjectAdFilter, MapObjectFilter
 from .forms import ApplicationToViewForm
 from django.contrib import messages
+from google.cloud import translate_v2 as translate
 import requests
 import json
 
