@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+import objects.models
 import os
 
 
@@ -40,6 +41,7 @@ class Agent(models.Model):
     image = models.ImageField(upload_to=get_agent_image_path, null=True, blank=True)
     slogan = models.CharField(max_length=300, default='Нет девиза', blank=True)
     specialization = models.ManyToManyField(to=Specialization, blank=True)
+    district = models.ManyToManyField(to='objects.District', blank=True)
 
     def __str__(self):
         return f'{self.id} | {self.full_name}'
