@@ -8,15 +8,15 @@
 
 
 {% block content %}
-	<!-- <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <img style="height: 100px; width: 100px;" class="thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
-        <img style="height: 100px; width: 100px;" class="thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
-        <img style="height: 100px; width: 100px;" class="thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
+	<!-- <div class="animate-fade-in sr container">
+    <div class="animate-fade-in sr row">
+      <div class="animate-fade-in sr col-md-3">
+        <img style="height: 100px; width: 100px;" class="animate-fade-in sr thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
+        <img style="height: 100px; width: 100px;" class="animate-fade-in sr thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
+        <img style="height: 100px; width: 100px;" class="animate-fade-in sr thumbnail-image" src="/public/picture_1.svg" alt="Thumbnail Image 1" width="50" height="50">
       </div>
-      <div class="col-md-6">
-        <img class="large-image" src="/public/picture.svg" alt="Large Image" style="display: block;">
+      <div class="animate-fade-in sr col-md-6">
+        <img class="animate-fade-in sr large-image" src="/public/picture.svg" alt="Large Image" style="display: block;">
       </div>
     </div>
   </div>
@@ -43,86 +43,86 @@
         });
     </script>
 
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-md-1 col-lg-1 col-sm-12 me-4">
-                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-2"
+    <div class="animate-fade-in sr container my-5">
+        <div class="animate-fade-in sr row">
+            <div class="animate-fade-in sr col-md-1 col-lg-1 col-sm-12 me-4">
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="animate-fade-in sr my-2"
                     src="{{ object_detail.images.all.0.image.url }}"
                     alt="" onclick="changeImage(this)">
-                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="animate-fade-in sr my-3"
                     src="{{ object_detail.images.all.1.image.url }}"
                     alt="" onclick="changeImage(this)">
-                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="animate-fade-in sr my-3"
                     src="{{ object_detail.images.all.2.image.url }}"
                     alt="" onclick="changeImage(this)">
-                <img style="height: 100px; width: 100px; border-radius: 20px; " class="my-3"
+                <img style="height: 100px; width: 100px; border-radius: 20px; " class="animate-fade-in sr my-3"
                     src="{{ object_detail.images.all.3.image.url }}"
                     alt="" onclick="changeImage(this)">
             </div>
-            <div class="col-md-8 mx-md-5 col-lg-5 col-sm-12">
-                <div class="post">
-                    <div class="">
+            <div class="animate-fade-in sr col-md-8 mx-md-5 col-lg-5 col-sm-12">
+                <div class="animate-fade-in sr post">
+                    <div class="animate-fade-in sr ">
                         <img style="height: 500px; width: 100%; max-width: 500px; border-radius: 30px;"
                             src="{{ object_detail.images.all.0.image.url }}"
                             alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 col-sm-12 col-lg-4 div-rounded">
-                <div class="property-details">
-                    <div class="div-info-1 d-flex justify-content-between">
+            <div class="animate-fade-in sr col-md-8 col-sm-12 col-lg-4 div-rounded">
+                <div class="animate-fade-in sr property-details">
+                    <div class="animate-fade-in sr div-info-1 d-flex justify-content-between">
                         <span>Тип: <b style="font-size: 18px;">{{ object_detail.category.category_name }} </b></span>
                         <span>Стоимость: <b style="font-size: 18px;">{{ object_detail.price }}$ </b></span>
                     </div>
-                    <div class="div-info-adress my-4">
+                    <div class="animate-fade-in sr div-info-adress my-4">
                         <span>Адресс: <b style="font-size: 18px;"> {{ object_detail.address }} </b></span>
                     </div>
-                    <div class="div-info-topic-brief d-flex justify-content-between">
-                        <div class="row d-flex justify-content-center align-items-center text-center">
+                    <div class="animate-fade-in sr div-info-topic-brief d-flex justify-content-between">
+                        <div class="animate-fade-in sr row d-flex justify-content-center align-items-center text-center">
                             <span>Комнаты</span>
                             <span> <b>{{ object_detail.rooms }}</b></span>
                         </div>
-                        <div class="separator d-flex justify-content-center align-items-center text-center"></div>
-                        <div class="row d-flex justify-content-center align-items-center text-center">
+                        <div class="animate-fade-in sr separator d-flex justify-content-center align-items-center text-center"></div>
+                        <div class="animate-fade-in sr row d-flex justify-content-center align-items-center text-center">
                             <span>Серия</span>
                             <span><b>{% if object_detail.series %}{{ object_detail.series }} серия{% else %}Не указан{% endif %}</b></span>
                         </div>
-                        <div class="separator"></div>
-                        <div class="row d-flex justify-content-center align-items-center text-center">
+                        <div class="animate-fade-in sr separator"></div>
+                        <div class="animate-fade-in sr row d-flex justify-content-center align-items-center text-center">
                             <span>Площадь, м2</span>
                             <span><b>{{ object_detail.area }}</b></span>
                         </div>
                     </div>
-                    <div class="div-info-topic-brief d-flex justify-content-between">
-                        <div class="row d-flex justify-content-center align-items-center text-center">
+                    <div class="animate-fade-in sr div-info-topic-brief d-flex justify-content-between">
+                        <div class="animate-fade-in sr row d-flex justify-content-center align-items-center text-center">
                             <span style="width: 124px;">Этаж</span>
                             <span><b>{% if object_detail.current_floor %}{{ object_detail.current_floor }}{% else %}Не указан{% endif %}/
                                 {% if object_detail.total_floors %}{{ object_detail.total_floors }}{% else %}Не указан{% endif %}</b></span>
 
                         </div>
-                        <div class="separator d-flex justify-content-center align-items-center text-center"></div>
-                        <div class="row d-flex justify-content-center align-items-center text-center">
+                        <div class="animate-fade-in sr separator d-flex justify-content-center align-items-center text-center"></div>
+                        <div class="animate-fade-in sr row d-flex justify-content-center align-items-center text-center">
                             <span>Застройщик</span>
                             <span><b>{{ object_detail.zastroishik }}</b></span>
                         </div>
-                        <div class="separator"></div>
-                        <div class="row d-flex justify-content-center align-items-center text-center">
+                        <div class="animate-fade-in sr separator"></div>
+                        <div class="animate-fade-in sr row d-flex justify-content-center align-items-center text-center">
                             <span>Окна (направление)</span>
                             <span><b>{{ object_detail.window_direction }}</b></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="btn-commit  my-5 mx-2">
-                    <div class="d-flex col  justify-content-between">
-                        <div class="text-center my-md-2 btn-str">
-                            <div class="text-btn">Этап строительства</div>
-                            <div style="font-size: 22px;" class="text-btn"><b
+                <div class="animate-fade-in sr btn-commit  my-5 mx-2">
+                    <div class="animate-fade-in sr d-flex col  justify-content-between">
+                        <div class="animate-fade-in sr text-center my-md-2 btn-str">
+                            <div class="animate-fade-in sr text-btn">Этап строительства</div>
+                            <div style="font-size: 22px;" class="animate-fade-in sr text-btn"><b
                                     style="color: #90C83F!important;">{{ object_detail.status }}</b></div>
                         </div>
-                        <div class="text-center my-md-2 justify-content-center btn-rare">
-                            <div class="white">Срок сдачи</div>
-                            <div style="font-size: 22px;" class="white"><b style="color: #fff!important;">--</b></div>
+                        <div class="animate-fade-in sr text-center my-md-2 justify-content-center btn-rare">
+                            <div class="animate-fade-in sr white">Срок сдачи</div>
+                            <div style="font-size: 22px;" class="animate-fade-in sr white"><b style="color: #fff!important;">--</b></div>
                         </div>
                     </div>
                 </div>
@@ -138,77 +138,77 @@
         }
     </script>
 
-    <div class="container d-flex my-md-5">
-        <ul class="m-d expand-list ">
+    <div class="animate-fade-in sr container d-flex my-md-5">
+        <ul class="animate-fade-in sr m-d expand-list ">
             <li data-md-content="300">
-                <label name="tab" for="tab2" tabindex="-1" class="tab_lab" role="tab">Дополнительная информация
+                <label name="tab" for="tab2" tabindex="-1" class="animate-fade-in sr tab_lab" role="tab">Дополнительная информация
                     v</label>
-                <input type="checkbox" class="tab" id="tab2" tabindex="0" />
-                <span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
-                <div class="content d-flex justify-content-between">
-                    <div class="row">
-                        <span class="my-2"> Количество этажей:</span>
-                        <span class="my-2"> Площадь кухни:</span>
-                        <span class="my-2"> Отопление:</span>
-                        <span class="my-2"> Мебель:</span>
-                        <span class="my-2"> Балкон, лоджия:</span>
-                        <span class="my-2"> Правоустанавливающие документы:</span>
+                <input type="checkbox" class="animate-fade-in sr tab" id="tab2" tabindex="0" />
+                <span class="animate-fade-in sr open-close-icon"><i class="animate-fade-in sr fas fa-plus"></i><i class="animate-fade-in sr fas fa-minus"></i></span>
+                <div class="animate-fade-in sr content d-flex justify-content-between">
+                    <div class="animate-fade-in sr row">
+                        <span class="animate-fade-in sr my-2"> Количество этажей:</span>
+                        <span class="animate-fade-in sr my-2"> Площадь кухни:</span>
+                        <span class="animate-fade-in sr my-2"> Отопление:</span>
+                        <span class="animate-fade-in sr my-2"> Мебель:</span>
+                        <span class="animate-fade-in sr my-2"> Балкон, лоджия:</span>
+                        <span class="animate-fade-in sr my-2"> Правоустанавливающие документы:</span>
                     </div>
-                    <div class="row ">
-                        <span class="my-2"> <b>{{ object_detail.current_floor }}/{{ object_detail.total_floors }}</b></span>
-                        <span class="my-2"> <b>{{ object_detail.kitchens_area }}</b></span>
-                        <span class="my-2"> <b>{{ object_detail.otoplenie }}</b></span>
-                        <span class="my-2"><b> {{ object_detail.furniture }}</b></span>
-                        <span class="my-2"><b>{{ object_detail.balcony }}</b></span>
-                        <span class="my-2"> <b>{{ object_detail.documents }}</b></span>
+                    <div class="animate-fade-in sr row ">
+                        <span class="animate-fade-in sr my-2"> <b>{{ object_detail.current_floor }}/{{ object_detail.total_floors }}</b></span>
+                        <span class="animate-fade-in sr my-2"> <b>{{ object_detail.kitchens_area }}</b></span>
+                        <span class="animate-fade-in sr my-2"> <b>{{ object_detail.otoplenie }}</b></span>
+                        <span class="animate-fade-in sr my-2"><b> {{ object_detail.furniture }}</b></span>
+                        <span class="animate-fade-in sr my-2"><b>{{ object_detail.balcony }}</b></span>
+                        <span class="animate-fade-in sr my-2"> <b>{{ object_detail.documents }}</b></span>
                     </div>
-                    <img class="me-5 pe-5 d-none d-md-block" src="{% static 'images/Line 10.svg' %}" alt="">
-                    <div class="row ">
-                        <span class="my-2"> Ремонт:</span>
-                        <span class="my-2"> Окна (направленность):</span>
-                        <span class="my-2"> Защита территории:</span>
-                        <span class="my-2"> Материал стен:</span>
-                        <span class="my-2"> Тип предложения:</span>
+                    <img class="animate-fade-in sr me-5 pe-5 d-none d-md-block" src="{% static 'images/Line 10.svg' %}" alt="">
+                    <div class="animate-fade-in sr row ">
+                        <span class="animate-fade-in sr my-2"> Ремонт:</span>
+                        <span class="animate-fade-in sr my-2"> Окна (направленность):</span>
+                        <span class="animate-fade-in sr my-2"> Защита территории:</span>
+                        <span class="animate-fade-in sr my-2"> Материал стен:</span>
+                        <span class="animate-fade-in sr my-2"> Тип предложения:</span>
                     </div>
-                    <div class="row ">
-                        <span class="my-2"> <b>{{ object_detail.remont }}</b></span>
-                        <span class="my-2"><b> {{ object_detail.window_direction }}</b></span>
-                        <span class="my-2"><b>{{ object_detail.security }}</b></span>
-                        <span class="my-2"> <b>{{ object_detail.walls_material }}</b></span>
-                        <span class="my-2"><b> {{ object_detail.ad_type }}</b></span>
+                    <div class="animate-fade-in sr row ">
+                        <span class="animate-fade-in sr my-2"> <b>{{ object_detail.remont }}</b></span>
+                        <span class="animate-fade-in sr my-2"><b> {{ object_detail.window_direction }}</b></span>
+                        <span class="animate-fade-in sr my-2"><b>{{ object_detail.security }}</b></span>
+                        <span class="animate-fade-in sr my-2"> <b>{{ object_detail.walls_material }}</b></span>
+                        <span class="animate-fade-in sr my-2"><b> {{ object_detail.ad_type }}</b></span>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
 
-    <div class="container ">
+    <div class="animate-fade-in sr container ">
         <h1><strong>Вас может заинтересовать: </strong></h1>
     </div>
 
-    <div class="py-5">
-        <div class="container">
-            <div class="row">
+    <div class="animate-fade-in sr py-5">
+        <div class="animate-fade-in sr container">
+            <div class="animate-fade-in sr row">
 
 
                 {% for recommendation in recommendations %}
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <div class="animate-fade-in sr col-lg-3 col-md-6 col-sm-12 mb-4">
                     <a href="{% url 'obj:details' recommendation.id %}" style="text-decoration: none">
-                        <div class="card custom-card zoom-card">
-                        <div class="d-flex justify-content-center my-3">
-                                <img style="width: 198px; height: 229px" class="card-img-top" src="{{ recommendation.images.all.0.image.url }}" alt="">
+                        <div class="animate-fade-in sr card custom-card zoom-card">
+                        <div class="animate-fade-in sr d-flex justify-content-center my-3">
+                                <img style="width: 198px; height: 229px" class="animate-fade-in sr card-img-top" src="{{ recommendation.images.all.0.image.url }}" alt="">
                         </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">{{ recommendation.category.category_name }}</h4>
+                        <div class="animate-fade-in sr card-block mx-3">
+                            <div class="animate-fade-in sr d-flex">
+                                <h4 style="color: #00408E;" class="animate-fade-in sr card-title">{{ recommendation.category.category_name }}</h4>
 {#                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">#}
                             </div>
                             <p style="font-size: 18px;">{{ recommendation.price }}$</p>
-                            <div class="d-flex">
+                            <div class="animate-fade-in sr d-flex">
                                 <p style="font-size: 18px; margin-right: 70px;">{{ recommendation.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">{% if recommendation.kitchens_area %}{{ recommendation.kitchens_area }} m{% endif %}</p>
                             </div>
-                            <div class="d-flex">
+                            <div class="animate-fade-in sr d-flex">
                                 <p style="font-size: 18px; margin-right: 85px;">{% if recommendation.current_floor %}{{ recommendation.current_floor }}{% else %}Не указан{% endif %}/{% if recommendation.total_floors %}{{ recommendation.total_floors }} этаж{% else %}{% endif %}</p>
                                 <p style="font-size: 18px; ">{% if recommendation.series %}{{ recommendation.series }}серия{% else %}Не указан{% endif %} </p>
                             </div>
@@ -224,57 +224,57 @@
         </div>
     </div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="">
-                <button style="background-color: white; color: #90C83F!important; border: none;" class="btn btn-primary btn-block mb-3"
+    <div class="animate-fade-in sr container mt-5">
+        <div class="animate-fade-in sr row">
+            <div class="animate-fade-in sr ">
+                <button style="background-color: white; color: #90C83F!important; border: none;" class="animate-fade-in sr btn btn-primary btn-block mb-3"
                     type="button" data-toggle="collapse" data-target="#loanCalculator" aria-expanded="false"
                     aria-controls="loanCalculator">
                     Ипотечный калькулятор V
                 </button>
-                <div class="collapse" id="loanCalculator">
-                    <div class="calculator">
-                        <div class="row">
-                            <div class="col-6 col-sm-3">
-                                <div class="form-group">
-                                    <label class="my-2" for="loan-amount"><b>Общая сумма</b></label>
-                                    <div class="input-group">
-                                        <input type="number" id="loan-amount" class="form-control" placeholder="Введите сумму" min="0" step="1000">
-                                        <span class="input-group-text">$</span>
+                <div class="animate-fade-in sr collapse" id="loanCalculator">
+                    <div class="animate-fade-in sr calculator">
+                        <div class="animate-fade-in sr row">
+                            <div class="animate-fade-in sr col-6 col-sm-3">
+                                <div class="animate-fade-in sr form-group">
+                                    <label class="animate-fade-in sr my-2" for="loan-amount"><b>Общая сумма</b></label>
+                                    <div class="animate-fade-in sr input-group">
+                                        <input type="number" id="loan-amount" class="animate-fade-in sr form-control" placeholder="Введите сумму" min="0" step="1000">
+                                        <span class="animate-fade-in sr input-group-text">$</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-sm-3">
-                                <div class="form-group">
-                                    <label class="my-2" for="down-payment"><b>Первоначальный взнос:</b></label>
-                                    <div class="input-group">
-                                        <input type="number" id="down-payment" class="form-control" placeholder="Введите сумму" min="0" step="1000">
-                                        <span class="input-group-text">$</span>
+                            <div class="animate-fade-in sr col-6 col-sm-3">
+                                <div class="animate-fade-in sr form-group">
+                                    <label class="animate-fade-in sr my-2" for="down-payment"><b>Первоначальный взнос:</b></label>
+                                    <div class="animate-fade-in sr input-group">
+                                        <input type="number" id="down-payment" class="animate-fade-in sr form-control" placeholder="Введите сумму" min="0" step="1000">
+                                        <span class="animate-fade-in sr input-group-text">$</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-sm-3">
-                                <div class="form-group">
-                                    <label class="my-2" for="interest-rate"><b>Процентная ставка:</b></label>
-                                    <div class="input-group">
-                                        <input type="number" id="interest-rate" class="form-control" placeholder="Введите процент" min="0" step="0.1">
-                                        <span class="input-group-text">%</span>
+                            <div class="animate-fade-in sr col-6 col-sm-3">
+                                <div class="animate-fade-in sr form-group">
+                                    <label class="animate-fade-in sr my-2" for="interest-rate"><b>Процентная ставка:</b></label>
+                                    <div class="animate-fade-in sr input-group">
+                                        <input type="number" id="interest-rate" class="animate-fade-in sr form-control" placeholder="Введите процент" min="0" step="0.1">
+                                        <span class="animate-fade-in sr input-group-text">%</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-sm-3">
-                                <div class="form-group">
-                                    <label class="my-2" for="loan-term"><b>Срок кредитования:</b></label>
-                                    <div class="input-group">
-                                        <input type="number" id="loan-term" class="form-control" placeholder="Введите срок" min="1">
-                                        <span class="input-group-text">лет</span>
+                            <div class="animate-fade-in sr col-6 col-sm-3">
+                                <div class="animate-fade-in sr form-group">
+                                    <label class="animate-fade-in sr my-2" for="loan-term"><b>Срок кредитования:</b></label>
+                                    <div class="animate-fade-in sr input-group">
+                                        <input type="number" id="loan-term" class="animate-fade-in sr form-control" placeholder="Введите срок" min="1">
+                                        <span class="animate-fade-in sr input-group-text">лет</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="blue-divider my-4"></div>
-                        <div class="d-flex justify-content-center">
-                            <button style="color: #fff!important; background-color: #00408E; border-radius: 30px; width: 200px; border: none; height: 40px;" class="btn-calculate">Рассчитать</button>
+                        <div class="animate-fade-in sr blue-divider my-4"></div>
+                        <div class="animate-fade-in sr d-flex justify-content-center">
+                            <button style="color: #fff!important; background-color: #00408E; border-radius: 30px; width: 200px; border: none; height: 40px;" class="animate-fade-in sr btn-calculate">Рассчитать</button>
                         </div>
                     </div>
                 </div>
@@ -283,20 +283,20 @@
     </div>
 
     <!-- Modal to show calculation result -->
-    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="resultModalLabel">Результат расчета</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="animate-fade-in sr modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="animate-fade-in sr modal-dialog" role="document">
+            <div class="animate-fade-in sr modal-content">
+                <div class="animate-fade-in sr modal-header">
+                    <h5 class="animate-fade-in sr modal-title" id="resultModalLabel">Результат расчета</h5>
+                    <button type="button" class="animate-fade-in sr close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="calculationResult">
+                <div class="animate-fade-in sr modal-body" id="calculationResult">
                     <!-- Calculation result will be displayed here -->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <div class="animate-fade-in sr modal-footer">
+                    <button type="button" class="animate-fade-in sr btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>

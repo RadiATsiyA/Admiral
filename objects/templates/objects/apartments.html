@@ -8,54 +8,54 @@
 {% block content %}
 
 
-    <div class="container ">
+    <div class="animate-fade-in sr container ">
         <h1><strong>Недвижимости</strong></h1>
     </div>
 
-    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+    <img class="animate-fade-in sr  container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
 
 
-    <img class="position-absolute d-none d-xl-block w-100" src="{% static 'images/Rectangle 16.svg' %}" alt=""
+    <img class="animate-fade-in sr position-absolute d-none d-xl-block w-100" src="{% static 'images/Rectangle 16.svg' %}" alt=""
          style=" top: 340px; left: 0px; z-index: -1000;">
 
-    <div class="container w-75 searching my-5 ">
-        <div class="row">
-            <div class="col">
-                <div class="card card-category">
-                    <div class="d-flex category-buttons justify-content-center my-4 position-relative">
-                        <button class="category-button px-5 mx-5" onclick="filterCategory('all')">Все</button>
-                        <button class="category-button" onclick="filterCategory('Аренда')">Аренда</button>
-                        <button class="category-button px-5 mx-5" onclick="filterCategory('Продажа')">Покупка</button>
+    <div class="animate-fade-in sr container w-75 searching my-5 ">
+        <div class="animate-fade-in sr row">
+            <div class="animate-fade-in sr col">
+                <div class="animate-fade-in sr card card-category">
+                    <div class="animate-fade-in sr d-flex category-buttons justify-content-center my-4 position-relative">
+                        <button class="animate-fade-in sr category-button px-5 mx-5" onclick="filterCategory('all')">Все</button>
+                        <button class="animate-fade-in sr category-button" onclick="filterCategory('Аренда')">Аренда</button>
+                        <button class="animate-fade-in sr category-button px-5 mx-5" onclick="filterCategory('Продажа')">Покупка</button>
 
                     </div>
-                    <div class="container">
-                        <hr style="background-color: white; height: 2px;" class="devider">
+                    <div class="animate-fade-in sr container">
+                        <hr style="background-color: white; height: 2px;" class="animate-fade-in sr devider">
                     </div>
 
                     <form action="" method="get" id="filters-form">
-                            <div class="filter-options">
-                            <div class="label-container">
-                                <div class="filter-label">Серия</div>
+                            <div class="animate-fade-in sr filter-options">
+                            <div class="animate-fade-in sr label-container">
+                                <div class="animate-fade-in sr filter-label">Серия</div>
                                 {{ filterset.form.series }}
                             </div>
 
-                            <div class="label-container mb-4">
-                                <div class="filter-label">Район</div>
+                            <div class="animate-fade-in sr label-container mb-4">
+                                <div class="animate-fade-in sr filter-label">Район</div>
                                 {{ filterset.form.district }}
                             </div>
 
-                            <div class="label-container">
-                                <div class="filter-label">Площадь</div>
+                            <div class="animate-fade-in sr label-container">
+                                <div class="animate-fade-in sr filter-label">Площадь</div>
                                 {{ filterset.form.area }}
                             </div>
 
-                            <div class="label-container">
-                                <div class="filter-label">Цена от</div>
+                            <div class="animate-fade-in sr label-container">
+                                <div class="animate-fade-in sr filter-label">Цена от</div>
                                 {{ filterset.form.priceFrom }}
                             </div>
 
-                            <div class="label-container ">
-                                <div class="filter-label">Цена до</div>
+                            <div class="animate-fade-in sr label-container ">
+                                <div class="animate-fade-in sr filter-label">Цена до</div>
                                 {{ filterset.form.priceTo }}
                             </div>
                         </div>
@@ -93,37 +93,37 @@
 }
     </script>
 
-    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+    <img class="animate-fade-in sr  container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
 
 
 
-    <div class="container ">
+    <div class="animate-fade-in sr container ">
         <h1><strong>Все</strong></h1>
     </div>
 
-    <div class="py-5">
-        <div class="container">
-            <div class="row">
+    <div class="animate-fade-in sr py-5">
+        <div class="animate-fade-in sr container">1
+            <div class="animate-fade-in sr row">
 
                 {% for obj in objects_ad %}
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4 searchable">
-                    <a class="myownlink" href="{% url 'obj:details' obj.id %}" style="text-decoration: none">
-                    <div class="card custom-card zoom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img style="width: 198px; height: 229px" class="card-img-top" src="{{ obj.images.all.0.image.url }}" alt="">
-                            <div class="recommended-text">{{ obj.ad_type }}</div>
+                <div class="animate-fade-in sr col-lg-3 col-md-6 col-sm-12 mb-4 searchable">
+                    <a class="animate-fade-in sr myownlink" href="{% url 'obj:details' obj.id %}" style="text-decoration: none">
+                    <div class="animate-fade-in sr card custom-card zoom-card">
+                        <div class="animate-fade-in sr d-flex justify-content-center my-3">
+                            <img style="width: 198px; height: 229px" class="animate-fade-in sr card-img-top" src="{{ obj.images.all.0.image.url }}" alt="">
+                            <div class="animate-fade-in sr recommended-text">{{ obj.ad_type }}</div>
                         </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">{{ obj.category.category_name }}</h4>
+                        <div class="animate-fade-in sr card-block mx-3">
+                            <div class="animate-fade-in sr d-flex">
+                                <h4 style="color: #00408E;" class="animate-fade-in sr card-title">{{ obj.category.category_name }}</h4>
 
                             </div>
                             <p style="font-size: 18px;">{{ obj.price }}$</p>
-                            <div class="d-flex">
+                            <div class="animate-fade-in sr d-flex">
                                 <p style="font-size: 18px; margin-right: 70px;">{{ obj.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">{{ obj.kitchens_area }}m</p>
                             </div>
-                            <div class="d-flex">
+                            <div class="animate-fade-in sr d-flex">
                                 <p style="font-size: 18px; margin-right: 85px;">{{ obj.current_floor }}/{{ obj.total_floors }} этаж</p>
                                 <p style="font-size: 18px; ">{{ obj.series }} серия</p>
                             </div>

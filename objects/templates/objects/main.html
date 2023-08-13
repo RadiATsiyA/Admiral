@@ -7,65 +7,65 @@
 
 
 {% block content %}
-	<div class="animate-slide-up-fade-in container text-center my-5">
+	<div class="animate-fade-in sr animate-slide-up-fade-in container text-center my-5">
         <h1>Адмиралъ - быстро и качественно</h1>
         {% if messages %}
-          <ul class="messages">
+          <ul class="animate-fade-in sr messages">
             {% for message in messages %}
-              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              <li{% if message.tags %} class="animate-fade-in sr {{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
           </ul>
         {% endif %}
     </div>
-    <div class="animate-slide-up-fade-in container d-flex justify-content-center align-items-center my-5 py-5">
-        <a href="{% url 'obj:category' %}" class="animate-slide-up-fade-in  btn btn-success btn-lg rounded-pill w-50">Перейти в каталог</a>
+    <div class="animate-fade-in sr animate-slide-up-fade-in container d-flex justify-content-center align-items-center my-5 py-5">
+        <a href="{% url 'obj:category' %}" class="animate-fade-in sr animate-slide-up-fade-in  btn btn-success btn-lg rounded-pill w-50">Перейти в каталог</a>
     </div>
 
 
-    <img style="margin-top: 100px;" class="animate-slide-up-fade-in d-none d-xl-block img-fluid position-absolute top-0 "
+    <img style="margin-top: 100px;" class="animate-fade-in sr animate-slide-up-fade-in d-none d-xl-block img-fluid position-absolute top-0 "
          src="{% static 'images/Picture_main.svg' %}" alt="">
 
-    <img class="animate-slide-up-fade-in d-none d-xl-block position-absolute d-xl-block" src="{% static 'images/Picture_main_2.svg' %}" alt=""
+    <img class="animate-fade-in sr animate-slide-up-fade-in d-none d-xl-block position-absolute d-xl-block" src="{% static 'images/Picture_main_2.svg' %}" alt=""
          style="top: 100px; right: 0px; z-index: -1000;">
 
 
 
-    <div style="padding-top: 200px;" class="animate-slide-up-fade-in container text-center my-5 text_a">
+    <div style="padding-top: 200px;" class="animate-fade-in sr animate-slide-up-fade-in container text-center my-5 text_a">
         <a id="garand"><strong>Мы гарантируем:</strong></a>
     </div>
 
 
-    <div   class="animate-slide-up-fade-in container text-center">
-        <div  class="animate-slide-up-fade-in row">
+    <div   class="animate-fade-in sr animate-slide-up-fade-in container text-center">
+        <div  class="animate-fade-in sr animate-slide-up-fade-in row">
             <!-- Текст и картинки сверху -->
-            <div  class="animate-slide-up-fade-in col-md-4">
-                <div class="animate-slide-up-fade-in image-text">
+            <div  class="animate-fade-in sr animate-slide-up-fade-in col-md-4">
+                <div class="animate-fade-in sr animate-slide-up-fade-in image-text">
                     <img src="{% static 'images/Iconsax/Linear/Vector.svg' %}" alt="Картинка 1">
-                    <p class="animate-slide-up-fade-in my-1">Более 100 покупателей на вашу квартиру;</p>
+                    <p class="animate-fade-in sr animate-slide-up-fade-in my-1">Более 100 покупателей на вашу квартиру;</p>
                 </div>
             </div>
-            <div class="animate-slide-up-fade-in col-md-4">
-                <div class="animate-slide-up-fade-in image-text">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-4">
+                <div class="animate-fade-in sr animate-slide-up-fade-in image-text">
                     <img src="{% static 'images/Iconsax/Linear/cardedit.svg' %}" alt="Картинка 2">
                     <p>Все объекты ПСО с дизайнерским проектом, а также скидка на разработку индивидуального проекта от
                         наших партнёров;</p>
                 </div>
             </div>
-            <div class="animate-slide-up-fade-in col-md-4">
-                <div class="animate-slide-up-fade-in image-text">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-4">
+                <div class="animate-fade-in sr animate-slide-up-fade-in image-text">
                     <img src="{% static 'images/img_3.svg' %}" alt="Картинка 3">
                     <p>Скидка на перевозку мебели от наших партнёров; </p>
                 </div>
             </div>
             <!-- Текст и картинки снизу -->
-            <div class="animate-slide-up-fade-in col-md-6">
-                <div class="animate-slide-up-fade-in image-text">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6">
+                <div class="animate-fade-in sr animate-slide-up-fade-in image-text">
                     <img src="{% static 'images/Iconsax/Linear/percentagesquare.svg' %}" alt="Картинка 4">
                     <p>Скидка на двери и другие материалы от наших партнёров;</p>
                 </div>
             </div>
-            <div class="animate-slide-up-fade-in col-md-6">
-                <div class="animate-slide-up-fade-in image-text">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6">
+                <div class="animate-fade-in sr animate-slide-up-fade-in image-text">
                     <img src="{% static 'images/Iconsax/Linear/percentagesquare.svg' %}" alt="Картинка 5">
                     <p>Скидка на премиальную мебель от наших партнеров:</p>
                 </div>
@@ -73,99 +73,99 @@
         </div>
     </div>
 
-    <div class="animate-slide-up-fade-in container text-center my-5 py-5">
-        <div class="animate-slide-up-fade-in video-container">
+    <div class="animate-fade-in sr animate-slide-up-fade-in container text-center my-5 py-5">
+        <div class="animate-fade-in sr animate-slide-up-fade-in video-container">
             <iframe src="https://www.youtube.com/embed/_oDQu3BEw4o" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
 
-    <div style="font-size: 24px; " class="animate-slide-up-fade-in container text-center my-5 ">
+    <div style="font-size: 24px; " class="animate-fade-in sr animate-slide-up-fade-in container text-center my-5 ">
         <a id="why_we"><strong>Почему стоит купить у нас:</strong></a>
     </div>
 
 
-    <div class="animate-slide-up-fade-in container">
-        <div class="animate-slide-up-fade-in row">
-            <div class="animate-slide-up-fade-in col-md-6">
+    <div class="animate-fade-in sr animate-slide-up-fade-in container">
+        <div class="animate-fade-in sr animate-slide-up-fade-in row">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6">
                 <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 233.svg' %}" alt="Картинка 1">
-                <div class="animate-slide-up-fade-in text-with-image ">
+                <div class="animate-fade-in sr animate-slide-up-fade-in text-with-image ">
                     >
-                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас полное
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-fade-in sr animate-slide-up-fade-in ms-5 px-5"><strong>Для вас полное
                             юридическое сопровождение</strong></p>
                 </div>
                 <!-- Второй элемент текста с картинкой -->
                 <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 234.svg' %}" alt="Картинка 1">
-                <div class="animate-slide-up-fade-in text-with-image ">
+                <div class="animate-fade-in sr animate-slide-up-fade-in text-with-image ">
                     >
-                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас проверенные
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-fade-in sr animate-slide-up-fade-in ms-5 px-5"><strong>Для вас проверенные
                             покупатели</strong></p>
                 </div>
                 <!-- Третий элемент текста с картинкой -->
                 <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 232.svg' %}" alt="Картинка 1">
-                <div class="animate-slide-up-fade-in text-with-image ">
+                <div class="animate-fade-in sr animate-slide-up-fade-in text-with-image ">
                     >
-                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас проверенные
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-fade-in sr animate-slide-up-fade-in ms-5 px-5"><strong>Для вас проверенные
                             объекты</strong></p>
                 </div>
                 <!-- Четвертый элемент текста с картинкой -->
                 <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 232 (1).svg' %}" alt="Картинка 1">
-                <div class="animate-slide-up-fade-in text-with-image ">
+                <div class="animate-fade-in sr animate-slide-up-fade-in text-with-image ">
                     >
-                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Поможем узаконить ваши
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-fade-in sr animate-slide-up-fade-in ms-5 px-5"><strong>Поможем узаконить ваши
                             документы в короткие сроки</strong></p>
                 </div>
                 <!-- Пятый элемент текста с картинкой -->
                 <img style=" position: absolute;  height: 100px; " src="{% static 'images/Frame 233 (1).svg' %}" alt="Картинка 1">
-                <div class="animate-slide-up-fade-in text-with-image ">
+                <div class="animate-fade-in sr animate-slide-up-fade-in text-with-image ">
                     >
-                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-slide-up-fade-in ms-5 px-5"><strong>Для вас персональный
+                    <p style="font-size: 24px ;padding-right: 100px; " class="animate-fade-in sr animate-slide-up-fade-in ms-5 px-5"><strong>Для вас персональный
                             риелтор</strong></p>
                 </div>
             </div>
-            <div class="animate-slide-up-fade-in col-md-5 mx-md-5 px-md-5 ">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-5 mx-md-5 px-md-5 ">
                 <img style="margin-left: 200px;" src="{% static 'images/picture_main_3.svg' %}" alt="">
-                <img class="animate-slide-up-fade-in " style="position: absolute; margin-top: -100px; z-index: -1000;"
+                <img class="animate-fade-in sr animate-slide-up-fade-in " style="position: absolute; margin-top: -100px; z-index: -1000;"
                      src="{% static 'images/Picture_main_4.svg' %}" alt="">
             </div>
         </div>
     </div>
 
 
-    <div style="font-size: 24px; " class="animate-slide-up-fade-in container text-center my-5 ml-md-5 ">
+    <div style="font-size: 24px; " class="animate-fade-in sr animate-slide-up-fade-in container text-center my-5 ml-md-5 ">
         <a id="feed_backs"><strong>Гарантии и отзывы</strong></a>
     </div>
 
 
-    <div class="animate-slide-up-fade-in container">
-        <div class="animate-slide-up-fade-in row">
-            <div class="animate-slide-up-fade-in col-md-6 mt-5 pt-5">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="d-flex justify-content-center">
-                                <video class="video-fluid" controls width="300" height="100">
+    <div class="animate-fade-in sr animate-slide-up-fade-in container">
+        <div class="animate-fade-in sr animate-slide-up-fade-in row">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6 mt-5 pt-5">
+                <div id="carouselExampleControls" class="animate-fade-in sr carousel slide" data-bs-ride="carousel">
+                    <div class="animate-fade-in sr carousel-inner">
+                        <div class="animate-fade-in sr carousel-item active">
+                            <div class="animate-fade-in sr d-flex justify-content-center">
+                                <video class="animate-fade-in sr video-fluid" controls width="300" height="100">
                                     <source src="{% static 'images/document_5296442464133985648.mp4' %}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="d-flex justify-content-center">
-                                <video class="video-fluid" controls width="300" height="100">
+                        <div class="animate-fade-in sr carousel-item">
+                            <div class="animate-fade-in sr d-flex justify-content-center">
+                                <video class="animate-fade-in sr video-fluid" controls width="300" height="100">
                                     <source src="{% static 'images/WhatsApp Video 2023-08-10 at 12.18.20.mp4' %}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
                     </div>
-                    <a  class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-                        <span style="background-color: black!important; "  class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span  class="visually-hidden">Previous</span>
+                    <a  class="animate-fade-in sr carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                        <span style="background-color: black!important; "  class="animate-fade-in sr carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span  class="animate-fade-in sr visually-hidden">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-                        <span style="background-color: black!important; " class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <a class="animate-fade-in sr carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                        <span style="background-color: black!important; " class="animate-fade-in sr carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="animate-fade-in sr visually-hidden">Next</span>
                     </a>
                 </div>
             </div>
@@ -181,9 +181,9 @@
 
 
 
-            <div class="animate-slide-up-fade-in col-md-6 d-flex justify-content-end align-items-center">
-                <div class="animate-slide-up-fade-in card" style="width: 18rem;">
-                    <div class="animate-slide-up-fade-in card-body">
+            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6 d-flex justify-content-end align-items-center">
+                <div class="animate-fade-in sr animate-slide-up-fade-in card" style="width: 18rem;">
+                    <div class="animate-fade-in sr animate-slide-up-fade-in card-body">
 
                         <p>1. Юридическое сопровождение от приёма объекта до оформления;</p>
                         <p>2. Размещение более 50 рекламных объявлений на всех платных и бесплатных площадках;</p>
@@ -200,35 +200,35 @@
             </div>
         </div>
     </div>
-    <div class="animate-slide-up-fade-in container cont-border mt-5">
-        <div class="animate-slide-up-fade-in row d-flex justify-content-center">
-            <div id="application" style="font-size: 24px;" class="animate-slide-up-fade-in col-12 text-center mt-3">
+    <div class="animate-fade-in sr animate-slide-up-fade-in container cont-border mt-5">
+        <div class="animate-fade-in sr animate-slide-up-fade-in row d-flex justify-content-center">
+            <div id="application" style="font-size: 24px;" class="animate-fade-in sr animate-slide-up-fade-in col-12 text-center mt-3">
                 Оставить заявку на оценку недвижимости <strong>БЕСПЛАТНО</strong>
                 <form action="{% url 'obj:index' %}" method="post">
                     {% csrf_token %}
 
-                    <div class="animate-slide-up-fade-in mt-4">
-                        <div class="animate-slide-up-fade-in row">
-                            <div class="animate-slide-up-fade-in col-md-6 d-flex justify-content-end">
+                    <div class="animate-fade-in sr animate-slide-up-fade-in mt-4">
+                        <div class="animate-fade-in sr animate-slide-up-fade-in row">
+                            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6 d-flex justify-content-end">
                                 {{ form.name }}
                             </div>
-                            <div class="animate-slide-up-fade-in col-md-6 d-flex">
+                            <div class="animate-fade-in sr animate-slide-up-fade-in col-md-6 d-flex">
                                 {{ form.phone }}
                             </div>
                         </div>
                     </div>
 
-                    <div class="animate-slide-up-fade-in form-row mt-4">
-                        <div class="animate-slide-up-fade-in col-md-12">
+                    <div class="animate-fade-in sr animate-slide-up-fade-in form-row mt-4">
+                        <div class="animate-fade-in sr animate-slide-up-fade-in col-md-12">
                             {% for radio in form.type %}
-                            <div class="animate-slide-up-fade-in form-check form-check-inline">
+                            <div class="animate-fade-in sr animate-slide-up-fade-in form-check form-check-inline">
                                 {{ radio.tag }}
-                                <label class="animate-slide-up-fade-in form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                                <label class="animate-fade-in sr animate-slide-up-fade-in form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
                             </div>
                             {% endfor %}
                         </div>
                     </div>
-                    <button style="border: none;" type="submit" class="animate-slide-up-fade-in btn btn-primary mt-4 btn-send-query w-25 my-5">Оставить заявку</button>
+                    <button style="border: none;" type="submit" class="animate-fade-in sr animate-slide-up-fade-in btn btn-primary mt-4 btn-send-query w-25 my-5">Оставить заявку</button>
                 </form>
 
             </div>
@@ -236,15 +236,15 @@
     </div>
 
     <script>
-        // Get all elements with the class "animate-slide-up-fade-in animate-slide-up-fade-in"
+        // Get all elements with the class "animate-fade-in sr animate-slide-up-fade-in animate-slide-up-fade-in"
         const animatedElements = document.querySelectorAll('.animate-slide-up-fade-in');
 
         // Create an IntersectionObserver instance
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             // If the element is in the viewport, add the "slide-up-fade-in" class
- animate-slide-up-fade-in            if (entry.isIntersecting) {
-              entry.target.classList.add('slide-up-fade-in');
+ animate-fade-in sr animate-slide-up-fade-in            if (entry.isIntersecting) {
+              entry.target.classLianimate-fade-in sr st.add('slide-up-fade-in');
               // Stop observing the element once it's animated to improve performance
               observer.unobserve(entry.target);
             }

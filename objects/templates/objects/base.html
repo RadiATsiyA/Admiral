@@ -11,6 +11,7 @@
     <link rel="shortcut icon"
         href="https://abrakadabra.fun/uploads/posts/2022-01/1641892713_1-abrakadabra-fun-p-pazl-klipart-1.png"
         type="image/png">
+    <script src="https://unpkg.com/scrollreveal"></script>
     {% block css %}  {% endblock %}
 
     <title>Document</title>
@@ -45,21 +46,8 @@
                     <a class="animate-slide-up-fade-in nav-link ms-5" href="{% url 'obj:map' %}">Карта</a>
                 </li>
             </ul>
+                <div id="google_elem"></div>
 
-            <!-- Выбор языка (предполагается, что у вас есть разные версии сайта на разных языках) -->
-            <ul class="animate-slide-up-fade-in navbar-nav ml-3">
-                <li class="animate-slide-up-fade-in nav-item dropdown">
-                    <a class="animate-slide-up-fade-in nav-link dropdown-toggle a_language" href="#" id="languageDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        RU
-                    </a>
-                    <div class="animate-slide-up-fade-in dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-                        <a class="animate-slide-up-fade-in dropdown-item" href="#">Kyrgyz</a>
-                        <a class="animate-slide-up-fade-in dropdown-item" href="#">English</a>
-                        <!-- Добавьте другие языки по аналогии -->
-                    </div>
-                </li>
-            </ul>
             <!-- Добавление иконки лупы для поиска -->
             <ul class="animate-slide-up-fade-in navbar-nav ml-3">
                 <li class="animate-slide-up-fade-in nav-item">
@@ -163,6 +151,53 @@
         }
     }
 </script>
+    <style>
+    /* Define the animation */
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Apply the animation to the desired elements */
+    .animate-fade-in {
+        opacity: 0;
+        animation: fade-in 1s ease-out forwards;
+    }
+
+</style>
+
+<script>
+    function loadGoogleTranslate() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ru', // Язык страницы
+            includedLanguages: 'en,ky,ru', // Включая "ru"
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, "google_elem");
+
+        // Скрыть панель перевода после загрузки
+        var observer = new MutationObserver(function (mutationsList) {
+            for (var mutation of mutationsList) {
+                if (mutation.type === "childList") {
+                    var translateIframe = document.querySelector('.VIpgJd-ZVi9od-ORHb-OEVmcd');
+                    if (translateIframe) {
+                        translateIframe.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+        var targetNode = document.body;
+        var config = { childList: true, subtree: true };
+        observer.observe(targetNode, config);
+    }
+</script>
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+
 
 </body>
 

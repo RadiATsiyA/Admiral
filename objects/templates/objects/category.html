@@ -7,37 +7,37 @@
 
 
 {% block content %}
-	<div class="container mb-5 my-5">
-        <form class="d-flex justify-content-center align-items-center my-2">
-            <input class="d-flex form-control me-2 rounded-pill main__color searchable w-75 justify-content-center"
+	<div class="animate-fade-in sr container mb-5 my-5">
+        <form class="animate-fade-in sr d-flex justify-content-center align-items-center my-2">
+            <input class="animate-fade-in sr d-flex form-control me-2 rounded-pill main__color searchable w-75 justify-content-center"
                 style=" z-index: 1;" type="search" placeholder="Поиск" aria-label="Search">
-            <img src="{% static 'images/img_lumpa.svg' %}" alt="Лумпа" class="d-flex " style="width: 40px; height: 40px;">
+            <img src="{% static 'images/img_lumpa.svg' %}" alt="Лумпа" class="animate-fade-in sr d-flex " style="width: 40px; height: 40px;">
         </form>
     </div>
 
 
 
 
-    <div class="container ">
+    <div class="animate-fade-in sr container ">
         <h1><strong>Категории недвижимости</strong></h1>
     </div>
 
-    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+    <img class="animate-fade-in sr  container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
 
-    <div class="container my-4">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-">
+    <div class="animate-fade-in sr container my-4">
+        <div class="animate-fade-in sr row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-">
             {% for category in categories %}
-                <a class="myownlink" href="{% url 'obj:apartments' category.category_name %}" style="text-decoration: none">
-                <div class="col">
-                <div class="position-relative">
-                    <img class="w-100 blueish-image" src="{{ category.image.url }}" alt="">
-                    <div style="color: white!important;" class="image-text my-3">
-                        <span class="house-number">{{ category.object_count }}</span> обьекта<br>
-                        <h1 class="house-type mx-4 my-2">{{ category.category_name }}</h1>
-                        <div class="d-flex  my-5 py-5 justify-content-end">
-                            <div class="d-flex  my-5 py-5  justify-content-end">
+                <a class="animate-fade-in sr myownlink" href="{% url 'obj:apartments' category.category_name %}" style="text-decoration: none">
+                <div class="animate-fade-in sr col">
+                <div class="animate-fade-in sr position-relative">
+                    <img class="animate-fade-in sr w-100" src="{{ category.image.url }}" alt="">
+                    <div style="color: white!important;" class="animate-fade-in sr image-text my-3">
+                        <span class="animate-fade-in sr house-number">{{ category.object_count }}</span> обьекта<br>
+                        <h1 class="animate-fade-in sr house-type mx-4 my-2">{{ category.category_name }}</h1>
+                        <div class="animate-fade-in sr d-flex  my-5 py-5 justify-content-end">
+                            <div class="animate-fade-in sr d-flex  my-5 py-5  justify-content-end">
                                 <span style="color: white!important;"
-                                    class="d-flex px-3 mx-4 py-4 my-5 read-more">Подробнее ></span>
+                                    class="animate-fade-in sr d-flex px-3 mx-4 py-4 my-5 read-more">Подробнее ></span>
                             </div>
                         </div>
                     </div>
@@ -49,35 +49,35 @@
         </div>
     </div>
 
-    <img class=" container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
+    <img class="animate-fade-in sr  container d-flex justify-content-center w-100" src="{% static 'images/line_breaker.svg' %}" alt="">
 
-    <div class="container ">
+    <div class="animate-fade-in sr container ">
         <h1><strong>Рекомендации</strong></h1>
     </div>
 
-    <div class="py-5">
-        <div class="container">
-            <div class="row">
+    <div class="animate-fade-in sr py-5">
+        <div class="animate-fade-in sr container">
+            <div class="animate-fade-in sr row">
 
                 {% for ad in recommendations %}
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4 ">
-                    <a class="myownlink" href="{% url 'obj:details' ad.id %}" style="text-decoration: none">
-                        <div class="card custom-card">
-                        <div class="d-flex justify-content-center my-3">
-                            <img style="width: 198px; height: 229px" class="card-img-top" src="{{ ad.images.all.0.image.url }}" alt="">
-                            <div class="recommended-text">Рекомендуемые</div>
+                    <div class="animate-fade-in sr col-lg-4 col-md-6 col-sm-12 mb-4 ">
+                    <a class="animate-fade-in sr myownlink" href="{% url 'obj:details' ad.id %}" style="text-decoration: none">
+                        <div class="animate-fade-in sr card custom-card">
+                        <div class="animate-fade-in sr d-flex justify-content-center my-3">
+                            <img style="width: 198px; height: 229px" class="animate-fade-in sr card-img-top" src="{{ ad.images.all.0.image.url }}" alt="">
+                            <div class="animate-fade-in sr recommended-text">Рекомендуемые</div>
                         </div>
-                        <div class="card-block mx-3">
-                            <div class="d-flex">
-                                <h4 style="color: #00408E;" class="card-title">Квартира</h4>
+                        <div class="animate-fade-in sr card-block mx-3">
+                            <div class="animate-fade-in sr d-flex">
+                                <h4 style="color: #00408E;" class="animate-fade-in sr card-title">Квартира</h4>
 {#                                <img style="margin-left: 80px; margin-top: 25px;" src="{% static 'images/Vector.svg' %}" alt="">#}
                             </div>
                             <p style="font-size: 18px;">{{ ad.price }}$</p>
-                            <div class="d-flex">
+                            <div class="animate-fade-in sr d-flex">
                                 <p style="font-size: 18px; margin-right: 70px;">{{ ad.rooms }} комнаты</p>
                                 <p style="font-size: 18px; margin-right: 10px;">{% if ad.kitchens_area %}{{ ad.kitchens_area }} m{% else %}Не указано{% endif %}</p>
                             </div>
-                            <div class="d-flex">
+                            <div class="animate-fade-in sr d-flex">
                                 <p style="font-size: 18px; margin-right: 85px;">{% if ad.current_floor %}{{ ad.current_floor }}{% else %}Не указан{% endif %}{% if ad.total_floors %}/{{ ad.total_floors }} этаж{% else %}{% endif %}</p>
                                 <p style="font-size: 18px; ">{% if ad.series %}{{ ad.series }} серия{% else %}Не указана{% endif %}</p>
                             </div>
