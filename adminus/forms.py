@@ -38,6 +38,13 @@ class AgentForm(forms.ModelForm):
         })
     )
 
+    districts = forms.ModelMultipleChoiceField(
+        queryset=District.objects.all(),
+        widget=forms.CheckboxSelectMultiple(attrs={
+            'class': 'form-check-input'
+        })
+    )
+
     phone = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control', 'id': 'phone'
     }))
