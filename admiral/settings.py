@@ -136,6 +136,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
-LOGIN_URL = 'private/login/'
-LOGIN_REDIRECT_URL = '/private'
+LOGIN_URL = 'adminus:admin-login'  # Укажите полный путь к URL для страницы входа
+LOGIN_REDIRECT_URL = 'adminus:choose'  # Укажите URL для перенаправления после успешного входа
 LOGOUT_REDIRECT_URL = '/'
