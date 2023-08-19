@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%d7x6df^20e*(-uwa=vg%-t0s$&nggf84%o1b0&5be_ex_3hl4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["admiral.kg", "www.admiral.kg"]
 
 
 # Application definition
@@ -82,8 +82,11 @@ WSGI_APPLICATION = 'admiral.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u2198846_default',
+        'USER': 'u2198846_default',
+        'PASSWORD': '7G5pP73bg6XQ8mzX',
+        'HOST': 'localhost',
     }
 }
 
@@ -125,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
