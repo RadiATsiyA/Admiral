@@ -1,0 +1,53 @@
+{% extends 'objects/base.html' %}
+{% load static  %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/card_agent.css' %}">
+{% endblock %}
+
+
+    {% block content %}
+    	<div class="animate-fade-in sr d-flex justify-content-end">
+        <img style="width: 200px; height: 200px;" class="animate-fade-in sr " src="{% static 'images/Black.svg' %}" alt="">
+
+    </div>
+    <div class="animate-fade-in sr row g-0 ">
+        <div class="animate-fade-in sr col-md-4 d-flex justify-content-center">
+            <img style="width: 380px; height: 380px; border-radius: 40px;" src="{{ agent_details.image.url }}" class="animate-fade-in sr img-fluid" alt="Specialist Image">
+        </div>
+        <div class="animate-fade-in sr col-md-4">
+            <div class="animate-fade-in sr card-body">
+                <h2 class="animate-fade-in sr card-title">{{ agent_details.full_name }}</h2>
+                <div class="animate-fade-in sr specialist-rating">
+                </div>
+                <p class="animate-fade-in sr card-text"><b>Агент компании &lt;{{ agent_details.agency_name }}&gt;</b></p>
+                <p class="animate-fade-in sr card-text">Стаж: <b>{{ agent_details.experience }} года</b></p>
+                <p class="animate-fade-in sr card-text">Номер телефона: <b> {{ agent_details.phone }} </b></p>
+                <a href="https://wa.me/{{ agent_details.phone }}?text=Здравствуйте, {{ agent_details.full_name }}" target="_blank" class="animate-fade-in sr btn btn-success btn-chat">Начать чат</a>
+                <a href="tel:{{ agent_details.phone }}" class="animate-fade-in sr btn btn-primary btn-call">Позвонить</a>
+            </div>
+        </div>
+        <div class="animate-fade-in sr col-md-4 my-3 ">
+            <img src="{% static 'images/Frame 209.svg' %}" alt="">
+            <div class="animate-fade-in sr info-spes my-5">
+                <p class="animate-fade-in sr card-text">
+                    Специализация:
+                    <ul class="animate-fade-in sr specialization-list ">
+                        {% for specialization in agent_details.specialization.all %}
+                            <b>
+                                <li>{{ specialization }}</li>
+                            </b>
+                        {% endfor %}
+                    </ul>
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="animate-fade-in sr d-flex justify-content-end">
+        <img style="width: 250px; height: 250px; bottom: 90px;" class="animate-fade-in sr position-absolute " src="{% static 'images/Black.svg' %}"
+            alt="">
+    </div>
+    {% endblock %}
